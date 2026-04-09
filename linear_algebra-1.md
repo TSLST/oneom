@@ -8,12 +8,6 @@ Links:
 - [[math]]
 - [[matrix]]
 - [[quantum]]
-Unrelated:
-    "e.g., erotic art communities, polyamorous circles"
-    I have seen these and wan't part of it. Still an outlier. Interesting take.
-
-    "I’m direct about what I want, but I respect boundaries. If that’s not your style, we won’t be a match."
-    "I desire you. If you’re not interested, I’ll respect that."
 ---
 
 # Linear Algebra
