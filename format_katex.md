@@ -178,7 +178,19 @@ $
 ---
 ### Accents
 
-$\'e\`e\~e\"e\.e$
+$
+   \'e \space 
+   \`e \space 
+   \~e \space 
+   \"e \space 
+   \.e \space 
+   \^e \space 
+   \r e \space 
+   \u e \space 
+   \c e \space 
+   \v e \space 
+   o\!e
+$
 
 ---
 ### Wreath Product

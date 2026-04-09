@@ -188,7 +188,7 @@ $$
     \text{Scalar projection of } \mathbf{u} \text{ onto } \mathbf{v} = 
     \|\mathbf{u}\| \cos \theta = 
     \frac{\mathbf{u} \cdot 
-        \mathbf{v}}{\|\mathbf{v}\|}
+        \mathbf{v}} {\|\mathbf{v}\|}
 $$
 
 Let’s generalize this to **3×3 settings** (i.e. 3D vectors) and clarify how the dot product, norm, and angle extend to higher dimensions.
@@ -238,9 +238,9 @@ $$
 - Solving for $\theta$:
 $$
     \cos \theta = 
-    \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|} \, , \quad 
+    \frac{\mathbf{u} \cdot \mathbf{v}} {\|\mathbf{u}\| \|\mathbf{v}\|} \, , \quad 
     \theta = 
-    \cos^{-1}\left( \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|} \right)
+    \cos^{-1}\left( \frac{\mathbf{u} \cdot \mathbf{v}} {\|\mathbf{u}\| \|\mathbf{v}\|} \right)
 $$
 
 ___
@@ -292,14 +292,14 @@ ___
 ##### Step 3: Angle
 $$
     \cos \theta = 
-    \frac{4}{\sqrt{5} \cdot \sqrt{6}} = 
-    \frac{4}{\sqrt{30}} = 
-    \frac{4\sqrt{30}}{30} = 
-    \boxed{\frac{2\sqrt{30}}{15}}
+    \frac{4} {\sqrt{5} \cdot \sqrt{6}} = 
+    \frac{4} {\sqrt{30}} = 
+    \frac{4\sqrt{30}} {30} = 
+    \boxed{\frac{2\sqrt{30}} {15}}
 $$
 $$
     \boxed{\theta = 
-    \cos^{-1}\left( \frac{2\sqrt{30}}{15} \right) \approx 
+    \cos^{-1}\left( \frac{2\sqrt{30}} {15} \right) \approx 
     0.75726 \text{ rad} \approx 
     43.394 \degree \approx 
     0.24103\,\pi}
@@ -367,25 +367,44 @@ $$
         2           & 3 - \lambda 
     \end{vmatrix} = 
     (4 - \lambda) \times (3 - \lambda) - (1 \times 2) = 
-    \lambda^2 - 7\lambda + 10
+    \boxed{\lambda^2 - 7\lambda + 10}
 $$
 To solve this second-degree equation $ \lambda^2 + b\lambda + c = 0 $, you can use the quadratic formula:
 $$ 
     \lambda = 
-    \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} 
+    \frac{-b \pm \sqrt{b^2 - 4ac}}  {2a} 
 $$
 
 For the equation $ \lambda^2 - 7\lambda + 10 = 0 $:<br>
 Coefficients: $ a = 1 $, $ b = -7 $, and $ c = 10 $<br>
 Plug these values into the quadratic formula:
-$$ \lambda = \frac{-(-7) \pm \sqrt{(-7)^2 - 4 \times 1 \times 10}}{2 \times 1} $$
-$$ \lambda = \frac{7 \pm \sqrt{49 - 40}}{2} $$
-$$ \lambda = \frac{7 \pm \sqrt{9}}{2} $$
-$$ \lambda = \frac{7 \pm 3}{2} $$
+$$ 
+    \lambda = 
+    \frac{-(-7) \pm \sqrt{(-7)^2 - 4 \times 1 \times 10}} {2 \times 1}
+$$
+$$ 
+    \lambda = 
+    \frac{7 \pm \sqrt{49 - 40}} {2}
+$$
+$$ 
+    \lambda = 
+    \frac{7 \pm \sqrt{9}} {2}
+$$
+$$ \lambda = \frac{7 \pm 3} {2} $$
 
 2 possible values for $ \lambda $:
-$$ \lambda = \frac{7 + 3}{2} = \frac{10}{2} = 5 $$
-$$ \lambda = \frac{7 - 3}{2} = \frac{4}{2} = 2 $$
+$$ 
+    \lambda_1 = 
+    \frac{7 + 3} {2} = 
+    \frac{10} {2} = 
+    \boxed{5} 
+$$
+$$ 
+    \lambda_2 = 
+    \frac{7 - 3} {2} = 
+    \frac{4} {2} = 
+    \boxed{2 }
+$$
 
 So, the solutions to the equation $ \lambda^2 - 7\lambda + 10 = 0 $ are
 $ \lambda = 5 $ and $ \lambda = 2 $
@@ -399,86 +418,385 @@ This condition can be written as the equation:
 $ \mathbf{T(v)} = \lambda \mathbf{v} $
 - Solve for $ \lambda $:
     $$
-    \lambda^2 - 7\lambda + 10 = 0
-    \implies
-    (\lambda - 5) \times (\lambda - 2) = 0
+        \lambda^2 - 7\lambda + 10 = 0 \implies
+            (\lambda - 5) \times (\lambda - 2) = 0
     $$
     So, the eigenvalues are:
     $ \lambda = 5 $
     and
     $ \lambda = 2 $
-- Find the eigenvectors:
-$ A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix} $
+- Find the eigenvectors: 
+    $ 
+        A = 
+        \begin{pmatrix} 
+            4   & 1 \\ 
+            2   & 3 
+        \end{pmatrix} 
+    $
     - For $ \lambda = 5 $:
         $$
-        (A - 5I) \cdot \mathbf{v} = 0
-        \implies
-        \begin{pmatrix} -1 & 1 \\ 2 & -2 \end{pmatrix}
-        \cdot \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}
-            = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+            (A - 5I) \cdot \mathbf{v} = 0 \implies
+                \begin{pmatrix} 
+                    -1  & 1 \\ 
+                    2   & -2 
+                \end{pmatrix} \cdot 
+                \begin{pmatrix} 
+                    v_1 \\ 
+                    v_2 
+                \end{pmatrix} = 
+            \begin{pmatrix} 
+                0 \\ 
+                0 
+            \end{pmatrix}
         $$
         This gives $ v_1 = v_2 $<br>
         Let's use $ v_1 = 1 $ as a base for an eigenvector<br>
-        So an eigenvector is: $ \begin{pmatrix} 1 \\ 1 \end{pmatrix} $
+        So an eigenvector is: 
+        $ 
+            \begin{pmatrix} 
+                1 \\ 
+                1 
+            \end{pmatrix} 
+        $
     - For $ \lambda = 2 $:
         $$
-        (A - 2I) \times \mathbf{v} = 0
-        \implies
-        \begin{pmatrix} 2 & 1 \\ 2 & 1 \end{pmatrix}
-        \cdot \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}
-            = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+            (A - 2I) \times \mathbf{v} = 0 \implies 
+                \begin{pmatrix} 
+                    2   & 1 \\ 
+                    2   & 1 
+                \end{pmatrix} \cdot 
+                \begin{pmatrix} 
+                    v_1 \\ 
+                    v_2 
+                \end{pmatrix} = 
+            \begin{pmatrix} 
+                0 \\ 
+                0 
+            \end{pmatrix}
         $$
         This gives $ 2 \times v_1 + v_2 = 0 $<br>
-        Let's use $ v_1 = 1 $ as a base for an eigenvector<br>
-        So an eigenvector is: $ \begin{pmatrix} 1 \\ -2 \end{pmatrix} $
+        Let's use $v_1 = 1$ as a base for an eigenvector<br>
+        So an eigenvector is: 
+        $ 
+            \begin{pmatrix} 
+                1 \\ 
+                -2 
+            \end{pmatrix} 
+        $
 
 ---
 ### Cheat Sheet Example
 
-Given the matrix $ A $, its eigenvalues, and eigenvectors, we can construct the matrices $ P $, $ D $, and $ P^{-1} $.
+Given the matrix $A$, its eigenvalues, and eigenvectors, we can construct the matrices $P$, $D$, and $P^{-1}$.
 
-- Eigenvectors: $ \mathbf{v}_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix} $ and $ \mathbf{v}_2 = \begin{pmatrix} 1 \\ -2 \end{pmatrix} $
+- Eigenvectors: 
+$ 
+    \mathbf{v}_1 = 
+    \begin{pmatrix} 
+        1 \\ 
+        1 
+    \end{pmatrix} 
+$ 
+and 
+$ 
+    \mathbf{v}_2 = 
+    \begin{pmatrix} 
+        1 \\ 
+        -2 
+    \end{pmatrix} 
+$
 
 - **Matrix $ P $**: The columns of $ P $ are the eigenvectors of $ A $:
-$$ P = \begin{pmatrix} 1 & 1 \\ 1 & -2 \end{pmatrix} $$
+$$ 
+    P = 
+    \begin{pmatrix} 
+        1   & 1 \\ 
+        1   & -2 
+    \end{pmatrix} 
+$$
 
 - Eigenvalues: $ \lambda_1 = 5 $ and $ \lambda_2 = 2 $
 
-- **Matrix $ D $**: The diagonal elements of $ D $ are the eigenvalues of $ A $ ordered after the corresponding eigenvectors in $ P $.
-$$ D = \begin{pmatrix} 5 & 0 \\ 0 & 2 \end{pmatrix} $$
+- **Matrix $D$**: The diagonal elements of $D$ are the eigenvalues of $A$ ordered after the corresponding eigenvectors in $P$.
+$$ 
+    D = 
+    \begin{pmatrix} 
+        5   & 0 \\ 
+        0   & 2 
+    \end{pmatrix} 
+$$
 
 - **Matrix $ P^{-1} $**: We use the formula for the inverse of a 2x2 matrix:
 $$
-P^{-1} = \frac{1}{\text{det}(P)}
-\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
+    P^{-1} = 
+    \frac{1} {\text{det}\left|P\right|} \times 
+        \begin{pmatrix} 
+            d   & -b \\ 
+            -c  & a 
+        \end{pmatrix}
 $$
 $$
-\text{det}(P) = (1 \times -2) - (1 \times 1)
-    = -2 - 1
-    = -3
+    \text{det}\left|P\right| = 
+    (1 \times -2) - (1 \times 1) = 
+    -2 - 1 = 
+    -3
 $$
 $$
-P^{-1} = \frac{1}{-3}
-\begin{pmatrix} -2 & -1 \\ -1 & 1 \end{pmatrix}
-    = \begin{pmatrix} \frac{2}{3} & \frac{1}{3} \\ \frac{1}{3} & -\frac{1}{3} \end{pmatrix}
+    P^{-1} = 
+    \frac{1} {-3} \times 
+        \begin{pmatrix} 
+            -2  & -1 \\ 
+            -1  & 1 
+        \end{pmatrix} = 
+    \begin{pmatrix} 
+        \frac{2} {3}    & \frac{1} {3} \\ 
+        \frac{1} {3}    & -\frac{1} {3} 
+    \end{pmatrix}
 $$
 
 - **Matrix $ PDP^{-1} $**:
 $$
-PDP^{-1} = \begin{pmatrix} 1 & 1 \\ 1 & -2 \end{pmatrix}
-\cdot \begin{pmatrix} 5 & 0 \\ 0 & 2 \end{pmatrix}
-\cdot \begin{pmatrix} \frac{2}{3} & \frac{1}{3} \\ \frac{1}{3} & -\frac{1}{3} \end{pmatrix}
+    \boxed{PDP^{-1} = 
+    \begin{pmatrix} 
+        1   & 1 \\ 
+        1   & -2 
+    \end{pmatrix} \cdot 
+        \begin{pmatrix} 
+            5   & 0 \\ 
+            0   & 2 
+        \end{pmatrix} \cdot 
+        \begin{pmatrix} 
+            \frac{2} {3}    & \frac{1} {3} \\ 
+            \frac{1} {3}    & -\frac{1} {3} 
+        \end{pmatrix}}
 $$
 
 - **Check $ PDP^{-1} = A $**:
 $$
-PD = \begin{pmatrix} 1 & 1 \\ 1 & -2 \end{pmatrix}
-\cdot \begin{pmatrix} 5 & 0 \\ 0 & 2 \end{pmatrix}
-    = \begin{pmatrix} 5 & 2 \\ 5 & -4 \end{pmatrix}
+    PD = 
+    \begin{pmatrix} 
+        1   & 1 \\ 
+        1   & -2 
+    \end{pmatrix} \cdot 
+        \begin{pmatrix} 
+            5   & 0 \\ 
+            0   & 2 
+        \end{pmatrix} = 
+    \begin{pmatrix} 
+        5   & 2 \\ 
+        5   & -4 
+    \end{pmatrix}
 $$
 $$
-PDP^{-1} = \begin{pmatrix} 5 & 2 \\ 5 & -4 \end{pmatrix}
-\cdot \begin{pmatrix} \frac{2}{3} & \frac{1}{3} \\ \frac{1}{3} & -\frac{1}{3} \end{pmatrix}
-    = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}
-    = A
+    PDP^{-1} = 
+    \begin{pmatrix} 
+        5   & 2 \\ 
+        5   & -4 
+    \end{pmatrix} \cdot 
+        \begin{pmatrix} 
+            \frac{2} {3}    & \frac{1} {3} \\ 
+            \frac{1} {3}    & -\frac{1} {3} 
+        \end{pmatrix} = 
+    \begin{pmatrix} 
+        4   & 1 \\ 
+        2   & 3 
+    \end{pmatrix} = 
+    A
+$$
+
+---
+### $P^{-1}$ on a 3x3 matrix
+
+
+$$
+    P =
+    \begin{pmatrix} 
+        A_{11}   & A_{12}    & A_{13} \\ 
+        A_{21}   & A_{22}    & A_{23} \\ 
+        A_{31}   & A_{32}    & A_{33}
+    \end{pmatrix}
+$$
+
+To find the inverse of a 3x3 matrix $P$, we can use the formula for the inverse of a matrix, which involves the adjugate (or classical adjoint) and the determinant of the matrix.
+
+The formula for the inverse of a 3x3 matrix $P$ is given by:
+
+$$ 
+    P^{-1} = 
+    \frac{1} {\det\left|P\right|} \times 
+        \text{adj}(P) 
+$$
+
+where $\det\left|P\right|$ is the determinant of $P$ and $\text{adj}(P)$ is the adjugate of $P$.
+
+#### Step-by-Step Calculation
+
+1. **Calculate the determinant of $P$**:<br>
+The determinant of a 3x3 matrix $P$ is given by:
+$$
+    \det\left|P\right| = 
+    A_{11}A_{22}A_{33} + A_{12}A_{23}A_{31} + A_{13}A_{21}A_{32} - A_{13}A_{22}A_{31} - A_{12}A_{21}A_{33} - A_{11}A_{23}A_{32}
+$$
+
+2. **Calculate the adjugate of $P$**:<br>
+The adjugate of $ P $ is the transpose of the cofactor matrix of $P$. The cofactor matrix $ C $ is obtained by removing the row and column of each element and taking the determinant of the resulting 2x2 matrix, with a sign based on the position of the element.
+
+The cofactor $C_{ij}$ is given by:
+$$
+    C_{ij} = 
+    (-1)^{i+j} \times 
+        \det(M_{ij})
+$$
+where $M_{ij}$ is the minor of $A_{ij}$, obtained by removing the $i$-th row and $j$-th column from $P$.
+
+3. **Construct the adjugate matrix**:<br>
+The adjugate matrix $\text{adj}(P)$ is the transpose of the cofactor matrix $C$.
+
+4. **Calculate the inverse**:
+$$
+    P^{-1} = 
+    \frac{1} {\det\left|P\right|} \times 
+        \text{adj}(P)
+$$
+
+#### Example
+
+Let's say $P$ is:
+$$
+    P = \begin{pmatrix}
+        1   & 2 & 3 \\
+        0   & 4 & 5 \\
+        1   & 0 & 6
+    \end{pmatrix}
+$$
+
+1. **Calculate the determinant**:
+$$
+    \det\left|P\right| = 
+    (1 \times 4 \times 6) + (2 \times 5 \times 1) + (3 \times 0 \times 0) - (3 \times 4 \times 1) - (2 \times 0 \times 6) - (1 \times 5 \times 0)
+$$
+$$
+    \boxed{\det\left|P\right| = 24 + 10 - 12 = 22}
+$$
+
+2. **Calculate the cofactor matrix**:
+$$
+    C_{11} = 
+    (-1)^{1+1} \times 
+        \det\begin{vmatrix} 
+            4   & 5 \\ 
+            0   & 6 
+        \end{vmatrix} = 
+    24
+$$
+$$
+    C_{12} = 
+    (-1)^{1+2} \times 
+        \det\begin{vmatrix} 
+            0   & 5 \\ 
+            1   & 6 
+        \end{vmatrix} = 
+    -5
+$$
+$$
+    C_{13} = 
+    (-1)^{1+3} \times 
+        \det\begin{vmatrix} 
+            0   & 4 \\ 
+            1   & 0 
+        \end{vmatrix} = 
+    -4
+$$
+$$
+    C_{21} = 
+    (-1)^{2+1} \times 
+        \det\begin{vmatrix} 
+            2   & 3 \\ 
+            0   & 6 
+        \end{vmatrix} = 
+    -12
+$$
+$$
+    C_{22} = 
+    (-1)^{2+2} \times 
+        \det\begin{vmatrix} 
+            1   & 3 \\ 
+            1   & 6 
+        \end{vmatrix} = 
+    3
+$$
+$$
+    C_{23} = 
+    (-1)^{2+3} \times 
+        \det\begin{vmatrix} 
+            1   & 2 \\ 
+            1   & 0 
+        \end{vmatrix} = 
+    -2
+$$
+$$
+    C_{31} = 
+    (-1)^{3+1} \times 
+        \det\begin{vmatrix} 
+            2   & 3 \\ 
+            4   & 5 
+        \end{vmatrix} = 
+    -2
+$$
+$$
+    C_{32} = 
+    (-1)^{3+2} \times 
+        \det\begin{vmatrix} 
+            1   & 3 \\ 
+            0   & 5 
+        \end{vmatrix} = 
+    -5
+$$
+$$
+    C_{33} = 
+    (-1)^{3+3} \times 
+        \det\begin{vmatrix} 
+            1   & 2 \\ 
+            0   & 4 
+        \end{vmatrix} = 
+    4
+$$
+
+3. **Construct the adjugate matrix**:
+$$
+    \text{adj}(P) = 
+    \begin{pmatrix}
+        24  & -12   & -2 \\
+        -5  & 3     & -5 \\
+        -4  & -2    & 4
+    \end{pmatrix}
+$$
+
+4. **Calculate the inverse**:
+$$
+    P^{-1} = 
+    \frac{1} {22} \times 
+        \begin{pmatrix}
+            24  & -12   & -2 \\
+            -5  & 3     & -5 \\
+            -4  & -2    & 4
+        \end{pmatrix}
+$$
+
+$$
+    P^{-1} = 
+    \begin{pmatrix}
+        \frac{24} {22}  & \frac{-12} {22}   & \frac{-2} {22} \\
+        \frac{-5} {22}  & \frac{3} {22}     & \frac{-5} {22} \\
+        \frac{-4} {22}  & \frac{-2} {22}    & \frac{4} {22}
+    \end{pmatrix}
+$$
+
+$$
+    \boxed{P^{-1} = 
+    \begin{pmatrix}
+        \frac{12} {11}  & \frac{-6} {11}    & \frac{-1} {11} \\
+        \frac{-5} {22}  & \frac{3} {22}     & \frac{-5} {22} \\
+        \frac{-2} {11}  & \frac{-1} {11}    & \frac{2} {11}
+    \end{pmatrix}}
 $$

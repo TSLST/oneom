@@ -197,3 +197,7 @@ Tensors are the language of **anisotropy**—situations where a cause in one dir
  * **Fluid Dynamics:** Describing how viscosity resists flow across different layers of a fluid.
  * **Machine Learning:** "Tensors" (multidimensional arrays) are used to flow data through neural networks, though these are often "computational tensors" rather than strictly "geometric tensors."
 Would you like to dive deeper into the specific calculus of tensors, such as how we take derivatives of these objects in curved space?
+
+
+---
+
