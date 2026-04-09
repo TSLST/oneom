@@ -10,9 +10,9 @@ Links:
 - [[markdown]]
 ---
 
-# Markdown notations: MathJax tags
+# Markdown notations: KaTeX tags
 
-    Markdown with MathJax support allows you to include mathematical notation in your documents using a simple syntax.
+    Markdown with KaTeX support allows you to include mathematical notation in your documents using a simple syntax.
 
 ---
 
@@ -271,7 +271,7 @@ $^{**}$ Here are some scenarios where \begin{Bmatrix} might be used in favor of 
 
 ## Quantum Mechanics
 
-Below is an exhaustive list of Markdown notations (using MathJax style) frequently used in quantum mechanics, along with examples of their usage.
+Below is an exhaustive list of Markdown notations (using KaTeX style) frequently used in quantum mechanics, along with examples of their usage.
 
 ---
 ### Basic Dirac Notations
