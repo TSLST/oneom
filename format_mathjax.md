@@ -74,6 +74,7 @@ $
 * $ 3 \times 3 = 9 $
 * $ \boxed{\text{Result}} $
 * $\checkmark$ and $!!!$
+* Ajouter un $\text{micro-}\,\text{espace}$ ou un $\text{macro-} \space \text{espace}$ ou une $\text{tabu-} \quad \text{lation}$
 
 ## Random
 
@@ -92,6 +93,7 @@ $
 1. Nth Root: $\sqrt[n]{}$
 1. Absolute Value: $|x|$
 1. Norm: $\|x\|$
+1. Tensor Product: $\otimes$
 
 ### Shapes
 
@@ -114,10 +116,10 @@ $
 1. Not Equal: $\neq$
 1. Congruent: $\cong$
 1. Proportional: $\propto$
+1. Much Greater Than: $\gg$
+1. Much Less Than: $\ll$
 1. Less Than or Equal: $\leq$
 1. Greater Than or Equal: $\geq$
-1. Much Less Than: $\ll$
-1. Much Greater Than: $\gg$
 1. Not Less Than: $\nleq$
 1. Not Greater Than: $\ngeq$
 
@@ -163,7 +165,7 @@ $$
       1  & 1 
    \end{pmatrix}
 $$
-+ `bmatrix` brackets might be used to denote ket vectors In quantum mechanics $^{*}$:
++ `bmatrix` brackets might be used to denote tensors and ket vectors In quantum mechanics $^{*}$:
 $$
    \begin{bmatrix} 
       1  & 1 \\ 
@@ -277,65 +279,5 @@ $
 1. Ladder Operators (a, a†): $\hat{a}, \hat{a}^\dagger$
 1. Number Operator (ŋ): $\hat{n}$
 1. Density Matrix (ρ): $\hat{\rho}$
-
-## Tensor Product
-
-The $\otimes$ operator is a mathematical symbol that represents the tensor product in linear algebra and quantum mechanics.<br>
-It is used to combine two vectors, matrices, or other mathematical objects into a new object that captures the structure and, relationships between elements, of the original objects.
-
-For exemple, given the vectors:<br>
-$$ 
-   \mathbf{u} = 
-   \begin{pmatrix} 
-      u_1 \\ 
-      u_2 
-   \end{pmatrix} , \quad 
-   \mathbf{v} = 
-   \begin{pmatrix} 
-      v_1 \\ 
-      v_2 
-   \end{pmatrix}
-$$
-Then the tensor product $\mathbf{u} \otimes \mathbf{v}$ is a 2x2 matrix:
-$$
-   \mathbf{u} \otimes \mathbf{v} = 
-   \begin{pmatrix} 
-      u_1 v_1  & u_1 v_2 \\ 
-      u_2 v_1  & u_2 v_2 
-   \end{pmatrix}
-$$
-
-Here are a few contexts where the tensor product is commonly used:
-1. **Linear Algebra**: In linear algebra, the tensor product of two vectors $\mathbf{u}$ and $\mathbf{v}$ is a new bilinear map or a rank-1 matrix that combines the components of $\mathbf{u}$ and $\mathbf{v}$ in a specific way. 
-1. **Outer Product**: This is a specific case of the tensor product that applies to vectors, resulting in a matrix. It is often denoted by the same symbol ⊗⊗, but the context usually makes it clear that it refers to the outer product. 
-1. **Quantum Mechanics**: In quantum mechanics, the tensor product is used to describe the state of composite systems. For example, if $|\psi\rangle$ and $|\phi\rangle$ are quantum states, then $|\psi\rangle \otimes |\phi\rangle$ represents the combined state of two quantum systems.
-1. **Multivariate Calculus**: In multivariate calculus, the tensor product is used to define tensors, which are multidimensional arrays that generalize the concepts of scalars, vectors, and matrices.
-
-### Example in Python
-
-If you want to compute the tensor product of two vectors in Python, you can use libraries like NumPy. Here is an example:
-
-```python
-import numpy as np
-
-# Define two vectors
-u = np.array([1, 2])
-v = np.array([3, 4])
-
-# Compute the tensor product
-tensor_product = np.outer(u, v)
-
-print("Tensor Product:")
-print(tensor_product)
-```
-
-This code will output:
-```
-Tensor Product:
-[[ 3  4]
- [ 6  8]]
-```
-
-In this example, `np.outer` computes the outer product of the vectors `u` and `v`, which is equivalent to the tensor product in this context.
 
 ---

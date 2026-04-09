@@ -10,7 +10,7 @@ Links:
 - [[quantum]]
 ---
 
-# Linear Algebra 2
+# Linear Algebra II
 
 ---
 
@@ -120,7 +120,11 @@ $$
         10 - \lambda    & 14 \\ 
         14              & 20 - \lambda 
     \end{vmatrix} = \\
+$$
+$$
     (10 - \lambda)*(20 - \lambda) - 14^2 = \\
+$$
+$$
     \boxed{\lambda^2 - 30\lambda + 4 = 
     0}
 $$
@@ -128,8 +132,12 @@ $$
     \lambda = 
     \frac{30 \pm \sqrt{900 - 16}}{2*1} = 
     \frac{30 \pm \sqrt{884}^*}{2} = \\
+$$
+$$
     \frac{30 \pm 2 \sqrt{221}}{2} = 
     15 \pm \sqrt{221} \\
+$$
+$$
     \Rightarrow 
     \boxed{\lambda_1 = 15 + \sqrt{221}, \quad \space \lambda_2 = 15 - \sqrt{221}}
 $$
@@ -191,9 +199,17 @@ $$
 Check $v_{12}$ with the second equation:
 $$
     14v_{11} + (5 - \sqrt{221})\left(\frac{(5 + \sqrt{221})v_{11}}{14}\right) = \\
+$$
+$$
     14v_{11} + \frac{(5 - \sqrt{221})(5 + \sqrt{221})v_{11}}{14} = \\
+$$
+$$
     14v_{11} + \frac{(25 - 221)v_{11}}{14} = \\
+$$
+$$
     14v_{11} - \frac{196v_{11}}{14} = \\
+$$
+$$
     14v_{11} - 14v_{11} = \boxed{0}
 $$
 Thus, the unnormalized eigenvector is:
@@ -287,9 +303,17 @@ $$
 Check $v_{22}$ with the second equation:
 $$
     14v_{21} + (5 + \sqrt{221})\left(\frac{(-5 + \sqrt{221})v_{21}}{14}\right) = \\
+$$
+$$
     14v_{21} + \frac{(5 + \sqrt{221})(-5 + \sqrt{221})v_{21}}{14} = \\
+$$
+$$
     14v_{21} + \frac{(-25 + 221)v_{21}}{14} = \\
+$$
+$$
     14v_{21} - \frac{196v_{21}}{14} = \\
+$$
+$$
     14v_{21} - 14v_{21} = \boxed{0}
 $$
 Thus, the unnormalized eigenvector is:
@@ -555,21 +579,21 @@ $$
 **Goal**: Find $ Q $ (orthogonal) and $ R $ (upper triangular) such that $ A = QR $.
 
 ---
-#### **Step-by-Step Calculation (Gram-Schmidt Process)**
+#### Step-by-Step Calculation (Gram-Schmidt Process)
 
 ___
-##### **Step 1: Normalize the First Column**
+##### Step 1: Normalize the First Column
 
 - Let $ \vec{a}_1 $ and $ \vec{a}_2 $ be the columns of $ A $.
 - Compute $ \vec{u}_1 = \frac{\vec{a}_1}{\|\vec{a}_1\|} $.
 
 ___
-##### **Step 2: Project the Second Column**
+##### Step 2: Project the Second Column
 
 - Compute $ \vec{u}_2 = \frac{\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1}{\|\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1\|} $.
 
 ___
-##### **Step 3: Construct $ Q $ and $ R $**
+##### Step 3: Construct $ Q $ and $ R $
 
 - $ Q = [\vec{u}_1 \ \vec{u}_2] $.
 - $ R $ is upper triangular with:
@@ -578,7 +602,7 @@ ___
   $
 
 ---
-#### **Example: 2×2 QR**
+#### Example: 2×2 QR
 
 Let’s decompose:
 $
@@ -586,7 +610,7 @@ A = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}
 $
 
 ___
-##### **Step 1: Normalize the First Column**
+##### Step 1: Normalize the First Column
 $
 \vec{a}_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad \|\vec{a}_1\| = \sqrt{1^2 + 1^2} = \sqrt{2}
 $
@@ -595,7 +619,7 @@ $
 $
 
 ___
-##### **Step 2: Project the Second Column**
+##### Step 2: Project the Second Column
 $
 \vec{a}_2 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \vec{a}_2 \cdot \vec{u}_1 = \frac{1}{\sqrt{2}} (1 \cdot 1 + 0 \cdot 1) = \frac{1}{\sqrt{2}}
 $
@@ -609,7 +633,7 @@ $
 \vec{u}_2 = \frac{\sqrt{2}}{1} \begin{pmatrix} 0.5 \\ -0.5 \end{pmatrix} = \begin{pmatrix} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \end{pmatrix}
 $
 
-##### **Step 3: Construct $ Q $ and $ R $**
+##### Step 3: Construct $ Q $ and $ R $
 $
 Q = \begin{pmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \end{pmatrix}
 $
@@ -618,7 +642,7 @@ R = \begin{pmatrix} \sqrt{2} & \frac{1}{\sqrt{2}} \\ 0 & \frac{1}{\sqrt{2}} \end
 $
 
 ___
-##### **Final QR**
+##### Final QR
 $
 A = QR = \begin{pmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \end{pmatrix} \begin{pmatrix} \sqrt{2} & \frac{1}{\sqrt{2}} \\ 0 & \frac{1}{\sqrt{2}} \end{pmatrix}
 $
