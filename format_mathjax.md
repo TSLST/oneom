@@ -34,13 +34,15 @@ $$
     4
 $$
 
+---
+
 ## Operations
 
 Here are a few classic operators:
 * $\text{xXx}$ and u $u$
 * $ 
     \alpha \space \beta \space \gamma \space \omega \quad 
-    \epsilon \quad 
+    \epsilon \space \Epsilon \quad 
     \theta \space \sigma \quad 
     \psi \space \phi \space \rho \quad 
     \mu \space \nu \space
@@ -75,6 +77,10 @@ $
 * $ \boxed{\text{Result}} $
 * $\checkmark$ and $!!!$
 * Ajouter un $\text{micro-}\,\text{espace}$ ou un $\text{macro-} \space \text{espace}$ ou une $\text{tabu-} \quad \text{lation}$
+* Proton: $\bar{p}$
+* $\displaystyle \left.{\frac {{\mathrm {d} }f}{{\mathrm {d} }x}}\right|_{x=a}$
+
+---
 
 ## Random
 
@@ -95,6 +101,7 @@ $
 1. Norm: $\|x\|$
 1. Tensor Product: $\otimes$
 
+---
 ### Shapes
 
 1. Diamond: $\diamond$
@@ -105,11 +112,13 @@ $
 1. Triangle: $\triangle$
 1. Filled Triangle: $\blacktriangle$
 
+---
 ### Combinations
 
 1. Factorial: $n!$
 1. Binomial Coefficient: $\binom{n}{k}$
 
+---
 ### Comparison
 
 1. Approximately Equal: $\approx$
@@ -123,13 +132,20 @@ $
 1. Not Less Than: $\nleq$
 1. Not Greater Than: $\ngeq$
 
+---
 ### Calculus
 
 1. Partial Derivative: $\partial$
+1. Function: $\displaystyle f\left(a\right)$
+1. Lagrange Derivative: $\displaystyle f'\left(a\right)$
+1. Time Derivative: $\displaystyle {\dot{f}}(a)$
+1. Second Derivatives: $\displaystyle f''(a)$ ou $\displaystyle {\ddot {f}}(a)$
+1. Composite Derivative: $\displaystyle \left(f \circ g\right)'\left(a\right)$
 1. Integral: $\int$
 1. Double Integral: $\iint$
 1. Triple Integral: $\iiint$
 
+---
 ### Sets
 
 1. For All: $\forall$
@@ -146,6 +162,31 @@ $
 1. Intersection: $\cap$
 1. Set Minus: $\setminus$
 
+---
+1. Section: $\S$, Sections: $\S\S$, Page: $p.$, Pages: $pp.$, Paragraph: $\P$
+
+---
+
+1. $\N$: natural integers
+1. $\Z$: relative integers
+1. $D\|$: decimal numbers
+1. $Q\|$: rational numbers
+1. $\R$: real numbers
+1. $I\|$: pure imaginary numbers
+1. $C\|$: complex numbers
+
+---
+### Accents
+
+$\'e\`e\~e\"e\.e$
+
+---
+### Wreath Product
+
+Given two groups $A$ and $H$ (sometimes known as the *bottom* and *top*), there exist two variants of the wreath product: the unrestricted wreath product $\displaystyle A{\text{ Wr }}H$ and the restricted wreath product $\displaystyle A{\text{ wr }}H$ or $A \wr H$.<br>
+The general form, denoted by $A{\text{ Wr}}_{\Omega } \, H$ or $A{\text{ wr}}_{\Omega } \, H$ respectively, requires that $H$ acts on some set $\Omega$; when unspecified, usually $\Omega = H$ (a regular wreath product), though a different $\Omega$ is sometimes implied.<br>
+The two variants coincide when $A$, $H$, and $\Omega$ are all finite.<br>
+Either variant is also denoted as $A \wr H$ (with \wr for the LaTeX symbol) or A ≀ H (Unicode U+2240).
 
 ---
 
@@ -233,7 +274,6 @@ $^{**}$ Here are some scenarios where \begin{Bmatrix} might be used in favor of 
 Below is an exhaustive list of Markdown notations (using MathJax style) frequently used in quantum mechanics, along with examples of their usage.
 
 ---
-
 ### Basic Dirac Notations
 
 1. Ket (|ψ⟩) notation represents a quantum state: $| \psi \rangle$
@@ -244,7 +284,6 @@ Below is an exhaustive list of Markdown notations (using MathJax style) frequent
 1. Expectation Value (⟨Ŝ⟩) of an operator: $\langle \hat{S} \rangle$
 
 ---
-
 ### Common Symbols and Notations
 
 1. Planck's Constant (ħ): $\hbar$
