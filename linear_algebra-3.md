@@ -78,6 +78,13 @@ In this example, `np.outer` computes the outer product of the vectors `u` and `v
 
 ## Understanding Tensors: From Geometry to Algebra
 
+<a href="https://www.youtube.com/watch?v=YxXyN2ifK8A" class="hover-effect" data-title="[SEE Matrix 1](https://www.youtube.com/watch?v=YxXyN2ifK8A)">
+    <img src="https://images.icon-icons.com/17/PNG/256/social_youtube_2234.png" alt="SEE Matrix" width="32">
+</a> 👉 Visualizing Temsors Part 1
+<br><br>
+
+---
+
 This presentation synthesizes the foundational concepts of tensors from the visualization and expands into the formal mathematical definitions used in physics and engineering.
 
 ---
