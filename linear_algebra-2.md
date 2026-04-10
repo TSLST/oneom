@@ -14,7 +14,243 @@ Links:
 
 ---
 
-## Matrix Decompositions: Singular Value Decomposition and QR
+## Matrix Decompositions: QR and Singular Value Decomposition
+
+---
+
+### 2×2 Matrices
+- **Quantum computing**: Qubits are 2-level systems, so 2×2 matrices (Pauli matrices, rotation gates) are fundamental.
+- **Visualization**: Easy to plot transformations in a plane.
+
+---
+
+### QR Decomposition (2×2 Matrices)
+
+The "**QR**" decomposition of a matrix stands for:
+- **Q**: Orthogonal matrix (a matrix whose columns are orthonormal vectors, meaning $ Q^T Q = I $)
+- **R**: Upper triangular matrix (a matrix with zeros below the main diagonal)
+
+This can take precedence in cases the Spectral Decomposition does not apply, e.g. non square matrices or without enough independent eigenvectors.
+
+So, **QR decomposition** factors a matrix $A$ into the product of an orthogonal matrix $Q$ and an upper triangular matrix $R$:
+$$
+    A = QR
+$$
+
+#### Practical Examples Where QR Decomposition is Preferred
+
+1. **Least Squares Problems**:
+   - In data fitting and regression analysis, QR decomposition is often used to solve overdetermined systems of linear equations. For example, in linear regression, QR decomposition can be used to find the best-fit line or plane through a set of data points.
+2. **Solving Linear Systems**:
+   - QR decomposition is used to solve systems of linear equations, especially when the matrix is not square or when the matrix is ill-conditioned. For example, in engineering and physics, solving systems of equations derived from physical laws or experimental data.
+3. **Orthogonalization**:
+   - In numerical analysis, QR decomposition is used to orthogonalize a set of vectors. For example, in signal processing, QR decomposition can be used to orthogonalize a set of signals to improve the accuracy of signal reconstruction.
+4. **Eigenvalue Problems**:
+   - While QR decomposition is not directly used for eigenvalue problems, it can be part of algorithms like the QR algorithm, which is used to find the eigenvalues of a matrix. For example, in control theory, the QR algorithm is used to analyze the stability of dynamical systems.
+
+---
+#### Gram-Schmidt Process — Step-by-Step Calculation
+
+**Given**: A 2×2 matrix $A$.<br>
+**Goal**: Find $Q$ (orthogonal) and $R$ (upper triangular) such that $ A = QR $.
+
+* Step 1: Normalize the First Column
+    - Let $\vec{a}_1$ and $\vec{a}_2$ be the columns of $ A $.
+    - Compute $ \vec{u}_1 = \frac{\vec{a}_1}{\|\vec{a}_1\|} $.
+
+* Step 2: Project the Second Column
+    - Compute $ 
+    \vec{u}_2 = 
+    \frac{\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1} 
+        {\|\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1\|} 
+    $
+
+* Step 3: Construct $Q$ and $R$
+    - $ Q = [\vec{u}_1 \ \vec{u}_2] $
+    - $ R $ is upper triangular with:
+    $
+        R_{11} = \|\vec{a}_1\| , \quad 
+            R_{12} = \vec{u}_1 \cdot \vec{a}_2 , \quad 
+                R_{22} = \|\vec{a}_2 - R_{12} \vec{u}_1\|
+    $
+
+---
+#### Example of 2×2 QR
+
+Let’s decompose:
+$
+    A = 
+    \begin{pmatrix} 
+      1 & 2 \\ 
+      3 & 4 
+    \end{pmatrix}
+$
+
+___
+##### Step 1: Normalize the First Column
+$$
+   \vec{a}_1 = 
+   \begin{pmatrix} 
+      1 \\ 
+      3 
+   \end{pmatrix} , \quad 
+      \|\vec{a}_1\| = \sqrt{1^2 + 3^2} = \sqrt{10}
+$$
+$$
+   \boxed{\vec{u}_1 = 
+   \frac{\vec{a}_1} {\|\vec{a}_1\|} = 
+   \begin{pmatrix} 
+      1 \\ 
+      3 
+   \end{pmatrix} / \sqrt{10} 
+    = 
+   \begin{pmatrix} 
+      \frac{1} {\sqrt{10}} \\ 
+      \frac{3} {\sqrt{10}} 
+   \end{pmatrix}}
+$$
+
+___
+##### Step 2: Project the Second Column
+
+$ 
+    \vec{u}_2 = 
+    \frac{\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1} 
+        {\|\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1\|} 
+$
+$$
+   \vec{a}_2 = 
+   \begin{pmatrix} 
+      2 \\ 
+      4 
+   \end{pmatrix} , \quad 
+      \vec{a}_2 \cdot \vec{u}_1 = 
+      \frac{1} {\sqrt{10}} \times (2 \times 1 + 4 \times 3) = 
+      \frac{14} {\sqrt{10}}
+$$
+$$
+   \vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1 = 
+   \begin{pmatrix} 
+      2 \\ 
+      4 
+   \end{pmatrix} - \frac{14} {\sqrt{10}} \times 
+      \begin{pmatrix} 
+         1 \\ 
+         3 
+      \end{pmatrix} / \sqrt{10} = \\
+   \begin{pmatrix} 
+      2 \\ 
+      4 
+   \end{pmatrix} - 
+      \begin{pmatrix} 
+         14/10 \\ 
+         42/10 
+      \end{pmatrix} = 
+   \begin{pmatrix} 
+      20/10 \\ 
+      40/10 
+   \end{pmatrix} - 
+      \begin{pmatrix} 
+         14/10 \\ 
+         42/10 
+      \end{pmatrix} = 
+   \boxed{\begin{pmatrix} 
+      6/10 \\ 
+      -2/10 
+   \end{pmatrix}}
+$$
+$$
+   \|\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1\| = 
+   \|\begin{pmatrix} 
+      6/10 \\ 
+      -2/10 
+   \end{pmatrix}\| = \\
+   \sqrt{(6/10)^2 + (-2/10)^2} = 
+   \sqrt{36/100+4/100} = 
+   \frac{2 \sqrt{10}} {10} = \\
+   \boxed{\|\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1\| = 
+   \frac{2} {\sqrt{10}}}
+$$
+$$
+   \vec{u}_2 = 
+   \frac{\sqrt{10}} {2} \times
+      \begin{pmatrix} 
+         6/10 \\ 
+         -2/10 
+      \end{pmatrix} =
+   \begin{pmatrix} 
+      3/\sqrt{10} \\ 
+      -1/\sqrt{10} 
+   \end{pmatrix} = \\
+   \boxed{\vec{u}_2 = 
+   \frac{1}{\sqrt{10}} \times
+   \begin{pmatrix} 
+      3 \\ 
+      -1
+   \end{pmatrix}}
+$$
+
+##### Step 3: Construct $ Q $ and $ R $
+
+$$
+   Q = 
+   \begin{bmatrix} 
+      \vec{u}_1   & \vec{u}_2 
+   \end{bmatrix} =
+   \begin{bmatrix} 
+      \begin{pmatrix} 
+         \frac{1} {\sqrt{10}} \\ 
+         \frac{3} {\sqrt{10}} 
+      \end{pmatrix} & 
+         \begin{pmatrix} 
+            \frac{3} {\sqrt{10}} \\ 
+            \frac{-1} {\sqrt{10}} 
+         \end{pmatrix}
+   \end{bmatrix} = \\
+$$
+$$
+   \boxed{Q = 
+   \begin{pmatrix} 
+      \frac{1} {\sqrt{10}} & \frac{3} {\sqrt{10}} \\ 
+      \frac{3} {\sqrt{10}} & \frac{-1} {\sqrt{10}} 
+   \end{pmatrix}}
+$$
+
+$R$ is the upper triangular matrix with:
+$$
+   R_{11} = \|\vec{a}_1\| = \sqrt{10} \\ 
+   R_{12} = \vec{u}_1 \cdot \vec{a}_2 = \frac{14} {\sqrt{10}} \\ 
+   R_{21} = 0 \\ 
+   R_{22} = \|\vec{a}_2 - (\vec{u}_1 \cdot \vec{a}_2) \vec{u}_1\| = \frac{2} {\sqrt{10}}
+$$
+So:
+$$
+   R = 
+   \begin{pmatrix} 
+      \sqrt{10}   & \frac{14}{\sqrt{10}} \\ 
+      0           & \frac{2}{\sqrt{10}} 
+   \end{pmatrix}
+$$
+
+___
+##### Final QR
+$
+   A = 
+   QR = 
+   \begin{pmatrix} 
+      \frac{1} {\sqrt{10}} & \frac{3} {\sqrt{10}} \\ 
+      \frac{3} {\sqrt{10}} & \frac{-1} {\sqrt{10}} 
+   \end{pmatrix} 
+      \begin{pmatrix} 
+         \sqrt{10}   & \frac{14}{\sqrt{10}} \\ 
+         0           & \frac{2}{\sqrt{10}} 
+      \end{pmatrix}
+$
+
+#### Summary
+
+QR decomposition is a versatile and efficient method for many numerical problems, particularly when dealing with non-square matrices or when numerical stability is a concern. It is often preferred in practical applications such as data fitting, solving linear systems, and orthogonalization.<br>
+Compared to it, SVD is more versatile but computationally intensive, while spectral decomposition is limited to square, diagonalizable matrices.
 
 ---
 
@@ -356,7 +592,7 @@ $$
 $$
 
 ___
-###### Final Answer for $ \vec{v}_1 $ and $ \vec{v}_2 $
+###### Final Answer for $\vec{v}_1$ and $\vec{v}_2$
 $$
     \vec{v}_1 = \begin{pmatrix} 1 \\ \frac{5 + \sqrt{221}}{14} \end{pmatrix}, \quad \vec{v}_2 = \begin{pmatrix} 1 \\ \frac{-5 + \sqrt{221}}{14} \end{pmatrix}
 $$
@@ -560,387 +796,27 @@ $$
 
 ---
 
-### QR Decomposition (2×2 Matrices)
+### Which Decomposition Method Should We Favor !!!
 
-The "**QR**" decomposition of a matrix stands for:
-- **Q**: Orthogonal matrix (a matrix whose columns are orthonormal vectors, meaning $ Q^T Q = I $)
-- **R**: Upper triangular matrix (a matrix with zeros below the main diagonal)
-
-So, **QR decomposition** factors a matrix $A$ into the product of an orthogonal matrix $Q$ and an upper triangular matrix $R$:
-$$
-    A = QR
-$$
-
-<br><br>
-(*TO REVIEW*)
-<br><br>
-
-**Given**: A 2×2 matrix $ A $.<br>
-**Goal**: Find $ Q $ (orthogonal) and $ R $ (upper triangular) such that $ A = QR $.
-
----
-#### Step-by-Step Calculation (Gram-Schmidt Process)
-
-___
-##### Step 1: Normalize the First Column
-
-- Let $ \vec{a}_1 $ and $ \vec{a}_2 $ be the columns of $ A $.
-- Compute $ \vec{u}_1 = \frac{\vec{a}_1}{\|\vec{a}_1\|} $.
-
-___
-##### Step 2: Project the Second Column
-
-- Compute $ \vec{u}_2 = \frac{\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1}{\|\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1\|} $.
-
-___
-##### Step 3: Construct $ Q $ and $ R $
-
-- $ Q = [\vec{u}_1 \ \vec{u}_2] $.
-- $ R $ is upper triangular with:
-  $
-  R_{11} = \|\vec{a}_1\|, \quad R_{12} = \vec{u}_1 \cdot \vec{a}_2, \quad R_{22} = \|\vec{a}_2 - R_{12} \vec{u}_1\|
-  $
-
----
-#### Example: 2×2 QR
-
-Let’s decompose:
-$
-A = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}
-$
-
-___
-##### Step 1: Normalize the First Column
-$
-\vec{a}_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad \|\vec{a}_1\| = \sqrt{1^2 + 1^2} = \sqrt{2}
-$
-$
-\vec{u}_1 = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}
-$
-
-___
-##### Step 2: Project the Second Column
-$
-\vec{a}_2 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \quad \vec{a}_2 \cdot \vec{u}_1 = \frac{1}{\sqrt{2}} (1 \cdot 1 + 0 \cdot 1) = \frac{1}{\sqrt{2}}
-$
-$
-\vec{a}_2 - (\vec{a}_2 \cdot \vec{u}_1) \vec{u}_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} - \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 0.5 \\ 0.5 \end{pmatrix} = \begin{pmatrix} 0.5 \\ -0.5 \end{pmatrix}
-$
-$
-\|\begin{pmatrix} 0.5 \\ -0.5 \end{pmatrix}\| = \sqrt{0.25 + 0.25} = \sqrt{0.5} = \frac{1}{\sqrt{2}}
-$
-$
-\vec{u}_2 = \frac{\sqrt{2}}{1} \begin{pmatrix} 0.5 \\ -0.5 \end{pmatrix} = \begin{pmatrix} \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}} \end{pmatrix}
-$
-
-##### Step 3: Construct $ Q $ and $ R $
-$
-Q = \begin{pmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \end{pmatrix}
-$
-$
-R = \begin{pmatrix} \sqrt{2} & \frac{1}{\sqrt{2}} \\ 0 & \frac{1}{\sqrt{2}} \end{pmatrix}
-$
-
-___
-##### Final QR
-$
-A = QR = \begin{pmatrix} \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \end{pmatrix} \begin{pmatrix} \sqrt{2} & \frac{1}{\sqrt{2}} \\ 0 & \frac{1}{\sqrt{2}} \end{pmatrix}
-$
+Here are some key points to consider when deciding whether to use decomposition methods like QR, Singular Value Decomposition (SVD) or Spectral Decomposition (Eigenvalue Decomposition):
+1. **Square vs. Non-Square Matrices**:
+   - **QR Decomposition**: Works for both square and non-square matrices.
+   - **Spectral Decomposition**: Only applicable to square matrices that are diagonalizable (i.e., have a full set of linearly independent eigenvectors).
+2. **Eigenvalues and Eigenvectors**:
+   - **QR Decomposition**: Does not require the matrix to have eigenvalues or eigenvectors.
+   - **Spectral Decomposition**: Requires the matrix to have a full set of linearly independent eigenvectors.
+3. **Numerical Stability**:
+   - **QR Decomposition**: Generally more numerically stable for solving linear systems and least squares problems.
+   - **SVD**: Highly stable and versatile, but can be more computationally intensive.
+4. **Computational Efficiency**:
+   - **QR Decomposition**: Often faster and more efficient for certain types of problems, such as solving linear systems or finding the least squares solution.
+   - **SVD**: More computationally intensive but provides a more complete picture of the matrix, including singular values and singular vectors.
 
 ---
 
-### 3. 3×3 Matrices
-The process is identical, but with an extra column/row. For example, for SVD:
-- Compute $ A^T A $ (3×3), find its eigenvalues/eigenvectors.
+### Note on 3×3 Matrices
+The process is identical, but with an extra column/row. For example:
 - For QR, use Gram-Schmidt on all three columns.
+- For SVD, compute $A^T A$ (3×3), find its eigenvalues/eigenvectors.
 
 ---
-
-### 4. Why 2×2?
-- **Quantum computing**: Qubits are 2-level systems, so 2×2 matrices (Pauli matrices, rotation gates) are fundamental.
-- **Visualization**: Easy to plot transformations in a plane.
-
-**Next step**: Would you like to implement these calculations in Python (using only NumPy for verification), or dive into a 3×3 example?
-
----
-
-## Transformation Matrixes
-
-___
-##### Linear Transformation Matrixes
-
-<a href="https://www.youtube.com/watch?v=7Gtxd-ew4lk" class="hover-effect" data-title="[SEE Matrix 1](https://www.youtube.com/watch?v=7Gtxd-ew4lk)">
-    <img src="https://images.icon-icons.com/17/PNG/256/social_youtube_2234.png" alt="SEE Matrix" width="32">
-</a> 👉 Visualizing, identity matrix, scalar matrix, reflection matrix, diagonal matrix, zero matrix, shear matrix, orthogonal matrix, projection matrix, inverse of a matrix.
-
-SVD
-
-___
-###### Null Matrix
-
-$$
-\begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
-$$
-
-Every entry is zero. Multiplying any vector by the null matrix collapses it to the zero vector `(0, 0)`. Think of it as an absolute eraser — all information about direction and magnitude is destroyed. There is no way to reverse the operation.
-
-**Key property:** `M · v = 0` for every vector `v`.
-
-___
-###### Identity Matrix
-
-$$
-\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
-$$
-
-The "do nothing" matrix. Multiplying any vector by the identity matrix returns that exact vector unchanged. It is the matrix equivalent of multiplying a number by 1.
-
-**Key property:** `I · v = v` for every vector `v`.
-
-___
-###### Scalar Matrix
-
-$$
-\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}
-$$
-
-A scalar matrix is an identity matrix multiplied by a constant `k`. It scales every vector uniformly — the same factor in every direction. The shape of an object is preserved; only its size changes.
-
-- `k > 1` → enlargement
-- `0 < k < 1` → shrinkage
-- `k = -1` → central symmetry (same as the reflection matrix below)
-
-**Key property:** `M · v = k · v` for every vector `v`.
-
-___
-###### One-Off Matrix (Non-uniform scaling)
-
-These scale along only one axis, stretching or squashing in a single direction while leaving the other unchanged.
-
-**Half reduction on the X axis:**
-
-$$
-\begin{pmatrix} 1/2 & 0 \\ 0 & 1 \end{pmatrix}
-$$
-
-Compresses horizontally. A point at `(4, 3)` becomes `(2, 3)`.
-
-**Half reduction on the Y axis:**
-
-$$
-\begin{pmatrix} 1 & 0 \\ 0 & 1/2 \end{pmatrix}
-$$
-
-Compresses vertically. A point at `(4, 3)` becomes `(4, 1.5)`.
-
-**Doubling on the X axis:**
-
-$$
-\begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}
-$$
-
-Stretches horizontally. A circle becomes a wide ellipse.
-
-**Doubling on the Y axis:**
-
-$$
-\begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}
-$$
-
-Stretches vertically. A circle becomes a tall ellipse.
-
-**General form:** `diag(a, b)` where `a` and `b` are independent scale factors for each axis.
-
-___
-###### Reflection Matrix
-
-Flips vectors across an axis or through the origin.
-
-**Across the Y axis (horizontal flip):**
-
-$$
-\begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}
-$$
-
-The x-coordinate is negated; the y-coordinate is untouched. A point at `(3, 2)` becomes `(-3, 2)`.
-
-**Across the X axis (vertical flip):**
-
-$$
-\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
-$$
-
-The y-coordinate is negated; the x-coordinate is untouched. A point at `(3, 2)` becomes `(3, -2)`.
-
-**Through the origin (central symmetry):**
-
-$$
-\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}
-$$
-
-Both coordinates are negated. A point at `(3, 2)` becomes `(-3, -2)`. Equivalent to a 180° rotation.
-
-**Key property:** Applying the same reflection twice returns to the original: `M² = I`.
-
-___
-###### Diagonal Matrix
-
-$$
-\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}
-= \begin{pmatrix} 3 & 0 \\ 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}
-$$
-
-Non-zero entries only on the main diagonal. Each diagonal value independently scales its corresponding axis. The example above triples the x-component and doubles the y-component. It can always be decomposed into a sequence of one-off (axis-aligned) scalings.
-
-**Key property:** Easy to raise to a power — just raise each diagonal entry to that power.
-
-___
-###### Shear Matrix
-
-A shear matrix "leans" space. One axis is displaced in proportion to the coordinate on the other axis. A square becomes a parallelogram — area is preserved, but right angles are lost.
-
-**Horizontal shear** (x shifts based on y):
-
-$$
-\begin{pmatrix} 1 & k \\ 0 & 1 \end{pmatrix}
-$$
-
-A point `(x, y)` becomes `(x + ky, y)`. The y-coordinate is fixed; the x-coordinate slides by `k` times the height.
-
-**Vertical shear** (y shifts based on x):
-
-$$
-\begin{pmatrix} 1 & 0 \\ k & 1 \end{pmatrix}
-$$
-
-A point `(x, y)` becomes `(x, kx + y)`. The x-coordinate is fixed; the y-coordinate slides.
-
-**Key property:** `det = 1` — shear preserves area.
-
-___
-###### Orthogonal Matrix
-
-An orthogonal matrix `Q` has columns that are perpendicular to each other and each has length 1 (orthonormal). In 2D this means it represents either a **rotation** or a **reflection**.
-
-▶️ Rotation by angle θ:
-
-$$
-\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}
-$$
-
-Rotates every vector by angle `θ` around the origin. Distances and angles between vectors are fully preserved.
-
-▶️ Transposition: The Pauli-X Gate
-$$ X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} $$
-
-▶️ Key properties:
-- `Qᵀ = Q⁻¹` — the transpose is the inverse (very efficient to compute)
-- `det(Q) = +1` for pure rotation, `-1` if a reflection is also involved
-- Lengths of all vectors are unchanged: `|Qv| = |v|`
-
-▶️ Unit Matrix<br>
-The rotation matrix entries `cos θ` and `sin θ` are precisely the components of a unit vector — so every angle `θ` gives a different but equally valid orthogonal matrix.
-
-▶️ Specific angles:
-
-- $ θ = 0° $ — the identity rotation, columns are the standard basis vectors:
-$$\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \quad \text{columns: } \begin{pmatrix} 1 \\ 0 \end{pmatrix} \text{ and } \begin{pmatrix} 0 \\ 1 \end{pmatrix}$$
-- $ θ = 45° $ — since `cos 45° = sin 45° = √2/2`, the columns become:
-$$\begin{pmatrix} \sqrt{2}/2 & -\sqrt{2}/2 \\ \sqrt{2}/2 & \sqrt{2}/2 \end{pmatrix} \quad \text{columns: } \begin{pmatrix} \sqrt{2}/2 \\ \sqrt{2}/2 \end{pmatrix} \text{ and } \begin{pmatrix} -\sqrt{2}/2 \\ \sqrt{2}/2 \end{pmatrix}$$
-- $ θ = 90° $ — since `cos 90° = 0 and sin 90° = 1`, the columns become:
-$$ \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \quad  $$
-- $ θ = 180° $ — since `cos 180° = -1 and sin 180° = 0`, the columns become:
-$$ \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} \quad  $$
-
-The two constraints that make a matrix orthogonal are exactly what it means to be a unit vector pair:
-1. **Each column has length 1** — `cos²θ + sin²θ = 1` (the Pythagorean identity guarantees this for any angle)
-2. **The columns are perpendicular to each other** — the dot product of any two columns is zero
-
-So the set of all 2×2 orthogonal matrices (with det = +1) is in direct correspondence with the unit circle — one valid orthogonal matrix for every point on it, i.e. for every angle between 0° and 360°.
-
-Exactly — and it becomes even more intuitive when you think about what cosine and sine *are* geometrically: they are simply the x and y coordinates of a point travelling around the unit circle.
-
-So when you rotate a vector by angle θ, the matrix is just asking: "where did the two basis axes end up after rotating by θ?"
-
-- The x-axis `(1, 0)` rotated by θ lands at `(cos θ, sin θ)` → that becomes the **first column**
-- The y-axis `(0, 1)` rotated by θ lands at `(-sin θ, cos θ)` → that becomes the **second column**
-
-The whole matrix is really just two unit vectors on the circle, 90° apart from each other:
-
-$$\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$$
-
-Your two examples plotted on the unit circle:
-
-| θ     | cos θ | sin θ | Point on circle       |
-|---    |--     |---    |---                    |
-| 0°    | 1     | 0     | rightmost point       |
-| 45°   | √2/2  | √2/2  | top-right diagonal    |
-| 90°   | 0     | 1     | topmost point         |
-| 180°  | -1    | 0     | leftmost point        |
-
-    This is also why the orthogonality condition `Qᵀ = Q⁻¹` costs nothing to compute — the inverse rotation is just going backwards around the circle by `-θ`, which swaps sine and cosine's signs, which is exactly what transposing the matrix does.
-
-___
-###### Projection Matrix
-
-A projection matrix `P` collapses space onto a lower-dimensional subspace — like casting a shadow onto a line or a plane.
-
-**Project onto the X axis (drop the y-component):**
-
-$$
-\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
-$$
-
-A point `(x, y)` becomes `(x, 0)`. All height information is lost.
-
-**Project onto the Y axis (drop the x-component):**
-
-$$
-\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}
-$$
-
-A point `(x, y)` becomes `(0, y)`. All horizontal information is lost.
-
-**Key property (idempotent):** `P² = P` — projecting twice gives the same result as projecting once. Once a point is on the axis, it stays there.
-
-> Because projection destroys information (it is not injective), projection matrices have no inverse.
-
-___
-###### Inverse Matrix
-
-The inverse of a matrix `M`, written `M⁻¹`, is the matrix that exactly undoes the transformation `M`. Applying `M` and then `M⁻¹` (or vice versa) returns every vector to where it started.
-
-$$
-M \cdot M^{-1} = M^{-1} \cdot M = I
-$$
-
-**Formula for a 2×2 matrix:**
-
-$$
-\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1}
-= \frac{1}{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
-$$
-
-The scalar `ad - bc` is the **determinant**. If it equals zero, the matrix has no inverse — the transformation collapsed the plane down to a line or a point, and the lost information cannot be recovered.
-
-**Key properties:**
-- Exists only when `det(M) ≠ 0`
-- `(AB)⁻¹ = B⁻¹ A⁻¹` — when inverting a product, the order reverses
-- The inverse of a rotation by `θ` is a rotation by `-θ`
-- The inverse of a reflection is the same reflection (`M⁻¹ = M`)
-
-___
-###### Quick Comparison Table
-
-| Matrix type     | Changes shape? | Changes area? | Reversible? | Defining property         |
-|-----------------|:--------------:|:-------------:|:-----------:|---------------------------|
-| Null            | Yes            | Yes (→ 0)     | No          | `Mv = 0`                  |
-| Identity        | No             | No            | Yes         | `Mv = v`                  |
-| Scalar          | No             | Yes           | Yes         | `Mv = kv`                 |
-| One-off scaling | Yes            | Yes           | Yes         | Different scale per axis      |
-| Reflection      | Orientation    | No            | Yes (itself)| `M² = I`                  |
-| Diagonal        | Yes            | Yes           | Yes         | Only diagonal ntries      |
-| Shear           | Yes            | No            | Yes         | `det = 1`                 |
-| Orthogonal      | No             | No            | Yes         | `Qᵀ = Q⁻¹`                |
-| Projection      | Yes            | Yes (→ 0)     | No          | `P² = P`                  |
-| Inverse         | Depends on M   | Depends on M  | Yes         | `MM⁻¹ = I`                |

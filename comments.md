@@ -1,4 +1,4 @@
-Exactement. Pour la **diagonalisation classique**, la formule est bien $A = PDP^{-1}$. C’est une forme de décomposition qui ne fonctionne que pour les matrices carrées et "diagonalisables" (qui possèdent assez de vecteurs propres linéairement indépendants).
+Exactement. Pour la **diagonalisation classique**, la formule est bien $A = PDP^{-1}$. 
 Quant à la **SVD**, elle est fondamentale en informatique quantique. Voici ses applications majeures :
 
 ## 1. La Décomposition de Schmidt
@@ -200,4 +200,3 @@ Would you like to dive deeper into the specific calculus of tensors, such as how
 
 
 ---
-

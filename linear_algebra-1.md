@@ -345,7 +345,9 @@ In short: eigenvalues and eigenvectors let you find the **axes along which a sys
 
 ## Classic Matrix Diagonalisation: Eigenvalue Decomposition/Spectral Decomposition
  
-A matrix can be decomposed spectrally by eigenvalues as $ A = PDP^{-1} $ where $ D $ is diagonal (eigenvalues) and $ P $ contains the eigenvectors. This makes computing $ A^n = PD^{n}P^{-1} $ trivial — useful in economics, population models, and simulations.
+A matrix can be decomposed spectrally by eigenvalues as $ A = PDP^{-1} $ where $D$ is diagonal (eigenvalues) and $ P $ contains the eigenvectors. This makes computing $ A^n = PD^{n}P^{-1} $ trivial — useful in economics, population models, and simulations.
+
+    ▶️ It is a form of decomposition that only works for square matrices and 'diagonalizable' ones — those that have enough linearly independent eigenvectors. !!!
 
 ---
 ### Characteristic Polynomial Equals Zero
