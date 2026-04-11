@@ -28,130 +28,10 @@ Il existe des algorithmes quantiques conçus pour effectuer une PCA (et donc une
 | **Existence** | Pas toujours (besoin de n vecteurs propres) | Toujours |
 | **Orthogonalité** | P n'est pas forcément orthogonale | U et V sont toujours unitaires/orthogonales |
 | **Utilisation Quantique** | Évolution temporelle (Hamiltonien) | Intrication, Compression, Portes |
-Est-ce que l'un de ces domaines (comme l'intrication ou la simulation) vous intéresse plus particulièrement pour approfondir ?
-
 
 ---
 
-### QR Decomposition (2×2 Matrices)
-
-#### Orthogonal Matrix
-
-An orthogonal matrix $Q$ is a square matrix whose columns (and rows) are orthonormal vectors.<br>
-This means that the dot product of any two different columns (or rows) is zero, and the dot product of a column (or row) with itself is one. Mathematically, this is expressed as $Q^T Q = I$, where $I$ is the identity matrix.
-
-Given the numbers 1, 2, 3, and 4, we need to construct a 2x2 orthogonal matrix. However, directly using these numbers as they are will not result in an orthogonal matrix because the vectors formed by these numbers are not orthonormal. Instead, we need to use these numbers to form orthonormal vectors.
-
-Let's construct a 2x2 orthogonal matrix using the numbers 1, 2, 3, and 4. We can normalize the vectors to ensure they are orthonormal.
-
-##### Step-by-Step Construction
-
-1. **Choose two vectors**: Let's start with the vectors $\mathbf{u} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$ and $\mathbf{v} = \begin{pmatrix} 3 \\ 4 \end{pmatrix}$.
-
-2. **Normalize the vectors**: Normalize $\mathbf{u}$ and $\mathbf{v}$ to get unit vectors.
-$$
-   \mathbf{u}_{\text{norm}} = \frac{\mathbf{u}}{\|\mathbf{u}\|} = \frac{1}{\sqrt{1^2 + 2^2}} \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \frac{1}{\sqrt{5}} \begin{pmatrix} 1 \\ 2 \end{pmatrix} = \begin{pmatrix} \frac{1}{\sqrt{5}} \\ \frac{2}{\sqrt{5}} \end{pmatrix}
-$$
-
-3. **Orthogonalize $\mathbf{v}$ with respect to $\mathbf{u}_{\text{norm}}$**: Use the Gram-Schmidt process to orthogonalize $\mathbf{v}$.
-$$
-   \mathbf{v}_{\text{ortho}} = \mathbf{v} - \text{proj}_{\mathbf{u}_{\text{norm}}} \mathbf{v}
-$$
-   where $\text{proj}_{\mathbf{u}_{\text{norm}}} \mathbf{v} = \frac{\mathbf{u}_{\text{norm}} \cdot \mathbf{v}}{\mathbf{u}_{\text{norm}} \cdot \mathbf{u}_{\text{norm}}} \mathbf{u}_{\text{norm}}$.
-$$
-   \mathbf{u}_{\text{norm}} \cdot \mathbf{v} = \begin{pmatrix} \frac{1}{\sqrt{5}} \\ \frac{2}{\sqrt{5}} \end{pmatrix} \cdot \begin{pmatrix} 3 \\ 4 \end{pmatrix} = \frac{3}{\sqrt{5}} + \frac{8}{\sqrt{5}} = \frac{11}{\sqrt{5}}
-$$
-$$
-   \text{proj}_{\mathbf{u}_{\text{norm}}} \mathbf{v} = \frac{\frac{11}{\sqrt{5}}}{1} \begin{pmatrix} \frac{1}{\sqrt{5}} \\ \frac{2}{\sqrt{5}} \end{pmatrix} = \begin{pmatrix} \frac{11}{5} \\ \frac{22}{5} \end{pmatrix}
-$$
-$$
-   \mathbf{v}_{\text{ortho}} = \begin{pmatrix} 3 \\ 4 \end{pmatrix} - \begin{pmatrix} \frac{11}{5} \\ \frac{22}{5} \end{pmatrix} = \begin{pmatrix} 3 - \frac{11}{5} \\ 4 - \frac{22}{5} \end{pmatrix} = \begin{pmatrix} \frac{4}{5} \\ \frac{2}{5} \end{pmatrix}
-$$
-
-4. **Normalize $\mathbf{v}_{\text{ortho}}$**:
-$$
-   \mathbf{v}_{\text{norm}} = \frac{\mathbf{v}_{\text{ortho}}}{\|\mathbf{v}_{\text{ortho}}\|} = \frac{1}{\sqrt{\left(\frac{4}{5}\right)^2 + \left(\frac{2}{5}\right)^2}} \begin{pmatrix} \frac{4}{5} \\ \frac{2}{5} \end{pmatrix} = \frac{1}{\sqrt{\frac{16}{25} + \frac{4}{25}}} \begin{pmatrix} \frac{4}{5} \\ \frac{2}{5} \end{pmatrix} = \frac{1}{\sqrt{\frac{20}{25}}} \begin{pmatrix} \frac{4}{5} \\ \frac{2}{5} \end{pmatrix} = \frac{1}{\frac{\sqrt{20}}{5}} \begin{pmatrix} \frac{4}{5} \\ \frac{2}{5} \end{pmatrix} = \frac{5}{\sqrt{20}} \begin{pmatrix} \frac{4}{5} \\ \frac{2}{5} \end{pmatrix} = \begin{pmatrix} \frac{4}{\sqrt{20}} \\ \frac{2}{\sqrt{20}} \end{pmatrix} = \begin{pmatrix} \frac{2}{\sqrt{5}} \\ \frac{1}{\sqrt{5}} \end{pmatrix}
-$$
-
-5. **Construct the orthogonal matrix**:
-$$
-   Q = \begin{pmatrix} \frac{1}{\sqrt{5}} & \frac{2}{\sqrt{5}} \\ \frac{2}{\sqrt{5}} & \frac{1}{\sqrt{5}} \end{pmatrix}
-$$
-
-##### Verification
-
-To verify that $Q$ is orthogonal, we check that $Q^T Q = I$:
-$$
-Q^T = \begin{pmatrix} \frac{1}{\sqrt{5}} & \frac{2}{\sqrt{5}} \\ \frac{2}{\sqrt{5}} & \frac{1}{\sqrt{5}} \end{pmatrix}
-$$
-$$
-Q^T Q = \begin{pmatrix} \frac{1}{\sqrt{5}} & \frac{2}{\sqrt{5}} \\ \frac{2}{\sqrt{5}} & \frac{1}{\sqrt{5}} \end{pmatrix} \begin{pmatrix} \frac{1}{\sqrt{5}} & \frac{2}{\sqrt{5}} \\ \frac{2}{\sqrt{5}} & \frac{1}{\sqrt{5}} \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I
-$$
-
-Thus, the matrix $Q$ is orthogonal.
-
 ---
-
-Let me compute this step by step.
-
-**Numerical value inside arccos:**
-
-$$
-    \frac{2\sqrt{30}}{15} = \frac{2 \times 5.47723...}{15} = \frac{10.9545...}{15} \approx 0.73030...
-$$
-
----
-
-**In radians:**
-
-$$\theta = \cos^{-1}(0.73030...) $$
-
----
-
-**In degrees:**
-
-$$\theta = 0.75726 \times \frac{180}{\pi}$$
-
----
-
-**As a factor of π:**
-
-$$\theta = \frac{0.75726}{\pi} \cdot \pi$$
-
----
-
-### Summary
-
-| Form | Value |
-|------|-------|
-| Radians | ≈ 0.75726 rad |
-| Degrees | ≈ 43.394° |
-| Factor of π | ≈ 0.24103π |
-
-This angle does **not** correspond to a standard "nice" fraction of π, so the decimal approximations above are the cleanest closed forms available.
-
----
-
-Proton Antiproton Particles
-
-The **proton** and **antiproton** are matter-antimatter counterparts with identical mass but opposite electric charge and magnetic moment. The **proton** carries a charge of **+1 e**, while the **antiproton** (symbol: $\bar{p}$) carries a charge of **-1 e** and is composed of two up antiquarks and one down antiquark ($\bar{u}\bar{u}\bar{d}$), whereas the proton consists of two up quarks and one down quark ($uud$).
-
-*   **Discovery**: The antiproton was theoretically predicted by Paul Dirac in 1933 and experimentally confirmed in 1955 by Emilio Segrè and Owen Chamberlain at the Bevatron, earning them the 1959 Nobel Prize in Physics.
-*   **Annihilation**: When a proton and antiproton collide, they **annihilate**, converting their mass into energy and producing mesons (such as pions) that eventually decay into photons, electrons, positrons, and neutrinos.
-*   **Symmetry**: CPT symmetry dictates that their mass and lifetime are identical, a fact confirmed by the BASE experiment at CERN which measured their charge-to-mass ratio to be identical within 16 parts per trillion as of January 2022.
-*   **Applications**: Antiprotons are used in high-energy physics colliders like the Tevatron to achieve higher collision energies and are being researched for **cancer therapy**, where their annihilation provides a concentrated energy deposit in tumors.
-
-| Property | Proton | Antiproton |
-| :--- | :--- | :--- |
-| **Symbol** | $p$ | $\bar{p}$ |
-| **Electric Charge** | $+1 e$ | $-1 e$ |
-| **Composition** | $uud$ (quarks) | $\bar{u}\bar{u}\bar{d}$ (antiquarks) |
-| **Mass** | $938.272 \text{ MeV}/c^2$ | $938.272 \text{ MeV}/c^2$ |
-| **Baryon Number** | $+1$ | $-1$ |
-| **Lifetime** | Stable | Stable (unless annihilated) |
-
-Antiprotons occur naturally in **cosmic rays** and are trapped in radiation belts around Earth and other planets, but they are primarily produced artificially in particle accelerators by smashing high-energy protons into dense targets like iridium.
-
 
 ---
 
@@ -200,3 +80,119 @@ Would you like to dive deeper into the specific calculus of tensors, such as how
 
 
 ---
+
+---
+
+Proton Antiproton Particles
+
+The **proton** and **antiproton** are matter-antimatter counterparts with identical mass but opposite electric charge and magnetic moment. The **proton** carries a charge of **+1 e**, while the **antiproton** (symbol: $\bar{p}$) carries a charge of **-1 e** and is composed of two up antiquarks and one down antiquark ($\bar{u}\bar{u}\bar{d}$), whereas the proton consists of two up quarks and one down quark ($uud$).
+
+*   **Discovery**: The antiproton was theoretically predicted by Paul Dirac in 1933 and experimentally confirmed in 1955 by Emilio Segrè and Owen Chamberlain at the Bevatron, earning them the 1959 Nobel Prize in Physics.
+*   **Annihilation**: When a proton and antiproton collide, they **annihilate**, converting their mass into energy and producing mesons (such as pions) that eventually decay into photons, electrons, positrons, and neutrinos.
+*   **Symmetry**: CPT symmetry dictates that their mass and lifetime are identical, a fact confirmed by the BASE experiment at CERN which measured their charge-to-mass ratio to be identical within 16 parts per trillion as of January 2022.
+*   **Applications**: Antiprotons are used in high-energy physics colliders like the Tevatron to achieve higher collision energies and are being researched for **cancer therapy**, where their annihilation provides a concentrated energy deposit in tumors.
+
+| Property | Proton | Antiproton |
+| :--- | :--- | :--- |
+| **Symbol** | $p$ | $\bar{p}$ |
+| **Electric Charge** | $+1 e$ | $-1 e$ |
+| **Composition** | $uud$ (quarks) | $\bar{u}\bar{u}\bar{d}$ (antiquarks) |
+| **Mass** | $938.272 \text{ MeV}/c^2$ | $938.272 \text{ MeV}/c^2$ |
+| **Baryon Number** | $+1$ | $-1$ |
+| **Lifetime** | Stable | Stable (unless annihilated) |
+
+Antiprotons occur naturally in **cosmic rays** and are trapped in radiation belts around Earth and other planets, but they are primarily produced artificially in particle accelerators by smashing high-energy protons into dense targets like iridium.
+
+---
+
+### Bilinear map
+
+A bilinear map is a function that is linear in each of its arguments. More formally, let $V$ and $W$ be vector spaces over a field $F$ (typically the real numbers $\mathbb{R}$ or the complex numbers $\mathbb{C}$), and let $U$ be another vector space over $F$. A bilinear map $ b: V \times W \to U $ is a function that satisfies the following properties:
+
+1. **Linearity in the first argument**: For all $\mathbf{v}_1, \mathbf{v}_2 \in V$ and $\mathbf{w} \in W$, and for all scalars $\alpha, \beta \in F$:
+$$
+   b(\alpha \mathbf{v}_1 + \beta \mathbf{v}_2, \mathbf{w}) = 
+   \alpha b(\mathbf{v}_1, \mathbf{w}) + \beta b(\mathbf{v}_2, \mathbf{w})
+$$
+
+2. **Linearity in the second argument**: For all $\mathbf{v} \in V$ and $\mathbf{w}_1, \mathbf{w}_2 \in W$, and for all scalars $\alpha, \beta \in F$:
+$$
+   b(\mathbf{v}, \alpha \mathbf{w}_1 + \beta \mathbf{w}_2) = 
+   \alpha b(\mathbf{v}, \mathbf{w}_1) + \beta b(\mathbf{v}, \mathbf{w}_2)
+$$
+
+#### Examples of Bilinear Maps
+
+1. **Dot Product**: The dot product in Euclidean space is a bilinear map. For vectors $
+   \mathbf{v} = 
+   \begin{pmatrix} 
+      v_1 \\ 
+      v_2 
+   \end{pmatrix}
+$ 
+and 
+$
+   \mathbf{w} = 
+   \begin{pmatrix} 
+      w_1 \\ 
+      w_2 
+   \end{pmatrix}
+$ 
+in $\mathbb{R}^2$, the dot product is given by:
+$$
+\mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2
+$$
+This is linear in both $\mathbf{v}$ and $\mathbf{w}$.
+
+2. **Matrix Multiplication**: Matrix multiplication is a bilinear map. For matrices $A$ and $B$, the product $AB$ is linear in both $A$ and $B$.
+
+3. **Bilinear Forms**: A bilinear form is a bilinear map from a vector space to its field of scalars. For example, a bilinear form on $\mathbb{R}^n$ is a function $b: \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$ that is linear in each argument.
+
+#### Properties of Bilinear Maps
+
+1. **Bilinear maps preserve linear combinations**: If $b$ is a bilinear map, then for any linear combinations of vectors $\mathbf{v}_1, \mathbf{v}_2 \in V$ and $\mathbf{w}_1, \mathbf{w}_2 \in W$, and scalars $\alpha, \beta, \gamma, \delta \in F$:
+$$
+b(\alpha \mathbf{v}_1 + \beta \mathbf{v}_2, \gamma \mathbf{w}_1 + \delta \mathbf{w}_2) = \alpha \gamma b(\mathbf{v}_1, \mathbf{w}_1) + \alpha \delta b(\mathbf{v}_1, \mathbf{w}_2) + \beta \gamma b(\mathbf{v}_2, \mathbf{w}_1) + \beta \delta b(\mathbf{v}_2, \mathbf{w}_2)
+$$
+
+2. **Bilinear maps can be extended to multilinear maps**: A multilinear map is a generalization of a bilinear map to more than two arguments. For example, a trilinear map is a function that is linear in each of its three arguments.
+
+#### Applications of Bilinear Maps
+
+Bilinear maps have numerous applications in mathematics and computer science, including:
+
+1. **Linear Algebra**: Bilinear maps are fundamental in the study of vector spaces and linear transformations.
+
+2. **Cryptography**: Bilinear pairings are used in cryptographic protocols, such as identity-based encryption and short signatures.
+
+3. **Quantum Computing**: Bilinear maps are used in the study of quantum entanglement and quantum information theory.
+
+#### Python Code to Demonstrate a Bilinear Map
+
+Here is a simple Python code snippet to demonstrate a bilinear map using the dot product:
+
+```python
+import numpy as np
+
+# Define a bilinear map: dot product
+def bilinear_map(v, w):
+    return np.dot(v, w)
+
+# Define vectors v and w
+v = np.array([1, 2])
+w = np.array([3, 4])
+
+# Compute the bilinear map
+result = bilinear_map(v, w)
+
+# Print the result
+print("Dot product of v and w:", result)
+```
+
+This code will output:
+
+```
+Dot product of v and w: 11
+```
+
+This demonstrates how the dot product, a bilinear map, can be computed using NumPy in Python.

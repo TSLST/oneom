@@ -36,10 +36,23 @@ $$
 
 ---
 
+## Text
+
+1. $\text{xXx}$ and u $u$
+1. $
+   Writing \space in \space ro 
+   \rm man \space writing \space ita 
+   \it lic \space writing \space se 
+   \sf rif \space writing \space bo 
+   \bf ld \space writing
+$
+1. $co\!eur$
+
+---
+
 ## Operations
 
 Here are a few classic operators:
-* $\text{xXx}$ and u $u$
 * $ 
     \alpha \space \beta \space \gamma \space \omega \quad 
     \epsilon \space \Epsilon \quad 
@@ -79,6 +92,7 @@ $
 * Ajouter un $\text{micro-}\,\text{espace}$ ou un $\text{macro-} \space \text{espace}$ ou une $\text{tabu-} \quad \text{lation}$
 * Proton: $\bar{p}$
 * $\displaystyle \left.{\frac {{\mathrm {d} }f}{{\mathrm {d} }x}}\right|_{x=a}$
+* $\odot$ $\cdot$ $\sdot$ $\ldots$ $\ddots$ $\dots$ $\cdots$ $\vdots$ $\degree$
 
 ---
 
@@ -100,6 +114,8 @@ $
 1. Absolute Value: $|x|$
 1. Norm: $\|x\|$
 1. Tensor Product: $\otimes$
+1. ???: $\wp$ $\rq$ $C \tt C$ $\to$ $\tg$ $\th$ $\sh$ $\lq$ $\lg$ $\ln$ $\xi$ $\ch$ $\inf$
+1. !!!: $\r;$ $\r[$ $\r]$ $\r?$ $\r!$ $\r*$ $\r($ $\r)$ $\r-$ $\r=$ $\r+$ $\u,$
 
 ---
 ### Shapes
@@ -122,7 +138,7 @@ $
 ### Comparison
 
 1. Approximately Equal: $\approx$
-1. Not Equal: $\neq$
+1. Not Equal: $\neq$ $\ne$
 1. Congruent: $\cong$
 1. Proportional: $\propto$
 1. Much Greater Than: $\gg$
@@ -153,7 +169,7 @@ $
 1. Not Exists: $\nexists$
 1. Empty Set: $\emptyset$
 1. Element Of: $\in$
-1. Not Element Of: $\notin$
+1. Not Element Of: $\notin$ $\ni$
 1. Subset Of: $\subseteq$
 1. Not Subset Of: $\nsubseteq$
 1. Superset Of: $\supseteq$

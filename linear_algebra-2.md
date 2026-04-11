@@ -37,6 +37,11 @@ $$
     A = QR
 $$
 
+#### Orthogonal Matrix
+
+An orthogonal matrix $Q$ is a square matrix whose columns (and rows) are orthonormal vectors.<br>
+This means that the dot product of any two different columns (or rows) is zero, and the dot product of a column (or row) with itself is one. Mathematically, this is expressed as $Q^T Q = I$, where $I$ is the identity matrix.
+
 #### Practical Examples Where QR Decomposition is Preferred
 
 1. **Least Squares Problems**:
@@ -215,6 +220,78 @@ $$
       \frac{3} {\sqrt{10}} & \frac{-1} {\sqrt{10}} 
    \end{pmatrix}}
 $$
+
+___
+###### Verification
+
+To verify that $Q$ is orthogonal, we check that $Q^T Q = I$:
+$$
+    Q^T = 
+    \begin{pmatrix} 
+        \frac{1} {\sqrt{10}} & \frac{3} {\sqrt{10}} \\ 
+        \frac{3} {\sqrt{10}} & \frac{-1} {\sqrt{10}} 
+    \end{pmatrix}
+$$
+$$
+    Q^T Q = 
+    \begin{pmatrix} 
+        \frac{1} {\sqrt{10}} & \frac{3} {\sqrt{10}} \\ 
+        \frac{3} {\sqrt{10}} & \frac{-1} {\sqrt{10}} 
+    \end{pmatrix}
+    \begin{pmatrix} 
+        \frac{1} {\sqrt{10}} & \frac{3} {\sqrt{10}} \\ 
+        \frac{3} {\sqrt{10}} & \frac{-1} {\sqrt{10}} 
+    \end{pmatrix} = 
+    \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = 
+    I
+$$
+
+This confirms that $Q$ is orthogonal.
+Ipreserves lengths and angles, which are key properties of orthogonal matrices.
+
+To further illustrate the properties of orthogonal matrices, let's consider a few additional points:
+
+1. **Orthogonality Condition**: A matrix $Q$ is orthogonal if $Q^T Q = I$, where $I$ is the identity matrix. This means that the rows (and columns) of $Q$ are orthonormal, i.e., they have unit length and are orthogonal to each other.
+2. **Determinant of Orthogonal Matrices**: The determinant of an orthogonal matrix is either $1$ or $-1$. This can be shown using the property that $ 
+    \det|Q^T Q| = 
+    \det|Q^T| \det|Q| = 
+    \det|Q|^2 = 
+    1 
+$, implying $ \det|Q| = \pm 1 $.
+3. **Inverse of Orthogonal Matrices**: The inverse of an orthogonal matrix $Q$ is its transpose, i.e., $ Q^{-1} = Q^T $. This follows directly from the definition $ Q^T Q = I $, which implies $ Q^{-1} = Q^T $.
+4. **Preservation of Lengths and Angles**: Orthogonal matrices preserve the lengths of vectors and the angles between them. This means that if $\mathbf{v}$ is a vector, then $ \|Q \mathbf{v}\| = \|\mathbf{v}\| $, and the angle between any two vectors is preserved under the transformation by $Q$.
+
+Let's verify the determinant of $Q$ to confirm it is either $1$ or $-1$:
+
+$$
+    \det|Q| = 
+    \det \begin{vmatrix} 
+        \frac{1} {\sqrt{10}} & \frac{3}{\sqrt{10}} \\ 
+        \frac{3} {\sqrt{10}} & \frac{-1}{\sqrt{10}} 
+    \end{vmatrix}
+$$
+
+Using the formula for the determinant of a 2x2 matrix:
+
+$$
+    \det|Q| = 
+    \frac{1}{\sqrt{10}} \times \frac{-1}{\sqrt{10}} - \frac{3}{\sqrt{10}} \times \frac{3}{\sqrt{10}} = \\
+$$
+$$
+    \det|Q| = 
+    \frac{-1}{10} - \frac{9}{10} = \\
+$$
+$$
+    \det|Q| = 
+    \frac{-10}{10} = 
+    -1
+$$
+
+Thus, the determinant of $Q$ is $-1$, confirming that $Q$ is an orthogonal matrix with a determinant of $-1$.
+Thus, the matrix $Q$ is orthogonal.
+
+___
+###### Construct R
 
 $R$ is the upper triangular matrix with:
 $$

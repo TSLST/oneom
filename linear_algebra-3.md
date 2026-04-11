@@ -16,6 +16,8 @@ Links:
 (*TO REVIEW*)
 <br><br>
 
+---
+
 ## Transformation Matrixes
 
 ___
@@ -31,7 +33,10 @@ ___
 ###### Null Matrix
 
 $$
-\begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
+   \begin{pmatrix} 
+      0  & 0 \\ 
+      0  & 0 
+   \end{pmatrix}
 $$
 
 Every entry is zero. Multiplying any vector by the null matrix collapses it to the zero vector `(0, 0)`. Think of it as an absolute eraser — all information about direction and magnitude is destroyed. There is no way to reverse the operation.
@@ -42,7 +47,10 @@ ___
 ###### Identity Matrix
 
 $$
-\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+   \begin{pmatrix} 
+      1  & 0 \\ 
+      0  & 1 
+   \end{pmatrix}
 $$
 
 The "do nothing" matrix. Multiplying any vector by the identity matrix returns that exact vector unchanged. It is the matrix equivalent of multiplying a number by 1.
@@ -53,7 +61,14 @@ ___
 ###### Scalar Matrix
 
 $$
-\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}
+   \begin{pmatrix} 
+      2  & 0 \\ 
+      0  & 2 
+   \end{pmatrix} = \\2 \times 
+   \begin{pmatrix} 
+      1  & 0 \\ 
+      0  & 1 
+   \end{pmatrix}
 $$
 
 A scalar matrix is an identity matrix multiplied by a constant `k`. It scales every vector uniformly — the same factor in every direction. The shape of an object is preserved; only its size changes.
@@ -72,7 +87,10 @@ These scale along only one axis, stretching or squashing in a single direction w
 **Half reduction on the X axis:**
 
 $$
-\begin{pmatrix} 1/2 & 0 \\ 0 & 1 \end{pmatrix}
+   \begin{pmatrix} 
+      1/2   & 0 \\ 
+      0     & 1 
+   \end{pmatrix}
 $$
 
 Compresses horizontally. A point at `(4, 3)` becomes `(2, 3)`.
@@ -80,7 +98,10 @@ Compresses horizontally. A point at `(4, 3)` becomes `(2, 3)`.
 **Half reduction on the Y axis:**
 
 $$
-\begin{pmatrix} 1 & 0 \\ 0 & 1/2 \end{pmatrix}
+   \begin{pmatrix} 
+      1  & 0 \\ 
+      0  & 1/2 
+   \end{pmatrix}
 $$
 
 Compresses vertically. A point at `(4, 3)` becomes `(4, 1.5)`.
@@ -88,7 +109,10 @@ Compresses vertically. A point at `(4, 3)` becomes `(4, 1.5)`.
 **Doubling on the X axis:**
 
 $$
-\begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}
+   \begin{pmatrix} 
+      2  & 0 \\ 
+      0  & 1 
+   \end{pmatrix}
 $$
 
 Stretches horizontally. A circle becomes a wide ellipse.
@@ -96,7 +120,10 @@ Stretches horizontally. A circle becomes a wide ellipse.
 **Doubling on the Y axis:**
 
 $$
-\begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}
+   \begin{pmatrix} 
+      1  & 0 \\ 
+      0  & 2 
+   \end{pmatrix}
 $$
 
 Stretches vertically. A circle becomes a tall ellipse.
@@ -111,7 +138,10 @@ Flips vectors across an axis or through the origin.
 **Across the Y axis (horizontal flip):**
 
 $$
-\begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}
+   \begin{pmatrix} 
+      -1 & 0 \\ 
+      0  & 1 
+   \end{pmatrix}
 $$
 
 The x-coordinate is negated; the y-coordinate is untouched. A point at `(3, 2)` becomes `(-3, 2)`.
@@ -119,7 +149,10 @@ The x-coordinate is negated; the y-coordinate is untouched. A point at `(3, 2)` 
 **Across the X axis (vertical flip):**
 
 $$
-\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+   \begin{pmatrix} 
+      1  & 0 \\ 
+      0  & -1 
+   \end{pmatrix}
 $$
 
 The y-coordinate is negated; the x-coordinate is untouched. A point at `(3, 2)` becomes `(3, -2)`.
@@ -127,7 +160,10 @@ The y-coordinate is negated; the x-coordinate is untouched. A point at `(3, 2)` 
 **Through the origin (central symmetry):**
 
 $$
-\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}
+   \begin{pmatrix} 
+      -1 & 0 \\ 
+      0  & -1 
+   \end{pmatrix}
 $$
 
 Both coordinates are negated. A point at `(3, 2)` becomes `(-3, -2)`. Equivalent to a 180° rotation.
@@ -138,8 +174,18 @@ ___
 ###### Diagonal Matrix
 
 $$
-\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}
-= \begin{pmatrix} 3 & 0 \\ 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}
+   \begin{pmatrix} 
+      3  & 0 \\ 
+      0  & 2 
+   \end{pmatrix} = 
+   \begin{pmatrix} 
+      3  & 0 \\ 
+      0  & 1 
+   \end{pmatrix} \cdot 
+      \begin{pmatrix} 
+         1  & 0 \\ 
+         0  & 2 
+      \end{pmatrix}
 $$
 
 Non-zero entries only on the main diagonal. Each diagonal value independently scales its corresponding axis. The example above triples the x-component and doubles the y-component. It can always be decomposed into a sequence of one-off (axis-aligned) scalings.
@@ -154,7 +200,10 @@ A shear matrix "leans" space. One axis is displaced in proportion to the coordin
 **Horizontal shear** (x shifts based on y):
 
 $$
-\begin{pmatrix} 1 & k \\ 0 & 1 \end{pmatrix}
+   \begin{pmatrix} 
+      1  & k \\ 
+      0  & 1 
+   \end{pmatrix}
 $$
 
 A point `(x, y)` becomes `(x + ky, y)`. The y-coordinate is fixed; the x-coordinate slides by `k` times the height.
@@ -162,7 +211,10 @@ A point `(x, y)` becomes `(x + ky, y)`. The y-coordinate is fixed; the x-coordin
 **Vertical shear** (y shifts based on x):
 
 $$
-\begin{pmatrix} 1 & 0 \\ k & 1 \end{pmatrix}
+   \begin{pmatrix} 
+      1  & 0 \\ 
+      k  & 1 
+   \end{pmatrix}
 $$
 
 A point `(x, y)` becomes `(x, kx + y)`. The x-coordinate is fixed; the y-coordinate slides.
@@ -172,18 +224,27 @@ A point `(x, y)` becomes `(x, kx + y)`. The x-coordinate is fixed; the y-coordin
 ___
 ###### Orthogonal Matrix
 
-An orthogonal matrix `Q` has columns that are perpendicular to each other and each has length 1 (orthonormal). In 2D this means it represents either a **rotation** or a **reflection**.
+An orthogonal matrix `Q` (See [linear_algebra-2.md]) has columns that are perpendicular to each other and each has length 1 (orthonormal). In 2D this means it represents either a **rotation** or a **reflection**.
 
 ▶️ Rotation by angle θ:
 
 $$
-\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}
+   \begin{pmatrix} 
+      \cos\theta  & -\sin\theta \\ 
+      \sin\theta  & \cos\theta 
+   \end{pmatrix}
 $$
 
 Rotates every vector by angle `θ` around the origin. Distances and angles between vectors are fully preserved.
 
 ▶️ Transposition: The Pauli-X Gate
-$$ X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} $$
+$$ 
+   X = 
+   \begin{pmatrix} 
+      0  & 1 \\ 
+      1  & 0 
+   \end{pmatrix} 
+$$
 
 ▶️ Key properties:
 - `Qᵀ = Q⁻¹` — the transpose is the inverse (very efficient to compute)
@@ -195,35 +256,78 @@ The rotation matrix entries `cos θ` and `sin θ` are precisely the components o
 
 ▶️ Specific angles:
 
-- $ θ = 0° $ — the identity rotation, columns are the standard basis vectors:
-$$\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \quad \text{columns: } \begin{pmatrix} 1 \\ 0 \end{pmatrix} \text{ and } \begin{pmatrix} 0 \\ 1 \end{pmatrix}$$
+- $θ = 0°$ — the identity rotation, columns are the standard basis vectors:
+$$
+   \begin{pmatrix} 
+      1  & 0 \\ 
+      0  & 1 
+   \end{pmatrix} \quad \text{columns: } 
+      \begin{pmatrix} 
+         1 \\ 
+         0 
+      \end{pmatrix} \text{ and } 
+         \begin{pmatrix} 
+            0 \\ 
+            1 
+         \end{pmatrix}
+$$
 - $ θ = 45° $ — since `cos 45° = sin 45° = √2/2`, the columns become:
-$$\begin{pmatrix} \sqrt{2}/2 & -\sqrt{2}/2 \\ \sqrt{2}/2 & \sqrt{2}/2 \end{pmatrix} \quad \text{columns: } \begin{pmatrix} \sqrt{2}/2 \\ \sqrt{2}/2 \end{pmatrix} \text{ and } \begin{pmatrix} -\sqrt{2}/2 \\ \sqrt{2}/2 \end{pmatrix}$$
-- $ θ = 90° $ — since `cos 90° = 0 and sin 90° = 1`, the columns become:
-$$ \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \quad  $$
+$$
+   \begin{pmatrix} 
+      \sqrt{2}/2  & -\sqrt{2}/2 \\ 
+      \sqrt{2}/2  & \sqrt{2}/2 
+   \end{pmatrix} \quad \text{columns: } 
+      \begin{pmatrix} 
+      \sqrt{2}/2 \\ 
+         \sqrt{2}/2 
+      \end{pmatrix} \text{ and } 
+         \begin{pmatrix} 
+            -\sqrt{2}/2 \\ 
+            \sqrt{2}/2 
+         \end{pmatrix}
+$$
+- $θ = 90°$ — since `cos 90° = 0 and sin 90° = 1`, the columns become:
+$$ 
+   \begin{pmatrix} 
+      0  & -1 \\ 
+      1  & 0 
+   \end{pmatrix} \quad  
+$$
 - $ θ = 180° $ — since `cos 180° = -1 and sin 180° = 0`, the columns become:
-$$ \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} \quad  $$
+$$ 
+   \begin{pmatrix} 
+      -1 & 0 \\ 
+      0  & -1 
+   \end{pmatrix} \quad  
+$$
 
 The two constraints that make a matrix orthogonal are exactly what it means to be a unit vector pair:
 1. **Each column has length 1** — `cos²θ + sin²θ = 1` (the Pythagorean identity guarantees this for any angle)
 2. **The columns are perpendicular to each other** — the dot product of any two columns is zero
 
-So the set of all 2×2 orthogonal matrices (with det = +1) is in direct correspondence with the unit circle — one valid orthogonal matrix for every point on it, i.e. for every angle between 0° and 360°.
+So the set of all 2×2 orthogonal matrices (with $det = +1$) is in direct correspondence with the unit circle — one valid orthogonal matrix for every point on it, i.e. for every angle between 0° and 360°.
 
-Exactly — and it becomes even more intuitive when you think about what cosine and sine *are* geometrically: they are simply the x and y coordinates of a point travelling around the unit circle.
+---
 
-So when you rotate a vector by angle θ, the matrix is just asking: "where did the two basis axes end up after rotating by θ?"
+It becomes even more intuitive when you think about what cosine and sine *are* geometrically: they are simply the x and y coordinates of a point travelling around the unit circle.
 
-- The x-axis `(1, 0)` rotated by θ lands at `(cos θ, sin θ)` → that becomes the **first column**
-- The y-axis `(0, 1)` rotated by θ lands at `(-sin θ, cos θ)` → that becomes the **second column**
+So rotating a vector by angle $θ$, the matrix is just asking: "where did the two basis axes end up after rotating by $θ$?"
+
+- The x-axis `(1, 0)` rotated by $θ$ lands at `(cos θ, sin θ)` → that becomes the **first column**
+- The y-axis `(0, 1)` rotated by $θ$ lands at `(-sin θ, cos θ)` → that becomes the **second column**
 
 The whole matrix is really just two unit vectors on the circle, 90° apart from each other:
 
-$$\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$$
+$$
+   \begin{pmatrix} 
+      \cos\theta  & -\sin\theta \\ 
+      \sin\theta  & \cos\theta 
+   \end{pmatrix}
+$$
 
-Your two examples plotted on the unit circle:
+The two examples plotted on the unit circle:
 
-| θ     | cos θ | sin θ | Point on circle       |
+| $θ$     | cos $θ$ | sin $θ$ | Point on circle       |
 |---    |--     |---    |---                    |
 | 0°    | 1     | 0     | rightmost point       |
 | 45°   | √2/2  | √2/2  | top-right diagonal    |
@@ -240,7 +344,10 @@ A projection matrix `P` collapses space onto a lower-dimensional subspace — li
 **Project onto the X axis (drop the y-component):**
 
 $$
-\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
+   \begin{pmatrix} 
+      1  & 0 \\ 
+      0  & 0 
+   \end{pmatrix}
 $$
 
 A point `(x, y)` becomes `(x, 0)`. All height information is lost.
@@ -248,7 +355,10 @@ A point `(x, y)` becomes `(x, 0)`. All height information is lost.
 **Project onto the Y axis (drop the x-component):**
 
 $$
-\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}
+   \begin{pmatrix} 
+      0  & 0 \\ 
+      0  & 1 
+   \end{pmatrix}
 $$
 
 A point `(x, y)` becomes `(0, y)`. All horizontal information is lost.
@@ -263,14 +373,30 @@ ___
 The inverse of a matrix `M`, written `M⁻¹`, is the matrix that exactly undoes the transformation `M`. Applying `M` and then `M⁻¹` (or vice versa) returns every vector to where it started.
 
 $$
-M \cdot M^{-1} = M^{-1} \cdot M = I
+   M \cdot M^{-1} = 
+   M^{-1} \cdot M = 
+   I
 $$
 
 **Formula for a 2×2 matrix:**
 
 $$
-\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1}
-= \frac{1}{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
+   \begin{pmatrix} 
+      a  & b \\ 
+      c  & d 
+   \end{pmatrix}^{-1} = 
+   \frac{1} {ad - bc} 
+      \begin{pmatrix} 
+         d  & -b \\ 
+         -c & a 
+      \end{pmatrix} = 
+$$
+$$
+   \frac{1} {det|M|} 
+      \begin{pmatrix} 
+         d  & -b \\ 
+         -c & a 
+      \end{pmatrix}
 $$
 
 The scalar `ad - bc` is the **determinant**. If it equals zero, the matrix has no inverse — the transformation collapsed the plane down to a line or a point, and the lost information cannot be recovered.
@@ -296,6 +422,55 @@ ___
 | Orthogonal      | No             | No            | Yes         | `Qᵀ = Q⁻¹`                |
 | Projection      | Yes            | Yes (→ 0)     | No          | `P² = P`                  |
 | Inverse         | Depends on M   | Depends on M  | Yes         | `MM⁻¹ = I`                |
+
+___
+###### Special Case: Transposed Matrix
+
+The transpose of a 2x2 matrix is obtained by swapping its rows with columns. For a given 2x2 matrix:
+$$
+   A = 
+   \begin{pmatrix} 
+      a  & b \\ 
+      c  & d 
+   \end{pmatrix}
+$$
+
+The transpose of $A$, denoted as $A^T$, is:
+
+$$
+   A^T = 
+   \begin{pmatrix} 
+      a  & c \\ 
+      b  & d 
+   \end{pmatrix}
+$$
+
+Properties of the Transpose:
+1. **Symmetry**: If $A$ is a symmetric matrix (i.e., $ A = A^T $), then $A$ remains unchanged under transposition.
+2. **Transpose of a Transpose**: The transpose of the transpose of a matrix $A$ is the matrix itself, i.e., $ (A^T)^T = A $.
+3. **Transpose of a Product**: The transpose of the product of two matrices $A$ and $B$ is the product of their transposes in reverse order: $ (AB)^T = B^T A^T $.
+4. **Determinant**: The determinant of a matrix and its transpose are equal, i.e. $ \det|A| = \det|A^T| $.
+5. **Trace**: The trace of a matrix (the sum of its diagonal elements) is equal to the trace of its transpose, i.e., $ \text{tr}(A) = \text{tr}(A^T) $.
+
+The transpose operation does not change the fundamental properties of the matrix in terms of its rank, determinant, or eigenvalues. However, it does change the matrix's orientation in the sense that rows become columns and vice versa. This can be useful in various applications, such as solving systems of linear equations, working with quadratic forms, and in the context of orthogonal matrices.
+
+Let's consider a specific 2x2 matrix:
+$$
+   A = 
+   \begin{pmatrix} 
+      1  & 2 \\ 
+      3  & 4 
+   \end{pmatrix}
+$$
+
+The transpose of $A$ is:
+$$
+   A^T = 
+   \begin{pmatrix} 
+      1  & 3 \\ 
+      2  & 4 
+   \end{pmatrix}
+$$
 
 ---
 
@@ -391,14 +566,20 @@ ___
 #### The Cauchy Stress Formula
 If we define a unit vector $\mathbf{n}$ representing the orientation of a surface "slice," the traction vector $\mathbf{T}^{(\mathbf{n})}$ (the force per unit area) is found via:
 
-$$\mathbf{T}^{(\mathbf{n})} = \mathbf{n} \cdot \sigma$$
+$$
+   \mathbf{T}^{(\mathbf{n})} = 
+   \mathbf{n} \cdot \sigma
+$$
 
 In matrix form, the stress tensor $\sigma$ is represented as:
-$$\sigma = \begin{bmatrix} 
-\sigma_{xx} & \sigma_{xy} & \sigma_{xz} \\
-\sigma_{yx} & \sigma_{yy} & \sigma_{yz} \\
-\sigma_{zx} & \sigma_{zy} & \sigma_{zz} 
-\end{bmatrix}$$
+$$
+   \sigma = 
+   \begin{bmatrix} 
+      \sigma_{xx} & \sigma_{xy}  & \sigma_{xz} \\
+      \sigma_{yx} & \sigma_{yy}  & \sigma_{yz} \\
+      \sigma_{zx} & \sigma_{zy}  & \sigma_{zz} 
+   \end{bmatrix}
+$$
 
 * **Normal Stresses ($\sigma_{ii}$):** Diagonal components. They represent stretching or compression perpendicular to the face.
 * **Shear Stresses ($\sigma_{ij}$):** Off-diagonal components. They represent forces acting parallel to the face.
@@ -409,7 +590,7 @@ $$\sigma = \begin{bmatrix}
 A crucial insight from the video is that while the **numbers** in the matrix change when you rotate your perspective, the **tensor itself** remains invariant.
 
 If we rotate our coordinate system from $x$ to $x'$, the components of the tensor transform according to the rotation matrix $Q$:
-$$\sigma' = Q \sigma Q^T$$
+$$ \sigma' = Q \sigma Q^T $$
 
 ___
 #### Principal Stresses
@@ -423,13 +604,19 @@ In advanced physics, tensors are not just matrices; they are defined by how they
 ___
 #### The Metric Tensor ($g_{\mu\nu}$)
 In General Relativity, the metric tensor defines the geometry of spacetime. It allows us to calculate the "distance" ($ds^2$) between two points in a curved manifold:
-$$ds^2 = \sum_{\mu,\nu} g_{\mu\nu} dx^\mu dx^\nu$$
+$$ 
+   ds^2 = 
+   \sum_{\mu,\nu} g_{\mu\nu} dx^\mu dx^\nu 
+$$
 Without the metric tensor, we couldn't describe gravity as the curvature of space.
 
 ___
 #### The Einstein Field Equations
 Tensors allow us to equate the geometry of the universe to the energy density within it:
-$$G_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa T_{\mu\nu}$$
+$$
+   G_{\mu\nu} + \Lambda g_{\mu\nu} = 
+   \kappa T_{\mu\nu}
+$$
 * $G_{\mu\nu}$: Einstein tensor (curvature).
 * $T_{\mu\nu}$: Energy-momentum tensor (matter/energy).
 
