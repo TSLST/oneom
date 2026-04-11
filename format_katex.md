@@ -47,6 +47,19 @@ $$
    \bf ld \space writing
 $
 1. $co\!eur$
+1. $
+   \'e \space 
+   \`e \space 
+   \~e \space 
+   \"e \space 
+   \.e \space 
+   \^e \space 
+   \r e \space 
+   \u e \space 
+   \c e \space 
+   \v e \space 
+   \bar e \space 
+$
 
 ---
 
@@ -192,23 +205,6 @@ $
 1. $C\|$: complex numbers
 
 ---
-### Accents
-
-$
-   \'e \space 
-   \`e \space 
-   \~e \space 
-   \"e \space 
-   \.e \space 
-   \^e \space 
-   \r e \space 
-   \u e \space 
-   \c e \space 
-   \v e \space 
-   o\!e
-$
-
----
 ### Wreath Product
 
 Given two groups $A$ and $H$ (sometimes known as the *bottom* and *top*), there exist two variants of the wreath product: the unrestricted wreath product $\displaystyle A{\text{ Wr }}H$ and the restricted wreath product $\displaystyle A{\text{ wr }}H$ or $A \wr H$.<br>
@@ -259,7 +255,7 @@ $$
 ___
 $^{*}$ Here are some scenarios where `bmatrix` might be used in favor of `pmatrix`:
 
-    Linear Algebra: In linear algebra, square brackets are often used to denote matrices. For example, when defining a matrix A or B, square brackets can make the notation clearer and more consistent with standard conventions.
+    Linear Algebra: In linear algebra, square brackets are often used to denote matrices of matrices and tensors. For example, when defining a matrix A or B, square brackets can make the notation clearer and more consistent with standard conventions.
 $$
       A = 
       \begin{bmatrix}
@@ -348,3 +344,30 @@ $
 1. Density Matrix (ρ): $\hat{\rho}$
 
 ---
+
+## Unicode
+
+1. ▶: $\char"25B6$
+1. 光: $\char20809$
+1. 神: $\char"795E$
+1. 縁: $\char"7E01$
+1. →: $\char"2192$
+1. ✓: $\char"2713$
+1. ✗: $\char"2717$
+1. ✅: $\char"2705$
+1. ❌: $\char"274C$
+1. ⛔: $\char"26D4$
+1. ⚠️: $\char"26A0$
+1. ℹ️: $\char"2139$
+1. 👉: $\char"1F449$
+1. …: $\char"2026$
+1. —: $\char"2014$
+1. ×: $\char"00D7$
+1. 💡: $\char"1F4A1$
+1. 🖥️: $\char"1F5A5$
+1. ⏳: $\char"23F3$
+1. ⭐: $\char"2B50$
+1. ⚡: $\char"26A1$
+1. 🔥: $\char"1F525$
+1. ꩜: $\char"AA5C$
+1. 📺: $\char"1F4FA$

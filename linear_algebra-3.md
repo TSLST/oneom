@@ -12,10 +12,6 @@ Links:
 
 # Linear Algebra III
 
-<br><br>
-(*TO REVIEW*)
-<br><br>
-
 ---
 
 ## Transformation Matrixes
@@ -25,9 +21,7 @@ ___
 
 <a href="https://www.youtube.com/watch?v=7Gtxd-ew4lk" class="hover-effect" data-title="[SEE Matrix 1](https://www.youtube.com/watch?v=7Gtxd-ew4lk)">
     <img src="https://images.icon-icons.com/17/PNG/256/social_youtube_2234.png" alt="SEE Matrix" width="32">
-</a> 👉 Visualizing, identity matrix, scalar matrix, reflection matrix, diagonal matrix, zero matrix, shear matrix, orthogonal matrix, projection matrix, inverse of a matrix.
-
-SVD
+</a> 👉 Visualizing, identity matrix, scalar matrix, reflection matrix, diagonal matrix, zero matrix, shear matrix, orthogonal matrix, projection matrix, inverse of a matrix. 📺
 
 ___
 ###### Null Matrix
@@ -476,6 +470,10 @@ $$
 
 ## Tensor Product
 
+<br><br>
+(*TO REVIEW*)
+<br><br>
+
 The $\otimes$ operator is a mathematical symbol that represents the tensor product in linear algebra and quantum mechanics.<br>
 It is used to combine two vectors, matrices, or other mathematical objects into a new object that captures the structure and, relationships between elements, of the original objects.
 
@@ -503,7 +501,7 @@ $$
 
 Here are a few contexts where the tensor product is commonly used:
 1. **Linear Algebra**: In linear algebra, the tensor product of two vectors $\mathbf{u}$ and $\mathbf{v}$ is a new bilinear map or a rank-1 matrix that combines the components of $\mathbf{u}$ and $\mathbf{v}$ in a specific way. 
-1. **Outer Product**: This is a specific case of the tensor product that applies to vectors, resulting in a matrix. It is often denoted by the same symbol ⊗⊗, but the context usually makes it clear that it refers to the outer product. 
+1. **Outer Product**: This is a specific case of the tensor product that applies to vectors, resulting in a matrix. It is often denoted by the same symbol $\otimes$, but the context usually makes it clear that it refers to the outer product. 
 1. **Quantum Mechanics**: In quantum mechanics, the tensor product is used to describe the state of composite systems. For example, if $|\psi\rangle$ and $|\phi\rangle$ are quantum states, then $|\psi\rangle \otimes |\phi\rangle$ represents the combined state of two quantum systems.
 1. **Multivariate Calculus**: In multivariate calculus, the tensor product is used to define tensors, which are multidimensional arrays that generalize the concepts of scalars, vectors, and matrices.
 
@@ -540,7 +538,7 @@ In this example, `np.outer` computes the outer product of the vectors `u` and `v
 
 <a href="https://www.youtube.com/watch?v=YxXyN2ifK8A" class="hover-effect" data-title="[SEE Matrix 1](https://www.youtube.com/watch?v=YxXyN2ifK8A)">
     <img src="https://images.icon-icons.com/17/PNG/256/social_youtube_2234.png" alt="SEE Matrix" width="32">
-</a> 👉 Visualizing Temsors Part 1
+</a> 👉 Visualizing Tensors Part 1 📺
 <br><br>
 
 ---
@@ -549,14 +547,56 @@ This presentation synthesizes the foundational concepts of tensors from the visu
 
 ---
 ### 1. Defining the Tensor Hierarchy
+
 A tensor is a geometric object that describes linear relationships between other geometric objects. The "order" (or rank) of a tensor defines its complexity and the number of dimensions required to represent it.
 
 | Order | Mathematical Entity | Visual Representation | Components ($n=3$) |
 | :--- | :--- | :--- | :--- |
-| **0** | **Scalar** | A single point / magnitude | $3^0 = 1$ |
+| **0** | **Scalar**/Single value | A single point/magnitude | $3^0 = 1$ |
 | **1** | **Vector** | An arrow (magnitude & direction) | $3^1 = 3$ |
 | **2** | **Dyad (Matrix)** | A transformation or "stress sphere" | $3^2 = 9$ |
 | **3** | **Triad** | A 3D cube of data | $3^3 = 27$ |
+
+Tensors can have an order greater than 3.
+The order of a tensor, also known as its rank, refers to the number of indices needed to specify an element in the tensor. Tensors with an order greater than 3 are often referred to as higher-order tensors or multi-dimensional arrays.
+
+Here's a brief overview of tensors with different orders:
+1. **Tensor of Order 0**: A scalar, which is a single number.
+2. **Tensor of Order 1**: A vector, which is a one-dimensional array of numbers.
+3. **Tensor of Order 2**: A matrix, which is a two-dimensional array of numbers.
+4. **Tensor of Order 3**: A three-dimensional array, often visualized as a cube of numbers.
+5. **Tensor of Order 4 and Higher**: Higher-dimensional arrays, which can have four or more dimensions. These tensors are used in various fields such as physics, machine learning, and computer vision.
+
+#### Examples of Higher-Order Tensors
+
+- **Tensor of Order 4**: A four-dimensional array. This can be used to represent data with four indices, such as color images with spatial and color dimensions.
+- **Tensor of Order 5**: A five-dimensional array. This can be used in more complex data representations, such as video data with spatial, temporal, and color dimensions.
+
+#### Example in Python
+
+In Python, you can create and manipulate higher-order tensors using libraries like NumPy. Here is an example of creating a tensor of order 4:
+
+```python
+import numpy as np
+
+# Creating a tensor of order 4 (4-dimensional array)
+tensor_4d = np.random.rand(2, 3, 4, 5)
+
+print("Shape of the tensor:", tensor_4d.shape)  # Output: Shape of the tensor: (2, 3, 4, 5)
+print("Order of the tensor:", tensor_4d.ndim)  # Output: Order of the tensor: 4
+```
+
+In this example, `tensor_4d` is a 4-dimensional array with shapes 2, 3, 4, and 5 along each dimension.
+
+#### Applications of Higher-Order Tensors
+
+Higher-order tensors are used in various applications, including:
+
+- **Machine Learning**: In deep learning, tensors of order 3 and higher are used to represent data, such as images (3D tensors) and video sequences (4D tensors).
+- **Physics**: In theoretical physics, tensors of various orders are used to represent physical quantities, such as the electromagnetic tensor in electromagnetism.
+- **Computer Vision**: In image and video processing, higher-order tensors are used to represent and manipulate multi-dimensional data.
+
+Understanding higher-order tensors is crucial for working with complex data structures and performing advanced computations in various scientific and engineering fields.
 
 ---
 ### 2. The Stress Tensor: A Physical Intuition
