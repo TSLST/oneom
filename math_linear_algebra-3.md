@@ -58,11 +58,12 @@ $$
    \begin{pmatrix} 
       2  & 0 \\ 
       0  & 2 
-   \end{pmatrix} = \\2 \times 
-   \begin{pmatrix} 
-      1  & 0 \\ 
-      0  & 1 
-   \end{pmatrix}
+   \end{pmatrix} = \\
+   2 \times 
+      \begin{pmatrix} 
+         1  & 0 \\ 
+         0  & 1 
+      \end{pmatrix}
 $$
 
 A scalar matrix is an identity matrix multiplied by a constant `k`. It scales every vector uniformly — the same factor in every direction. The shape of an object is preserved; only its size changes.

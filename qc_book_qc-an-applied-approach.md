@@ -3,6 +3,7 @@ Type: Course
 Use: Notes and synthesis over the course of Quantum Computing Learning. The file will contain code, notes, excerpts, definitions, links, ressources that help grasp the usage of Quantum Computers.
 Tags:
 Creation: 2026-02-28
+Update: 2026-02-28
 Contributors: 神縁
 Links:
 - [[quantum]]
@@ -14,11 +15,15 @@ Links:
 
 **Quantum Computing as a side quest for intellectual self-realisation**
 
+---
+
 ## North Star
 
 AMI-type research ou quantum algorithmics R&D<br>
 Horizon réaliste: 18-24 mois pour être contributeur crédible<br>
 Horizon ambitieux: publication ou contribution open-source en 12 mois<br>
+
+---
 
 ## Mindset
 
@@ -34,518 +39,43 @@ Horizon ambitieux: publication ou contribution open-source en 12 mois<br>
 * Physically fit — asset for cognitive endurance
 * Financial constraints: zero-cost path required
 
+---
+
+## Fields of Application
+
+here are some potential applications of quantum computing:
+1. **Chemistry and Materials Science**:<br>
+Simulating molecular interactions and predicting new materials with desired properties can help in drug discovery, battery development, and material engineering.
+2. **High Energy Physics**:<br>
+Quantum computers may help in modeling and simulating particle collisions to better understand the fundamental forces of nature and potentially discover new subatomic particles.
+3. **Logistics and Optimization**:<br>
+Quantum algorithms have the potential to solve complex logistical problems, such as finding the shortest path or most efficient routes for delivery trucks, more efficiently than classical computers.
+4. **Cryptography**:<br>
+While quantum computing can break some of today's encryption methods (such as RSA), it can also help develop new unbreakable encryption techniques and provide improved security protocols for online transactions and communication.
+5. **Finance**:<br>
+Quantum computers could potentially be used to analyze market trends, make investment decisions, and perform risk analyses, providing valuable insights to investors and financial institutions.
+6. **Artificial Intelligence**:<br>
+Quantum machines may enable new AI techniques that can outperform classical computers in tasks such as pattern recognition, natural language processing, and machine learning.
+7. **Simulating complex systems**:<br>
+Quantum simulation could be used to understand and manipulate phenomena in fields such as climate science, meteorology, and condensed matter physics.
+8. **Drug Discovery and Medicine**:<br>
+Quantum computers can help design new pharmaceuticals by simulating interactions between molecules and potential drugs, thus expediting the drug discovery process.
+9. **Earth Sciences**:<br>
+Applications include predicting earthquakes, simulating climate change, and modeling complex geological formations.
+
+---
+
 ## Notes
 
-### Linear Algebra reminders
-
-#### Definition
-    Linear algebra is the study of vector spaces (also called linear spaces) and linear transformations between such spaces. It is essential for understanding systems of linear equations, matrices, and vectors.
-
-    Linear algebra is about vector spaces and linear transformations.
-
-#### Key Concepts
-    - Vectors: Elements of a vector space, often represented as arrays of numbers.
-    - Matrices: Rectangular arrays of numbers used to represent linear transformations.
-    - Linear Transformations: Functions that preserve vector addition and scalar multiplication. Matrix multiplication is a linear transformation that transforms vector v into vector T(v).
-    - Eigenvalues and Eigenvectors: Special sets of scalars and vectors associated with a linear transformation.
-
-#### Examples
-
-##### 1. Vector Operations
-
-- **Problem:** Add the vectors $ \mathbf{u} = \begin{pmatrix} 1 \\ 2 \end{pmatrix} $ and $ \mathbf{v} = \begin{pmatrix} 3 \\ 4 \end{pmatrix} $
-- **Solution:**
-$$
-    \mathbf{u} + \mathbf{v}
-    = \begin{pmatrix} 1 \\ 2 \end{pmatrix}
-    + \begin{pmatrix} 3 \\ 4 \end{pmatrix}
-    = \begin{pmatrix} 1+3 \\ 2+4 \end{pmatrix}
-    = \begin{pmatrix} 4 \\ 6 \end{pmatrix}
-$$
-
-##### 2. Matrix Multiplication
-
-- **Problem:** Multiply the matrix $ A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} $ by the vector $ \mathbf{v} = \begin{pmatrix} 5 \\ 6 \end{pmatrix} $
-- **Solution:**
-$$
-    \mathbf{T(v)}
-    = A \mathbf{v}
-    = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}
-    \cdot \begin{pmatrix} 5 \\ 6 \end{pmatrix}
-    = \begin{pmatrix} 1 * 5 + 2 * 6 \\ 3 * 5 + 4 * 6 \end{pmatrix}
-    = \begin{pmatrix} 5 + 12 \\ 15 + 24 \end{pmatrix}
-    = \begin{pmatrix} 17 \\ 39 \end{pmatrix}
-$$
-- **Problem:** Multiply the vectors $ \mathbf{u} = \begin{pmatrix} 1 \\ 2 \end{pmatrix} $ and $ \mathbf{v} = \begin{pmatrix} 3 \\ 4 \end{pmatrix} $
-- **Solution:**
-$$ 
-    \mathbf{u} \cdot \mathbf{v} = ||\mathbf{u}|| * ||\mathbf{v}|| * \cos{\theta}
-$$
-$$
-    \mathbf{u} \cdot \mathbf{v}=(1*3)+(2*4)=3+8=11
-$$
-$$
-    ∥u∥ = \sqrt{1^2 + 2^2} ​= \sqrt{1 + 4} ​= \sqrt{5}
-$$
-$$
-    ∥v∥ = \sqrt{3^2+4^2} = \sqrt{9 + 16} = \sqrt{25} = 5
-$$
-$$
-    ​\mathbf{u} \cdot \mathbf{v} = 11 = ||\mathbf{u}|| * ||\mathbf{v}|| * \cos{\theta} = \sqrt{5} * 5 * \cos{\theta}
-$$
-$$
-    \cos{\theta} = 11 / (5*\sqrt{5}) = 11*\sqrt{5}/25
-$$
-$$
-    \theta = \cos^{-1}(11*\sqrt{5}/25)
-$$
-This is the angle between the vectors $ \mathbf{u} $ and $ \mathbf{v} $.
-
-##### 3. Eigenvalues and Eigenvectors
-
-###### Applications
-
-Eigenvalues and eigenvectors are fundamental tools that reveal the "natural axes" and "scaling factors" of a linear transformation. Here's what they're actually used for:
-- **Principal Component Analysis (PCA)**<br>
-The most common use in data science. Eigenvectors of the covariance matrix point in the directions of maximum variance in your data. Used for dimensionality reduction, noise filtering, and visualization.
-- **Differential equations**<br>
-Systems like $ \mathbf{x}' = A\mathbf{x} $ are solved by decomposing into eigenvectors. Each eigenvector evolves independently as $ e^{\lambda t} $, making complex coupled systems tractable.
-- **Structural engineering / physics**<br>
-Eigenvalues represent natural resonance frequencies of structures. Engineers use them to ensure bridges or buildings don't vibrate at dangerous frequencies.
-- **Google's PageRank**<br>
-The ranking of web pages is literally the dominant eigenvector of a massive link matrix.
-- **Quantum mechanics**<br>
-Observables (energy, momentum) are eigenvalues of operators. The famous Schrödinger equation is essentially an eigenvalue problem.
-- **Graph theory**<br>
-Eigenvalues of adjacency matrices reveal clustering, connectivity, and community structure in networks.
-- **Markov chains**<br>
-The long-run steady state distribution is the eigenvector with $ \lambda = 1 $.
-
-###### Definitions
-
-When you multiply a matrix by most vectors, the vector rotates and scales.<br>
-An eigenvector is special — it only scales, never rotates.<br>
-The eigenvalue is the scaling factor: $ A\mathbf{v} = \lambda\mathbf{v} $
-
-###### Why They Matter Geometrically
-
-A matrix can be decomposed as $ A = PDP^{-1} $ where $ D $ is diagonal (eigenvalues) and $ P $ contains the eigenvectors. This makes computing $ A^n = PD^{n}P^{-1} $ trivial — useful in economics, population models, and simulations.
-
-In short: eigenvalues and eigenvectors let you find the **axes along which a system behaves simply**, even when the overall system looks complex.
-
-###### Characteristic Polynomial Equals Zero
-
-- **Problem:** Find the eigenvalues and eigenvectors of the matrix $ A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix} $
-- **Solution:**
-    - First, find the *characteristic polynomial*:
-    $$
-    \det(A - \lambda I) = \det \begin{pmatrix} 4 - \lambda & 1 \\ 2 & 3 - \lambda \end{pmatrix}
-        = (4 - \lambda) * (3 - \lambda) - (1 * 2)
-        = \lambda^2 - 7\lambda + 10
-    $$
-To solve this second-degree equation $ \lambda^2 + b\lambda + c = 0 $, you can use the quadratic formula:
-$$ \lambda = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
-
-For the equation $ \lambda^2 - 7\lambda + 10 = 0 $:<br>
-Coefficients: $ a = 1 $, $ b = -7 $, and $ c = 10 $<br>
-Plug these values into the quadratic formula:
-$$ \lambda = \frac{-(-7) \pm \sqrt{(-7)^2 - 4 * 1 * 10}}{2 * 1} $$
-$$ \lambda = \frac{7 \pm \sqrt{49 - 40}}{2} $$
-$$ \lambda = \frac{7 \pm \sqrt{9}}{2} $$
-$$ \lambda = \frac{7 \pm 3}{2} $$
-
-2 possible values for $ \lambda $:
-$$ \lambda = \frac{7 + 3}{2} = \frac{10}{2} = 5 $$
-$$ \lambda = \frac{7 - 3}{2} = \frac{4}{2} = 2 $$
-
-So, the solutions to the equation $ \lambda^2 - 7\lambda + 10 = 0 $ are
-$ \lambda = 5 $ and $ \lambda = 2 $
-
-###### Eigenvalues and Eigenvectors
-
-Eigenvector $ \mathbf{v} $ of a linear transformation $ \mathbf{T} $ is a nonzero vector that, when $ \mathbf{T} $ is applied to it, does not change direction.<br>
-Applying $ \mathbf{T} $ to the eigenvector only scales the eigenvector by the scalar value $ \lambda $, called an eigenvalue.<br>
-This condition can be written as the equation:
-$ \mathbf{T(v)} = \lambda \mathbf{v} $
-- Solve for $ \lambda $:
-    $$
-    \lambda^2 - 7\lambda + 10 = 0
-    \implies
-    (\lambda - 5) * (\lambda - 2) = 0
-    $$
-    So, the eigenvalues are:
-    $ \lambda = 5 $
-    and
-    $ \lambda = 2 $
-- Find the eigenvectors:
-$ A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix} $
-    - For $ \lambda = 5 $:
-        $$
-        (A - 5I) \cdot \mathbf{v} = 0
-        \implies
-        \begin{pmatrix} -1 & 1 \\ 2 & -2 \end{pmatrix}
-        \cdot \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}
-            = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
-        $$
-        This gives $ v_1 = v_2 $<br>
-        Let's use $ v_1 = 1 $ as a base for an eigenvector<br>
-        So an eigenvector is: $ \begin{pmatrix} 1 \\ 1 \end{pmatrix} $
-    - For $ \lambda = 2 $:
-        $$
-        (A - 2I) * \mathbf{v} = 0
-        \implies
-        \begin{pmatrix} 2 & 1 \\ 2 & 1 \end{pmatrix}
-        \cdot \begin{pmatrix} v_1 \\ v_2 \end{pmatrix}
-            = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
-        $$
-        This gives $ 2 * v_1 + v_2 = 0 $<br>
-        Let's use $ v_1 = 1 $ as a base for an eigenvector<br>
-        So an eigenvector is: $ \begin{pmatrix} 1 \\ -2 \end{pmatrix} $
-
-##### 4. Eigenvalue Decomposition/Spectral Decomposition
-
-Given the matrix $ A $, its eigenvalues, and eigenvectors, we can construct the matrices $ P $, $ D $, and $ P^{-1} $.
-
-- Eigenvectors: $ \mathbf{v}_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix} $ and $ \mathbf{v}_2 = \begin{pmatrix} 1 \\ -2 \end{pmatrix} $
-
-- **Matrix $ P $**: The columns of $ P $ are the eigenvectors of $ A $:
-$$ P = \begin{pmatrix} 1 & 1 \\ 1 & -2 \end{pmatrix} $$
-
-- Eigenvalues: $ \lambda_1 = 5 $ and $ \lambda_2 = 2 $
-
-- **Matrix $ D $**: The diagonal elements of $ D $ are the eigenvalues of $ A $ ordered after the corresponding eigenvectors in $ P $.
-$$ D = \begin{pmatrix} 5 & 0 \\ 0 & 2 \end{pmatrix} $$
-
-- **Matrix $ P^{-1} $**: We use the formula for the inverse of a 2x2 matrix:
-$$
-P^{-1} = \frac{1}{\text{det}(P)}
-\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
-$$
-$$
-\text{det}(P) = (1 * -2) - (1 * 1)
-    = -2 - 1
-    = -3
-$$
-$$
-P^{-1} = \frac{1}{-3}
-\begin{pmatrix} -2 & -1 \\ -1 & 1 \end{pmatrix}
-    = \begin{pmatrix} \frac{2}{3} & \frac{1}{3} \\ \frac{1}{3} & -\frac{1}{3} \end{pmatrix}
-$$
-
-- **Matrix $ PDP^{-1} $**:
-$$
-PDP^{-1} = \begin{pmatrix} 1 & 1 \\ 1 & -2 \end{pmatrix}
-\cdot \begin{pmatrix} 5 & 0 \\ 0 & 2 \end{pmatrix}
-\cdot \begin{pmatrix} \frac{2}{3} & \frac{1}{3} \\ \frac{1}{3} & -\frac{1}{3} \end{pmatrix}
-$$
-
-- **Check $ PDP^{-1} = A $**:
-$$
-PD = \begin{pmatrix} 1 & 1 \\ 1 & -2 \end{pmatrix}
-\cdot \begin{pmatrix} 5 & 0 \\ 0 & 2 \end{pmatrix}
-    = \begin{pmatrix} 5 & 2 \\ 5 & -4 \end{pmatrix}
-$$
-$$
-PDP^{-1} = \begin{pmatrix} 5 & 2 \\ 5 & -4 \end{pmatrix}
-\cdot \begin{pmatrix} \frac{2}{3} & \frac{1}{3} \\ \frac{1}{3} & -\frac{1}{3} \end{pmatrix}
-    = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}
-    = A
-$$
-
-##### Linear Transformation Matrixes
-
-<a href="https://www.youtube.com/watch?v=7Gtxd-ew4lk" class="hover-effect" data-title="[SEE Matrix 1](https://www.youtube.com/watch?v=7Gtxd-ew4lk)">
-    <img src="https://images.icon-icons.com/17/PNG/256/social_youtube_2234.png" alt="SEE Matrix" width="32">
-</a> 👉 Visualizing, identity matrix, scalar matrix, reflection matrix, diagonal matrix, zero matrix, shear matrix, orthogonal matrix, projection matrix, inverse of a matrix.
-
-SVD
-
-###### Null Matrix
-
-$$
-\begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
-$$
-
-Every entry is zero. Multiplying any vector by the null matrix collapses it to the zero vector `(0, 0)`. Think of it as an absolute eraser — all information about direction and magnitude is destroyed. There is no way to reverse the operation.
-
-**Key property:** `M · v = 0` for every vector `v`.
-
 ---
-
-###### Identity Matrix
-
-$$
-\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
-$$
-
-The "do nothing" matrix. Multiplying any vector by the identity matrix returns that exact vector unchanged. It is the matrix equivalent of multiplying a number by 1.
-
-**Key property:** `I · v = v` for every vector `v`.
-
----
-
-###### Scalar Matrix
-
-$$
-\begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}
-$$
-
-A scalar matrix is an identity matrix multiplied by a constant `k`. It scales every vector uniformly — the same factor in every direction. The shape of an object is preserved; only its size changes.
-
-- `k > 1` → enlargement
-- `0 < k < 1` → shrinkage
-- `k = -1` → central symmetry (same as the reflection matrix below)
-
-**Key property:** `M · v = k · v` for every vector `v`.
-
----
-
-###### One-Off Matrix (Non-uniform scaling)
-
-These scale along only one axis, stretching or squashing in a single direction while leaving the other unchanged.
-
-**Half reduction on the X axis:**
-
-$$
-\begin{pmatrix} 1/2 & 0 \\ 0 & 1 \end{pmatrix}
-$$
-
-Compresses horizontally. A point at `(4, 3)` becomes `(2, 3)`.
-
-**Half reduction on the Y axis:**
-
-$$
-\begin{pmatrix} 1 & 0 \\ 0 & 1/2 \end{pmatrix}
-$$
-
-Compresses vertically. A point at `(4, 3)` becomes `(4, 1.5)`.
-
-**Doubling on the X axis:**
-
-$$
-\begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}
-$$
-
-Stretches horizontally. A circle becomes a wide ellipse.
-
-**Doubling on the Y axis:**
-
-$$
-\begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}
-$$
-
-Stretches vertically. A circle becomes a tall ellipse.
-
-**General form:** `diag(a, b)` where `a` and `b` are independent scale factors for each axis.
-
----
-
-###### Reflection Matrix
-
-Flips vectors across an axis or through the origin.
-
-**Across the Y axis (horizontal flip):**
-
-$$
-\begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}
-$$
-
-The x-coordinate is negated; the y-coordinate is untouched. A point at `(3, 2)` becomes `(-3, 2)`.
-
-**Across the X axis (vertical flip):**
-
-$$
-\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
-$$
-
-The y-coordinate is negated; the x-coordinate is untouched. A point at `(3, 2)` becomes `(3, -2)`.
-
-**Through the origin (central symmetry):**
-
-$$
-\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}
-$$
-
-Both coordinates are negated. A point at `(3, 2)` becomes `(-3, -2)`. Equivalent to a 180° rotation.
-
-**Key property:** Applying the same reflection twice returns to the original: `M² = I`.
-
----
-
-###### Diagonal Matrix
-
-$$
-\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}
-= \begin{pmatrix} 3 & 0 \\ 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}
-$$
-
-Non-zero entries only on the main diagonal. Each diagonal value independently scales its corresponding axis. The example above triples the x-component and doubles the y-component. It can always be decomposed into a sequence of one-off (axis-aligned) scalings.
-
-**Key property:** Easy to raise to a power — just raise each diagonal entry to that power.
-
----
-
-###### Shear Matrix
-
-A shear matrix "leans" space. One axis is displaced in proportion to the coordinate on the other axis. A square becomes a parallelogram — area is preserved, but right angles are lost.
-
-**Horizontal shear** (x shifts based on y):
-
-$$
-\begin{pmatrix} 1 & k \\ 0 & 1 \end{pmatrix}
-$$
-
-A point `(x, y)` becomes `(x + ky, y)`. The y-coordinate is fixed; the x-coordinate slides by `k` times the height.
-
-**Vertical shear** (y shifts based on x):
-
-$$
-\begin{pmatrix} 1 & 0 \\ k & 1 \end{pmatrix}
-$$
-
-A point `(x, y)` becomes `(x, kx + y)`. The x-coordinate is fixed; the y-coordinate slides.
-
-**Key property:** `det = 1` — shear preserves area.
-
----
-
-###### Orthogonal Matrix
-
-An orthogonal matrix `Q` has columns that are perpendicular to each other and each has length 1 (orthonormal). In 2D this means it represents either a **rotation** or a **reflection**.
-
-▶️ Rotation by angle θ:
-
-$$
-\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}
-$$
-
-Rotates every vector by angle `θ` around the origin. Distances and angles between vectors are fully preserved.
-
-▶️ Transposition: The Pauli-X Gate
-$$ X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} $$
-
-▶️ Key properties:
-- `Qᵀ = Q⁻¹` — the transpose is the inverse (very efficient to compute)
-- `det(Q) = +1` for pure rotation, `-1` if a reflection is also involved
-- Lengths of all vectors are unchanged: `|Qv| = |v|`
-
-▶️ Unit Matrix<br>
-The rotation matrix entries `cos θ` and `sin θ` are precisely the components of a unit vector — so every angle `θ` gives a different but equally valid orthogonal matrix.
-
-▶️ Specific angles:
-
-- $ θ = 0° $ — the identity rotation, columns are the standard basis vectors:
-$$\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \quad \text{columns: } \begin{pmatrix} 1 \\ 0 \end{pmatrix} \text{ and } \begin{pmatrix} 0 \\ 1 \end{pmatrix}$$
-- $ θ = 45° $ — since `cos 45° = sin 45° = √2/2`, the columns become:
-$$\begin{pmatrix} \sqrt{2}/2 & -\sqrt{2}/2 \\ \sqrt{2}/2 & \sqrt{2}/2 \end{pmatrix} \quad \text{columns: } \begin{pmatrix} \sqrt{2}/2 \\ \sqrt{2}/2 \end{pmatrix} \text{ and } \begin{pmatrix} -\sqrt{2}/2 \\ \sqrt{2}/2 \end{pmatrix}$$
-- $ θ = 90° $ — since `cos 90° = 0 and sin 90° = 1`, the columns become:
-$$ \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \quad  $$
-- $ θ = 180° $ — since `cos 180° = -1 and sin 180° = 0`, the columns become:
-$$ \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix} \quad  $$
-
-The two constraints that make a matrix orthogonal are exactly what it means to be a unit vector pair:
-1. **Each column has length 1** — `cos²θ + sin²θ = 1` (the Pythagorean identity guarantees this for any angle)
-2. **The columns are perpendicular to each other** — the dot product of any two columns is zero
-
-So the set of all 2×2 orthogonal matrices (with det = +1) is in direct correspondence with the unit circle — one valid orthogonal matrix for every point on it, i.e. for every angle between 0° and 360°.
-
-Exactly — and it becomes even more intuitive when you think about what cosine and sine *are* geometrically: they are simply the x and y coordinates of a point travelling around the unit circle.
-
-So when you rotate a vector by angle θ, the matrix is just asking: "where did the two basis axes end up after rotating by θ?"
-
-- The x-axis `(1, 0)` rotated by θ lands at `(cos θ, sin θ)` → that becomes the **first column**
-- The y-axis `(0, 1)` rotated by θ lands at `(-sin θ, cos θ)` → that becomes the **second column**
-
-The whole matrix is really just two unit vectors on the circle, 90° apart from each other:
-
-$$\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$$
-
-Your two examples plotted on the unit circle:
-
-| θ     | cos θ | sin θ | Point on circle       |
-|---    |--     |---    |---                    |
-| 0°    | 1     | 0     | rightmost point       |
-| 45°   | √2/2  | √2/2  | top-right diagonal    |
-| 90°   | 0     | 1     | topmost point         |
-| 180°  | -1    | 0     | leftmost point        |
-
-    This is also why the orthogonality condition `Qᵀ = Q⁻¹` costs nothing to compute — the inverse rotation is just going backwards around the circle by `-θ`, which swaps sine and cosine's signs, which is exactly what transposing the matrix does.
-
----
-
-###### Projection Matrix
-
-A projection matrix `P` collapses space onto a lower-dimensional subspace — like casting a shadow onto a line or a plane.
-
-**Project onto the X axis (drop the y-component):**
-
-$$
-\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
-$$
-
-A point `(x, y)` becomes `(x, 0)`. All height information is lost.
-
-**Project onto the Y axis (drop the x-component):**
-
-$$
-\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}
-$$
-
-A point `(x, y)` becomes `(0, y)`. All horizontal information is lost.
-
-**Key property (idempotent):** `P² = P` — projecting twice gives the same result as projecting once. Once a point is on the axis, it stays there.
-
-> Because projection destroys information (it is not injective), projection matrices have no inverse.
-
----
-
-###### Inverse Matrix
-
-The inverse of a matrix `M`, written `M⁻¹`, is the matrix that exactly undoes the transformation `M`. Applying `M` and then `M⁻¹` (or vice versa) returns every vector to where it started.
-
-$$
-M \cdot M^{-1} = M^{-1} \cdot M = I
-$$
-
-**Formula for a 2×2 matrix:**
-
-$$
-\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1}
-= \frac{1}{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
-$$
-
-The scalar `ad - bc` is the **determinant**. If it equals zero, the matrix has no inverse — the transformation collapsed the plane down to a line or a point, and the lost information cannot be recovered.
-
-**Key properties:**
-- Exists only when `det(M) ≠ 0`
-- `(AB)⁻¹ = B⁻¹ A⁻¹` — when inverting a product, the order reverses
-- The inverse of a rotation by `θ` is a rotation by `-θ`
-- The inverse of a reflection is the same reflection (`M⁻¹ = M`)
-
----
-
-###### Quick Comparison Table
-
-| Matrix type     | Changes shape? | Changes area? | Reversible? | Defining property         |
-|-----------------|:--------------:|:-------------:|:-----------:|---------------------------|
-| Null            | Yes            | Yes (→ 0)     | No          | `Mv = 0`                  |
-| Identity        | No             | No            | Yes         | `Mv = v`                  |
-| Scalar          | No             | Yes           | Yes         | `Mv = kv`                 |
-| One-off scaling | Yes            | Yes           | Yes         | Different scale per axis      |
-| Reflection      | Orientation    | No            | Yes (itself)| `M² = I`                  |
-| Diagonal        | Yes            | Yes           | Yes         | Only diagonal ntries      |
-| Shear           | Yes            | No            | Yes         | `det = 1`                 |
-| Orthogonal      | No             | No            | Yes         | `Qᵀ = Q⁻¹`                |
-| Projection      | Yes            | Yes (→ 0)     | No          | `P² = P`                  |
-| Inverse         | Depends on M   | Depends on M  | Yes         | `MM⁻¹ = I`                |
-
 ### QC — Quantum Computing
 
 > Noisy intermediate-scale quantum (NISQ)
 > ***
-> Noisy intermediate-scale quantum computers is a term coined by John Preskill of CalTech. This refers to systems that do not yet have full error-correction (thus noisy) and have dozens to thousands of qubits – well short of the 106C necessary for scaled fault-tolerant computing.
+> Noisy intermediate-scale quantum computers is a term coined by John Preskill of CalTech. This refers to systems that do not yet have full error-correction (thus noisy) and have dozens to thousands of qubits – well short of the 10^6C (qubits) necessary for scaled fault-tolerant computing.
 > ***
 
+___
 #### I.1 Superposition, Entanglement and Reversibility
 
 > 1.1 Quantum Computer Definition
@@ -588,7 +118,7 @@ For equal superposition that angle is 45°, giving `cos 45° = sin 45° = 1/√2
 > In a superposition of states, the modulus squared of the amplitude of a state
 is the probability of that state resulting after measurement. Furthermore,
 the sum of the squares of the amplitudes of all possible states in the
-superposition is equal to 1. So, for the state $ |\psi\rangle = \alpha|0\rangle + > \beta|1\rangle $, we have:
+superposition is equal to 1. So, for the state $ |\psi\rangle = \alpha|0\rangle + \beta|1\rangle $, we have:
 > $$ |\alpha|^2 + |\beta|^2 = 1 $$
 > ***
 
@@ -608,6 +138,7 @@ separability and entanglement later in this book.
 must be reversible
 > ***
 
+___
 #### I.2 Quantum Information Sciences — QIS
 - Computation
 - Communication
@@ -620,6 +151,7 @@ must be reversible
 Quantum Teleportation
 Superdense Coding
 
+___
 #### II A Brief History of Quantum Computing
 
 > In computer science and quantum computing, it is often important to
@@ -653,6 +185,7 @@ evaluate how efficient an algorithm is.
 + Farhi and Gutmann (continuous time Hamiltonian version of Grover’s algorithm)
 + David DiVincenzo (Quantum Computation key criteriqs)
 
+___
 ##### Quantum Computation key criterias
 
 1. A scalable physical system with **qubits that are distinct** from one another and the ability to **count** exactly how many qubits there are in the system (no fudging allowed). The system can be accurately represented by a **Hilbert space**.
@@ -661,11 +194,14 @@ evaluate how efficient an algorithm is.
 4. The system must be able to **apply a sequence of unitary operators** to the qubit states. The system must also be able to apply a unitary operator to two qubits at once. This entails entanglement between those qubits. As DiVincenzo states in his paper, “...entanglement between different parts of the quantum computer is good; entanglement between the quantum computer and its environment is bad, since it corresponds to decoherence”.
 5. The system is capable of making “strong” **measurements** of each qubit. By strong measurement, DiVincenzo means that the measurement says “which orthogonal eigenstate of some particular Hermitian operator the quantum state belongs to, while at the same time projecting the wavefunction of the system irreversibly into the corresponding eigenfunction.” This means that the **measuring technique** in the system actually does measure the state of the qubit for the property being measured and **leaves the qubit in that state**. DiVincenzo wants to prevent systems that have weak measurement, in other words, measuring techniques that do not couple with the qubit sufficiently to render it (*Fix it*) in that newly measured state. At the time he wrote the paper, many systems did not have sufficient coupling to guarantee projection into the new state
 
+___
 ##### QC Building
 
 + Yasunobu Nakamura **built** and demonstrated a functioning, controllable
 superconducting qubit
 + Cirac and Zoller proposed an ion trap as the physical system to perform quantum computation. In this setup, lasers are used to ionize atoms which are then trapped in electric potentials. 
+
+---
 
 ## Plan
 
@@ -673,13 +209,14 @@ superconducting qubit
 1. [ ] Next, we suggest covering the chapters on unitary operators, measurement and quantum circuits with exercises on the Github site to check knowledge.
 1. [ ] We then recommend spending the bulk of the course in Part II to provide the students with hands-on experience with the code
 
-### Month 1 — Objectives
 ---
+### Month 1 — Objectives
 
 - [ ] Shor's algorithm — comprendre la structure<br>
     (factorisation = cryptographie = blockchain = pont possible)<br>
 - [ ] Premier notebook publié sur GitHub<br>
 
+___
 #### Week 1 — Foundations (2026-03-23)
 
 - [*] Installer Qiskit + Jupyter sur Node 2<br>
@@ -694,8 +231,10 @@ superconducting qubit
 - [ ] Relancer Node 1<br>
 - [ ] Installer environnement complet de dev Node 1<br>
 
+___
 ##### Venv
 
+___
 ###### BashRC Aliases
 
 ```bashrc
@@ -704,6 +243,7 @@ export QENV="$OPT/projects/oneom/qenv"
 alias oneom='source $QENV/bin/activate && jupyter notebook'
 ```
 
+___
 ###### Venv
 
 ```bash
@@ -724,6 +264,7 @@ pip install notebook qiskit qiskit-aer
 jupyter notebook
 ```
 
+___
 ###### Activation
 
 Pour que VSCodium utilise ce venv comme kernel Jupyter:<br>
@@ -731,6 +272,7 @@ Ctrl+Shift+P → "Python: Select Interpreter" → choisir `$QENV/bin/python`
 <br><br>
 À chaque nouvelle session terminal, il faudra réactiver avec `oneom`.
 
+___
 ###### Jupyter Setup
 
 ```bash
@@ -761,6 +303,7 @@ c.ServerApp.root_dir = '/home/opt/projects/oneom'
 
 Ensuite un simple `jupyter notebook` pointera toujours sur le bon dossier.
 
+___
 ###### Folders
 
 Crée aussi la structure de dossiers pour garder le travail organisé:
@@ -775,6 +318,7 @@ oneom/
     └── notes/        ← notebooks d'exploration
 ```
 
+___
 ###### Circuit de Bell
 
 1. Bell State<br>
@@ -790,36 +334,61 @@ A set of three basic matrices (Pauli-X, Pauli-Y, and Pauli-Z) used to describe q
 
         In quantum computing, operators like ZZ, XX, and YY perform specific transformations on qubit states, altering their properties such as phase, amplitude, or entanglement.
 
+___
 ###### Pauli Operators/Matrices
 
 Four matrices $ I, X, Y, Z $
 They are Quantum Gates
 
-▶️ The Pauli-X Gate $ (x) $
+▶️ The Pauli-X Gate $(x)$
 
 Bit-Flip gate, a classical NOT as gate in Quantum<br>
-$ X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} $
+$ 
+    X = 
+    \begin{pmatrix} 
+        0   & 1 \\ 
+        1   & 0 
+    \end{pmatrix} 
+$
 
-**Action:** It maps $ |0\rangle \rightarrow |1\rangle $ and $ |1\rangle \rightarrow |0\rangle $, a 180° or $ \pi $ radians rotation around the X axis of the Bloch sphere
+**Action:** It maps $ |0\rangle \rightarrow |1\rangle $ and $ |1\rangle \rightarrow |0\rangle $, a 180° or $\pi$ radians rotation around the X axis of the Bloch sphere
 
-▶️ The Pauli-Z Gate $ (z) $
+▶️ The Pauli-Z Gate $(z)$
 
 Phase-Flip gate, no classical equivalent<br>
-$ Z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} $
+$ 
+    Z = 
+    \begin{pmatrix} 
+        1   & 0 \\ 
+        0   & -1 
+    \end{pmatrix} 
+$
 
-**Action:** It leaves $ |0\rangle $ unchanged but maps $ |1\rangle \rightarrow -|1\rangle $, a 180° or $ \pi $ radians rotation around the Z axis of the Bloch sphere
+**Action:** It leaves $|0\rangle$ unchanged but maps $ |1\rangle \rightarrow -|1\rangle $, a 180° or $\pi$ radians rotation around the Z axis of the Bloch sphere
 
 ▶️ The Pauli-Y Gate $ (y) $
 
 Bit-Flip AND Phase-Flip gate with a complex unit (imaginery $ i $)<br>
-$ Y = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} $
+$ 
+    Y = 
+    \begin{pmatrix} 
+        0   & -i \\ 
+        i   & 0 
+    \end{pmatrix} 
+$
 
-**Action:** It maps $ |0\rangle \rightarrow i|1\rangle $ and $ |1\rangle \rightarrow -i|0\rangle $, a 180° or $ \pi $ radians rotation around the Y axis of the Bloch sphere
+**Action:** It maps $ |0\rangle \rightarrow i|1\rangle $ and $ |1\rangle \rightarrow -i|0\rangle $, a 180° or $\pi$ radians rotation around the Y axis of the Bloch sphere
 
-▶️ The Pauli-Bonus Gate $ (I) $
+▶️ The Pauli-Bonus Gate $(I)$
 
 Identity Matrix<br>
-$ I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} $
+$ 
+    I = 
+    \begin{pmatrix} 
+        1   & 0 \\ 
+        0   & 1 
+    \end{pmatrix} 
+$
 
 **Action:** It does not transform the vectors of the Bloch sphere
 
@@ -859,6 +428,7 @@ Le circuit de Bell va dans `circuits/w1_bell.ipynb`.<br>
 Lance et dis-moi ce que tu obtiens.<br><br>
 Pour VSCodium: Ctrl+Shift+P → Python: Select Interpreter → naviguer vers /home/opt/projects/oneom/qenv/bin/python.
 
+___
 #### Week 2 — First algorithms
 
 - [ ] Algorithme de Deutsch-Jozsa<br>
@@ -868,17 +438,23 @@ Pour VSCodium: Ctrl+Shift+P → Python: Select Interpreter → naviguer vers /ho
     — Recherche en O(√N) vs O(N) classique<br>
     — Ton terrain: données, recherche, optimisation<br>
 
+___
 #### Week 3 — 
 
+___
 #### Week 4 — 
 
+___
 #### Week 5 — 
 
+---
 ### Month 2 — 
+
 ---
 
 ## Resources
 
+---
 ### Books
 
 * "Quantum Computing: An Applied Approach" @ Jack Hidary *downloaded*  ✅<br>
@@ -1128,8 +704,8 @@ Quantum Sensing Applications: sensors for detecting position, navigation and tim
 
 - [ ] Feynman’s Lectures on Computation
 
-
-### Video
+---
+### Videos
 
 * (1/7) Qiskit YouTube playlist (PLOFEBzvs-Vvo...) *started* ✅
 * Leonard Susskind — Stanford QM intro *started* ✅<br>
@@ -1138,6 +714,7 @@ Quantum Sensing Applications: sensors for detecting position, navigation and tim
     <img src="https://images.icon-icons.com/17/PNG/256/social_youtube_2234.png" alt="Quantum Computing for Computer Scientists" width="32">
 </a> 👉 Microsoft Research YouTube (1h, dense, excellent)
 
+---
 ### Reference
 
 * IBM Quantum Learning: learning.quantum.ibm.com *(remplace learning.qiskit.org)*  ✅
@@ -1145,6 +722,7 @@ Quantum Sensing Applications: sensors for detecting position, navigation and tim
     <h8 style="margin-top: 0rem;">Qiskit Textbook: <a href="qiskit.github.io/qiskit-textbook">qiskit.github.io/qiskit-textbook</a></h1>
 </p>
 
+---
 ### Hardware
 
 * Node 1 — ASUS x550JK i5 12GB: dual boot Debian/Kali (VLM raté)<br>
@@ -1152,6 +730,7 @@ Quantum Sensing Applications: sensors for detecting position, navigation and tim
 * Node 2 — Lenovo B70-80 16GB: bureautique + IA<br>
   → Action: installer Qiskit ici en priorité<br>
 
+---
 ### Software — Node 2
 
 * Python 3.13.5 ✅
@@ -1160,50 +739,107 @@ Quantum Sensing Applications: sensors for detecting position, navigation and tim
 * Venv OneOM dedie Jupyter: notebook qiskit qiskit-aer
 * Extension ms-toolsai.Jupyternotebook installee dans VSCodium
 
+---
+
 ## Cheat Sheet
 
+---
 ### Decomposition Matricielle
 
 + Polynome caracteristique $det(A-\lambda I)$
 + Resoudre avec $\lambda = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
 + On obtient les valeurs propres $\lambda_1$ et $\lambda_2$
-+ Matrice des valeurs propres: $\begin{pmatrix} \lambda_1 \\ \lambda_2 \end{pmatrix} \cdot \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} \lambda_1 & 0 \\ 0 & \lambda_2 \end{pmatrix}$
-+ Chaque valeur propre verfifie ensuite: $(\begin{pmatrix} A_{11} & A_{12} \\ A_{21} & A_{22} \end{pmatrix} - \begin{pmatrix} \lambda_1 \\ \lambda_2 \end{pmatrix} \cdot \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}) \cdot \begin{pmatrix} v_1 \\ v_2 \end{pmatrix} = 0$
++ Matrice des valeurs propres: 
+$
+\begin{pmatrix} 
+\lambda_1 \\ 
+\lambda_2 
+\end{pmatrix} \cdot 
+\begin{pmatrix} 
+1 & 0 \\ 
+0 & 1 
+\end{pmatrix} = 
+\begin{pmatrix} 
+\lambda_1   & 0 \\ 
+0           & \lambda_2 
+\end{pmatrix}$
++ Chaque valeur propre verfifie ensuite: 
+$
+    ( \begin{pmatrix} 
+        A_{11}  & A_{12} \\ 
+        A_{21}  & A_{22} 
+    \end{pmatrix} - 
+        \begin{pmatrix} 
+            \lambda_1 \\ 
+            \lambda_2 
+        \end{pmatrix} \cdot 
+            \begin{pmatrix} 
+                1   & 0 \\ 
+                0   & 1 
+            \end{pmatrix} ) \cdot 
+                \begin{pmatrix} 
+                    v_{1} \\ 
+                    v_{2} 
+                \end{pmatrix} = 
+    0
+$
 + On propose dans chaque cas le vecteur propre avec $v_1=1$ et $v_2$ correspondant
 + $P$ matrice des vecteurs propres en colonnes
 + $D$ vecteur des valeurs propres multiplie par matrice identite
-+ $P^{-1} = \frac{1}{\text{det}(P)} \cdot \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$
++ $
+    P^{-1} = 
+    \frac{1} {\text{det}(P)} \cdot 
+        \begin{pmatrix} 
+            d   & -b \\ 
+            -c  & a 
+        \end{pmatrix}
+$
 + Calculer $PDP^{-1}$
 
+---
 ### Logs
 
-The expression $ \log_3(2) $ is called a logarithm with base 3 of 2. It answers the question: **"To what power must 3 be raised to get 2?"**
+The expression $\log_3(2)$ is called a logarithm with base 3 of 2. It answers the question: **"To what power must 3 be raised to get 2?"**
 
-#### What is $ \log_b(a) $?
+___
+#### What is $\log_b(a)$?
 
-In general, $ \log_b(a) $ means:
-**"The exponent to which $ b $ must be raised to obtain $ a $."**
+In general, $\log_b(a)$ means:
+**"The exponent to which $b$ must be raised to obtain $a$."**
 
-So, $ \log_3(2) $ is the number $ y $ such that:
-$ 3^y = 2 $
+So, $\log_3(2)$ is the number $y$ such that:
+$3^y = 2$
 
+___
 #### Change of Base Formula
 
 The change of base formula allows you to rewrite a logarithm in terms of natural logarithms (or any other base):
-$ \log_b(a) = \frac{\ln(a)}{\ln(b)} $
+$ 
+    \log_b(a) = 
+    \frac{\ln(a)} {\ln(b)} 
+$
 
 So, in your problem:
-$ x = \frac{100 \ln(2)}{\ln(3)} = 100 \log_3(2) $
+$ 
+    x = 
+    \frac{100 \ln(2)} {\ln(3)} = 
+    100 \log_3(2)
+$
 
 This means you can express the solution using either natural logarithms or the logarithm with base 3 of 2.
 
+___
 #### Why is this useful?
 
-- It allows you to compute logarithms with any base using a calculator (which usually only has $ \ln $ or $ \log_{10} $).
+- It allows you to compute logarithms with any base using a calculator (which usually only has $\ln$ or $\log_{10}$).
 - It simplifies expressions and makes them easier to interpret.
 
+---
 
 ## Comments
+
+Stern Gerlach: measurements
+David Wallace calls it “the emergent multiverse”
 
 * mkdir -p /home/opt/projects/oneom/prod/{circuits,algorithms,notes} ✅ ▶️ 'quantum' est devenu 'prod' pour plus de clarte 💡
 * alias oneom='source $QENV/bin/activate && jupyter notebook'

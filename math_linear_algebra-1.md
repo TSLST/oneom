@@ -68,10 +68,10 @@ $$
         1 + 3 \\ 
         2 + 4 
     \end{pmatrix} = 
-    \begin{pmatrix} 
+    \boxed{\begin{pmatrix} 
         4 \\ 
         6 
-    \end{pmatrix}
+    \end{pmatrix}}
 $$
 
 ---
@@ -104,7 +104,7 @@ $$
         \begin{pmatrix} 
             5 \\ 
             6 
-        \end{pmatrix} = 
+        \end{pmatrix} = \\
     \begin{pmatrix} 
         1 \times 5 + 2 \times 6 \\ 
         3 \times 5 + 4 \times 6 
@@ -240,7 +240,10 @@ $$
     \cos \theta = 
     \frac{\mathbf{u} \cdot \mathbf{v}} {\|\mathbf{u}\| \|\mathbf{v}\|} \, , \quad 
     \theta = 
-    \cos^{-1}\left( \frac{\mathbf{u} \cdot \mathbf{v}} {\|\mathbf{u}\| \|\mathbf{v}\|} \right)
+    \cos^{-1} 
+    \left( 
+        \frac{\mathbf{u} \cdot \mathbf{v}} {\|\mathbf{u}\| \|\mathbf{v}\|} 
+    \right)
 $$
 
 ___
@@ -299,7 +302,10 @@ $$
 $$
 $$
     \boxed{\theta = 
-    \cos^{-1}\left( \frac{2\sqrt{30}} {15} \right) \approx 
+    \cos^{-1} 
+    \left( 
+        \frac{2\sqrt{30}} {15} 
+    \right) \approx 
     0.75726 \text{ rad} \approx 
     43.394 \degree \approx 
     0.24103\,\pi}
@@ -531,14 +537,14 @@ $$
 - **Matrix $ P^{-1} $**: We use the formula for the inverse of a 2x2 matrix:
 $$
     P^{-1} = 
-    \frac{1} {\text{det}\left|P\right|} \times 
+    \frac{1} {\text{det} \left|P\right|} \times 
         \begin{pmatrix} 
             d   & -b \\ 
             -c  & a 
         \end{pmatrix}
 $$
 $$
-    \text{det}\left|P\right| = 
+    \text{det} \left|P\right| = 
     (1 \times -2) - (1 \times 1) = 
     -2 - 1 = 
     -3
@@ -625,18 +631,18 @@ The formula for the inverse of a 3x3 matrix $P$ is given by:
 
 $$ 
     P^{-1} = 
-    \frac{1} {\det\left|P\right|} \times 
+    \frac{1} {\det \left|P\right|} \times 
         \text{adj}(P) 
 $$
 
-where $\det\left|P\right|$ is the determinant of $P$ and $\text{adj}(P)$ is the adjugate of $P$.
+where $\det \left|P\right|$ is the determinant of $P$ and $\text{adj}(P)$ is the adjugate of $P$.
 
 #### Step-by-Step Calculation
 
 1. **Calculate the determinant of $P$**:<br>
 The determinant of a 3x3 matrix $P$ is given by:
 $$
-    \det\left|P\right| = 
+    \det \left|P\right| = 
     A_{11}A_{22}A_{33} + A_{12}A_{23}A_{31} + A_{13}A_{21}A_{32} - A_{13}A_{22}A_{31} - A_{12}A_{21}A_{33} - A_{11}A_{23}A_{32}
 $$
 
@@ -657,7 +663,7 @@ The adjugate matrix $\text{adj}(P)$ is the transpose of the cofactor matrix $C$.
 4. **Calculate the inverse**:
 $$
     P^{-1} = 
-    \frac{1} {\det\left|P\right|} \times 
+    \frac{1} {\det \left|P\right|} \times 
         \text{adj}(P)
 $$
 
@@ -674,11 +680,11 @@ $$
 
 1. **Calculate the determinant**:
 $$
-    \det\left|P\right| = 
+    \det \left|P\right| = 
     (1 \times 4 \times 6) + (2 \times 5 \times 1) + (3 \times 0 \times 0) - (3 \times 4 \times 1) - (2 \times 0 \times 6) - (1 \times 5 \times 0)
 $$
 $$
-    \boxed{\det\left|P\right| = 24 + 10 - 12 = 22}
+    \boxed{\det \left|P\right| = 24 + 10 - 12 = 22}
 $$
 
 2. **Calculate the cofactor matrix**:

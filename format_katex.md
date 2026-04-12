@@ -1,8 +1,9 @@
 ---
 Type: Format
 Use: All the basic notations I commonly use in LLM augmented mathematics.
-Tags:
+Tags: #markdown
 Creation: 2026-03-07
+Update: 2026-04-29
 Contributors: 神縁
 Links:
 - [[quantum]]
@@ -60,6 +61,10 @@ $
    \v e \space 
    \bar e \space 
 $
+1. $\underline{\text{Underlined}}$
+1. $\overline{\text{Overlined}}$
+1. $\cancel{\text{Cancelled}}$
+1. $\xcancel{\text{Cross cancelled}}$
 
 ---
 
@@ -101,9 +106,10 @@ $
 * $ 9 \mod 3 = 0 $
 * $ 3 \times 3 = 9 $
 * $ \boxed{\text{Result}} $
-* $\checkmark$ and $!!!$
-* Ajouter un $\text{micro-}\,\text{espace}$ ou un $\text{macro-} \space \text{espace}$ ou une $\text{tabu-} \quad \text{lation}$
+* $\checkmark$ and $!!$, $\char"203C$
+* Add a $\text{micro-}\,\text{space}$ or a $\text{macro-} \space \text{space}$ or a $\text{tabu-} \quad \text{lation}$
 * Proton: $\bar{p}$
+* $\underbrace{\text{Here is the text that is rendered}}_{text}$
 * $\displaystyle \left.{\frac {{\mathrm {d} }f}{{\mathrm {d} }x}}\right|_{x=a}$
 * $\odot$ $\cdot$ $\sdot$ $\ldots$ $\ddots$ $\dots$ $\cdots$ $\vdots$ $\degree$
 
@@ -127,8 +133,9 @@ $
 1. Absolute Value: $|x|$
 1. Norm: $\|x\|$
 1. Tensor Product: $\otimes$
+1. $\displaystyle \overrightarrow{vector} \space \vec{v}$
 1. ???: $\wp$ $\rq$ $C \tt C$ $\to$ $\tg$ $\th$ $\sh$ $\lq$ $\lg$ $\ln$ $\xi$ $\ch$ $\inf$
-1. !!!: $\r;$ $\r[$ $\r]$ $\r?$ $\r!$ $\r*$ $\r($ $\r)$ $\r-$ $\r=$ $\r+$ $\u,$
+1. !!: $\r;$ $\r[$ $\r]$ $\r?$ $\r!$ $\r*$ $\r($ $\r)$ $\r-$ $\r=$ $\r+$ $\u,$
 
 ---
 ### Shapes
@@ -145,7 +152,7 @@ $
 ### Combinations
 
 1. Factorial: $n!$
-1. Binomial Coefficient: $\binom{n}{k}$
+1. Binomial Coefficient: $\binom{n} {k}$
 
 ---
 ### Comparison
@@ -173,6 +180,7 @@ $
 1. Integral: $\int$
 1. Double Integral: $\iint$
 1. Triple Integral: $\iiint$
+1. Limits: $\lim_{n \to \infty}$
 
 ---
 ### Sets
@@ -198,11 +206,11 @@ $
 
 1. $\N$: natural integers
 1. $\Z$: relative integers
-1. $D\|$: decimal numbers
-1. $Q\|$: rational numbers
+1. $\mathbb{D}$: decimal numbers
+1. $\mathbb{Q}$: rational numbers
 1. $\R$: real numbers
-1. $I\|$: pure imaginary numbers
-1. $C\|$: complex numbers
+1. $\mathbb{I}$: pure imaginary numbers
+1. $\mathbb{C}$: complex numbers
 
 ---
 ### Wreath Product
@@ -230,7 +238,7 @@ $$
       1  & 1 
    \end{pmatrix}
 $$
-+ `bmatrix` brackets might be used to denote tensors and ket vectors In quantum mechanics $^{*}$:
++ `bmatrix` brackets might be used to denote matrixes of matrixes, tensors and ket vectors In quantum mechanics $^{*}$:
 $$
    \begin{bmatrix} 
       1  & 1 \\ 
@@ -250,6 +258,13 @@ $$
       1  & 1 \\ 
       1  & 1 
    \end{Bmatrix}
+$$
++ `Vmatrix` is not yet defined to typeset a type of matrices:
+$$
+   \begin{Vmatrix} 
+      1  & 1 \\ 
+      1  & 1 
+   \end{Vmatrix}
 $$
 
 ___
@@ -290,6 +305,404 @@ $^{**}$ Here are some scenarios where \begin{Bmatrix} might be used in favor of 
     Grouping Terms: In more advanced mathematical expressions, curly braces are used to group terms or to denote specific structures, such as in the context of block matrices or when defining subspaces.
 
     Special Matrices: In some specific contexts, such as in the definition of certain types of matrices (e.g., Gram matrices, covariance matrices), curly braces might be used to emphasize the structure or properties of the matrix.
+
+---
+
+## Greek Letters
+
+KaTeX, like LaTeX, supports a wide range of Greek letters, which are commonly used in mathematical notation. Below is a list of all the Greek letters available in KaTeX, along with their commands. Greek letters can be either lowercase or uppercase.
+
+### Lowercase Greek Letters
+
+| Symbol | Command | Symbol | Command |
+|--------|---------|--------|---------|
+| α      | \alpha  | ν      | \nu     |
+| β      | \beta   | ξ      | \xi     |
+| γ      | \gamma  | ο      | \o      |
+| δ      | \delta  | π      | \pi     |
+| ε      | \epsilon| ρ      | \rho    |
+| ζ      | \zeta   | σ      | \sigma  |
+| η      | \eta    | τ      | \tau    |
+| θ      | \theta  | υ      | \upsilon|
+| ι      | \iota   | φ      | \phi    |
+| κ      | \kappa  | χ      | \chi    |
+| λ      | \lambda | ψ      | \psi    |
+| μ      | \mu     | ω      | \omega  |
+
+### Uppercase Greek Letters
+
+| Symbol | Command | Symbol | Command |
+|--------|---------|--------|---------|
+| Α      | \Alpha  | Ν      | \Nu     |
+| Β      | \Beta   | Ξ      | \Xi     |
+| Γ      | \Gamma  | Ο      | \Omicron|
+| Δ      | \Delta  | Π      | \Pi     |
+| Ε      | \Epsilon| Ρ      | \Rho    |
+| Ζ      | \Zeta   | Σ      | \Sigma  |
+| Η      | \Eta    | Τ      | \Tau    |
+| Θ      | \Theta  | Υ      | \Upsilon|
+| Ι      | \Iota   | Φ      | \Phi    |
+| Κ      | \Kappa  | Χ      | \Chi    |
+| Λ      | \Lambda | Ψ      | \Psi    |
+| Μ      | \Mu     | Ω      | \Omega  |
+
+### Variants and Alternatives
+
+Some Greek letters have variants or alternative forms that are commonly used:
+
+- **ε (epsilon)**: `\epsilon` (open variant) and `\varepsilon` $\varepsilon$ (closed variant)
+- **θ (theta)**: `\theta` (standard form) and `\vartheta` $\vartheta$ (variant form)
+- **φ (phi)**: `\phi` (standard form) and `\varphi` $\varphi$ (variant form)
+- **ρ (rho)**: `\rho` (standard form) and `\varrho` $\varrho$ (variant form)
+- **π (pi)**: `\pi` (standard form) and `\varpi` $\varpi$ (variant form)
+- **σ (sigma)**: `\sigma` (standard form) and `\varsigma` $\varsigma$ (final form)
+
+- Also: $\varGamma$ slanted forms
+---
+
+## Mathfonts
+
+In LaTeX, the commands `\mathbf` and `\mathbb` are used to format mathematical symbols and letters in different ways. Here are the differences and typical uses of each:
+
+### `\mathbf`
+
+- **Description**: The `\mathbf` command is used to produce boldface symbols and letters. It is commonly used to denote vectors, matrices, and other mathematical objects that are typically represented in boldface.
+- **Usage**: This command is part of the standard LaTeX kernel and does not require any additional packages.
+- **Example**:
+  ```latex
+  \documentclass{article}
+  \begin{document}
+  $$
+   \mathbf{A} \quad \mathbf{v} \quad \mathbf{x}
+  $$
+  \end{document}
+  ```
+  This will produce boldface letters $\mathbf{A}$, $\mathbf{v}$, and $\mathbf{x}$.
+
+### `\mathbb`
+
+- **Description**: The `\mathbb` command is used to produce blackboard bold (or double-stroke) symbols and letters. It is commonly used to denote sets, such as the set of real numbers $\mathbb{R}$, the set of natural numbers $\mathbb{N}$, and other abstract mathematical sets.
+- **Usage**: This command is provided by the `amssymb` package, which is part of the American Mathematical Society (AMS) LaTeX packages. You need to include the `amssymb` package in your document preamble to use `\mathbb`.
+- **Example**:
+  ```latex
+  \documentclass{article}
+  \usepackage{amssymb}
+  \begin{document}
+  $$
+   \mathbb{R} \quad \mathbb{N} \quad \mathbb{Z} \quad \mathbb{C}
+  $$
+  \end{document}
+  ```
+  This will produce blackboard bold letters $\mathbb{R}$, $\mathbb{N}$, $\mathbb{Z}$, and $\mathbb{C}$.
+
+### Differences
+
+1. **Appearance**:
+   - `\mathbf`: Produces boldface symbols and letters.
+   - `\mathbb`: Produces blackboard bold (double-stroke) symbols and letters.
+
+2. **Usage Context**:
+   - `\mathbf`: Typically used for vectors, matrices, and other mathematical objects that are represented in boldface.
+   - `\mathbb`: Typically used for sets and abstract mathematical concepts.
+
+3. **Package Requirement**:
+   - `\mathbf`: Does not require any additional packages.
+   - `\mathbb`: Requires the `amssymb` package.
+
+### Example in LaTeX
+
+Here is a complete LaTeX document that demonstrates the use of both `\mathbf` and `\mathbb`:
+
+```latex
+\documentclass{article}
+\usepackage{amssymb}
+
+\begin{document}
+
+% Using \mathbf for vectors and matrices
+$$
+   \mathbf{A} \quad \mathbf{v} \quad \mathbf{x}
+$$
+
+% Using \mathbb for sets
+$$
+   \mathbb{R} \quad \mathbb{N} \quad \mathbb{Z} \quad \mathbb{C}
+$$
+
+\end{document}
+```
+
+This document will produce boldface letters for vectors and matrices, and blackboard bold letters for sets.
+
+---
+
+## XOR
+
+The mathematical operator $\oplus$ is commonly used to denote the **exclusive or** (XOR) operation in various fields, including computer science, logic, and mathematics. Here are some contexts where it is used:
+
+1. **Boolean Algebra**: In Boolean algebra, $\oplus$ represents the XOR operation, which returns true (or 1) if the inputs are different and false (or 0) if the inputs are the same. The truth table for XOR is as follows:
+
+   | A   | B   | A $\oplus$ B |
+   |---  |---  |---           |
+   | 0   | 0   | 0            |
+   | 0   | 1   | 1            |
+   | 1   | 0   | 1            |
+   | 1   | 1   | 0            |
+
+2. **Computer Science**: In computer science, XOR is used in various algorithms and data structures, such as error detection and correction, cryptography, and hashing. It is also used in bitwise operations in programming languages like C, C++, and Python.
+
+3. **Cryptography**: XOR is used in cryptographic algorithms for encryption and decryption. For example, the one-time pad cipher uses XOR to combine the plaintext with a random key.
+
+4. **Error Detection and Correction**: XOR is used in error detection and correction codes, such as parity bits and Hamming codes, to detect and correct errors in data transmission.
+
+5. **Group Theory**: In abstract algebra, $\oplus$ can also denote the direct sum of groups, which is a way of combining two or more groups to form a new group.
+
+Here is an example of using XOR in Python:
+
+```python
+# XOR operation in Python
+a = 5  # Binary: 0101
+b = 3  # Binary: 0011
+
+# XOR operation
+result = a ^ b  # Result: 6 (Binary: 0110)
+
+print(f"The XOR of {a} and {b} is {result}")
+```
+
+In this example, the XOR operation is performed using the `^` operator in Python, which is equivalent to the $\oplus$ operator in mathematical notation.
+
+### Other Operators
+
+In quantum computing and classical logic, various operators and gates are used to manipulate qubits and bits, respectively. Here are some common operators and their symbols, including those similar to the XOR (exclusive or) operation:
+
+### Quantum Computing Operators
+
+1. **CNOT (Controlled-NOT) Gate**:
+   - **Symbol**: Often represented as a circuit diagram with a control qubit and a target qubit.
+   - **Description**: The CNOT gate flips the state of the target qubit if the control qubit is in the state $|1\rangle$. It is a fundamental gate in quantum computing.
+   - **Matrix Representation**:
+$$
+   \text{CNOT} = 
+   \begin{pmatrix}
+      1  & 0   & 0   & 0 \\
+      0  & 1   & 0   & 0 \\
+      0  & 0   & 0   & 1 \\
+      0  & 0   & 1   & 0
+   \end{pmatrix}
+$$
+
+2. **Pauli-X Gate (Quantum NOT Gate)**:
+   - **Symbol**: $X$ or $\sigma_x$
+   - **Description**: The Pauli-X gate flips the state of a qubit, similar to the classical NOT gate.
+   - **Matrix Representation**:
+$$
+   X = 
+   \begin{pmatrix}
+      0  & 1 \\
+      1  & 0
+   \end{pmatrix}
+$$
+
+3. **Pauli-Y Gate**:
+   - **Symbol**: $Y$ or $\sigma_y$
+   - **Description**: The Pauli-Y gate flips the state of a qubit and adds a phase shift.
+   - **Matrix Representation**:
+$$
+   Y = 
+   \begin{pmatrix}
+      0  & -i \\
+      i  & 0
+   \end{pmatrix}
+$$
+
+4. **Pauli-Z Gate**:
+   - **Symbol**: $Z$ or $\sigma_z$
+   - **Description**: The Pauli-Z gate adds a phase shift to the state of a qubit.
+   - **Matrix Representation**:
+$$
+   Z = 
+   \begin{pmatrix}
+      1  & 0 \\
+      0  & -1
+   \end{pmatrix}
+$$
+
+5. **Hadamard Gate**:
+   - **Symbol**: $H$
+   - **Description**: The Hadamard gate creates a superposition of states.
+   - **Matrix Representation**:
+$$
+   H = 
+   \frac{1} {\sqrt{2}} 
+   \begin{pmatrix}
+      1  & 1 \\
+      1  & -1
+   \end{pmatrix}
+$$
+
+### Classical Logic Operators
+
+1. **AND Gate**:
+   - **Symbol**: $\cdot$ or $\land$
+   - **Description**: The AND gate outputs true (or 1) only if both inputs are true (or 1).
+   - **Truth Table**:
+$$
+   \begin{array}{c|c|c}
+      A  & B   & A \cdot B \\
+   \hline
+      0  & 0   & 0         \\
+      0  & 1   & 0         \\
+      1  & 0   & 0         \\
+      1  & 1   & 1         \\
+   \end{array}
+$$
+
+2. **OR Gate**:
+   - **Symbol**: $+$ or $\lor$
+   - **Description**: The OR gate outputs true (or 1) if at least one of the inputs is true (or 1).
+   - **Truth Table**:
+$$
+   \begin{array}{c|c|c}
+      A  & B   & A + B  \\
+   \hline
+      0  & 0   & 0      \\
+      0  & 1   & 1      \\
+      1  & 0   & 1      \\
+      1  & 1   & 1      \\
+   \end{array}
+$$
+
+3. **NOT Gate**:
+   - **Symbol**: $\neg$ or $\overline{A}$
+   - **Description**: The NOT gate inverts the input, outputting true (or 1) if the input is false (or 0), and vice versa.
+   - **Truth Table**:
+$$
+   \begin{array}{c|c}
+      A  & \neg A    \\
+   \hline
+      0  & 1         \\
+      1  & 0         \\
+   \end{array}
+$$
+
+4. **NAND Gate**:
+   - **Symbol**: $\uparrow$ or $\overline{A \cdot B}$
+   - **Description**: The NAND gate outputs the negation of the AND operation.
+   - **Truth Table**:
+$$
+   \begin{array}{c|c|c}
+      A  & B   & A \uparrow B \\
+   \hline
+      0  & 0   & 1            \\
+      0  & 1   & 1            \\
+      1  & 0   & 1            \\
+      1  & 1   & 0            \\
+   \end{array}
+$$
+
+5. **NOR Gate**:
+   - **Symbol**: $\downarrow$ or $\overline{A + B}$
+   - **Description**: The NOR gate outputs the negation of the OR operation.
+   - **Truth Table**:
+$$
+   \begin{array}{c|c|c}
+      A  & B   & A \downarrow B  \\
+   \hline
+      0  & 0   & 1               \\
+      0  & 1   & 0               \\
+      1  & 0   & 0               \\
+      1  & 1   & 0               \\
+   \end{array}
+$$
+
+### Example in Python (Classical Logic)
+
+Here is an example of how to implement some of these gates in Python:
+
+```python
+def AND(a, b):
+    return a and b
+
+def OR(a, b):
+    return a or b
+
+def NOT(a):
+    return not a
+
+def NAND(a, b):
+    return NOT(AND(a, b))
+
+def NOR(a, b):
+    return NOT(OR(a, b))
+
+# Test the gates
+print(f"AND(0, 0) = {AND(0, 0)}")
+print(f"OR(0, 1) = {OR(0, 1)}")
+print(f"NOT(1) = {NOT(1)}")
+print(f"NAND(1, 1) = {NAND(1, 1)}")
+print(f"NOR(1, 0) = {NOR(1, 0)}")
+```
+
+This code defines functions for the AND, OR, NOT, NAND, and NOR gates and tests them with sample inputs.
+
+
+---
+
+## Set difference
+
+
+The mathematical operator $\ominus$ is used to denote the **set difference** or **relative complement** in set theory. It represents the operation of subtracting one set from another, resulting in a new set that contains all the elements that are in the first set but not in the second set.
+
+Given two sets $A$ and $B$, the set difference $A \ominus B$ (or $A - B$) is defined as:
+
+$$ A \ominus B = \{ x \mid x \in A \text{ and } x \notin B \} $$
+
+In other words, $A \ominus B$ includes all the elements that are in $A$ but not in $B$.
+
+### Examples
+
+1. **Simple Set Difference**:
+   - Let $A = \{1, 2, 3, 4\}$
+   - Let $B = \{3, 4, 5, 6\}$
+   - Then, $A \ominus B = \{1, 2\}$
+
+2. **Set Difference with No Common Elements**:
+   - Let $A = \{a, b, c\}$
+   - Let $B = \{d, e, f\}$
+   - Then, $A \ominus B = \{a, b, c\}$
+
+3. **Set Difference with Overlapping Elements**:
+   - Let $A = \{1, 2, 3\}$
+   - Let $B = \{2, 3, 4\}$
+   - Then, $A \ominus B = \{1\}$
+
+### Properties of Set Difference
+
+- **Non-Commutativity**: $A \ominus B \neq B \ominus A$ in general.
+- **Identity**: $A \ominus \emptyset = A$ and $A \ominus A = \emptyset$.
+- **Distributivity**: $A \ominus (B \cup C) = (A \ominus B) \cap (A \ominus C)$.
+
+### Example in Python
+
+Here is an example of how to perform set difference in Python:
+
+```python
+# Define sets
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+# Set difference
+result = A - B
+
+print(f"The set difference of A and B is {result}")
+```
+
+In this example, the `-` operator in Python is used to perform the set difference operation, which is equivalent to the $\ominus$ operator in mathematical notation. The output will be:
+
+```
+The set difference of A and B is {1, 2}
+```
 
 ---
 
@@ -364,10 +777,184 @@ $
 1. —: $\char"2014$
 1. ×: $\char"00D7$
 1. 💡: $\char"1F4A1$
-1. 🖥️: $\char"1F5A5$
+1. Desktop Computer 🖥️: $\char"1F5A5$
+1. Laptop Computer 💻: $\char"1F4BB$
+1. Peripherals 🖦: $\char"1F5A6$
+1. Network 🖧: $\char"1F5A7$
+1. Text File 🗎: $\char"1F5CE$
+1. Spider 🕷: $\char"1F577$
+1. Spiderweb 🕸: $\char"1F578$
+1. Sunglasses 🕶: $\char"1F576$
 1. ⏳: $\char"23F3$
 1. ⭐: $\char"2B50$
 1. ⚡: $\char"26A1$
 1. 🔥: $\char"1F525$
 1. ꩜: $\char"AA5C$
 1. 📺: $\char"1F4FA$
+1. ©: $\char"00A9$
+1. ®: $\char"00AE$
+1. ♋: $\char"264B$
+1. ⚠: $\char"26A0$
+1. Notebook: $\char"1F4D3$
+1. Notebook With Decorative Cover: $\char"1F4D4$
+1. Closed Book: $\char"1F4D5$
+1. Open Book: $\char"1F4D6$
+1. Memo: $\char"1F4DD$
+1. Cupid 💘: $\char"1F498$
+1. Snake: $\char"1F40D$
+1. Surfer 🏄: $\char"1F3C4$
+1. Ski And Ski Boot: $\char"1F3BF$
+1. Cyclone 🌀: $\char"1F300$
+1. Ophiuchus ⛎: $\char"26CE$
+1. ‼: $\char"203C$
+
+---
+
+$$
+    \frac{1}{2} $$
+$$
+    \sum $$
+$$
+    \prod $$
+$$
+    \int $$
+$$
+    \oint $$
+$$
+    \iint $$
+$$
+    \iiint $$
+$$
+    \sqrt{a} $$
+$$
+    \vec{a} $$
+$$
+    \hat{a} $$
+$$
+    \bar{a} $$
+$$
+    \dot{a} $$
+$$
+    \ddot{a} $$
+$$
+    \alpha $$
+$$
+    \beta $$
+$$
+    \gamma $$
+$$
+    \delta $$
+$$
+    \epsilon $$
+$$
+    \theta $$
+$$
+    \lambda $$
+$$
+    \mu $$
+$$
+    \nu $$
+$$
+    \xi $$
+$$
+    \pi $$
+$$
+    \rho $$
+$$
+    \sigma $$
+$$
+    \tau $$
+$$
+    \phi $$
+$$
+    \psi $$
+$$
+    \omega $$
+$$
+    \Lambda $$
+$$
+    \Sigma $$
+$$
+    \Omega $$
+$$
+    \Gamma $$
+$$
+    \Delta $$
+$$
+    \Phi $$
+$$
+    \mathbb{a} $$
+$$
+    \mathbf{a} $$
+$$
+    \mathrm{a} $$
+$$
+    \mathcal{a} $$
+$$
+    \text{a} $$
+$$
+    \left(
+    \right) $$
+$$
+    \begin{bmatrix}
+    \end{bmatrix}
+$$
+$$
+    \partial $$
+$$
+    \nabla $$
+$$
+    \infty $$
+$$
+    \otimes $$
+$$
+    \oplus $$
+$$
+    \cdot $$
+$$
+    \times $$
+$$
+    \div $$
+$$
+    \leq $$
+$$
+    \geq $$
+$$
+    \neq $$
+$$
+    \approx $$
+$$
+    \equiv $$
+$$
+    \cong $$
+$$
+    \forall $$
+$$
+    \exists $$
+$$
+    \in $$
+$$
+    \notin $$
+$$
+    \subset $$
+$$
+    \cup $$
+$$
+    \cap $$
+$$
+    \langle $$
+$$
+    \rangle $$
+$$
+    \lfloor $$
+$$
+    \rfloor $$
+$$
+    \lceil $$
+$$
+    \rceil $$
+$$
+    \hbar $$
+$$
+    \dagger
+$$

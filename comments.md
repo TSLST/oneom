@@ -196,3 +196,6 @@ Dot product of v and w: 11
 ```
 
 This demonstrates how the dot product, a bilinear map, can be computed using NumPy in Python.
+
+---
+
