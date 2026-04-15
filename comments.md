@@ -198,4 +198,59 @@ Dot product of v and w: 11
 This demonstrates how the dot product, a bilinear map, can be computed using NumPy in Python.
 
 ---
+>>> $
+...     \det \begin{vmatrix} 
+...         4 - \lambda & 1 \\ 
+...         2           & 3 - \lambda 
+...     \end{vmatrix} = 
+... $
+... ?
+ To find the determinant, we follow the standard formula for a 2x2 matrix:
 
+$
+\det \begin{vmatrix}
+        4 - \lambda & 1 \\
+        2           & 3 - \lambda
+    \end{vmatrix} = (4 - \lambda)(3 - \lambda) - (1)(2)
+$
+
+Now, let's perform the multiplication and simplify:
+
+$
+\det \begin{vmatrix}
+        4 - \lambda & 1 \\
+        2           & 3 - \lambda
+    \end{vmatrix} = (4 - \lambda)(3 - \lambda) - 2
+$
+
+This expression represents a quadratic equation in terms of the variable $\lambda$. The determinant can take on different values depending on the value of $\lambda$. If 
+you need to find specific values of $\lambda$ that satisfy certain conditions (e.g., when the determinant equals zero, or when the determinant is greater or less than a 
+specific value), you can solve the resulting quadratic equation to find those values.
+
+>>> Could you please go one step further in calculating the characteristic polynomial and eigenvalues?
+  To find the eigenvalues, we need to solve the characteristic equation, which is a quadratic equation obtained from setting the determinant equal to zero:
+
+$
+(4 - \lambda)^2 - 2 = 0
+$
+
+Now, let's factor the quadratic equation:
+
+$
+(4 - \lambda - \sqrt{2})(4 - \lambda + \sqrt{2}) = 0
+$
+
+Now we have two possible solutions for $\lambda$:
+
+1. $4 - \lambda - \sqrt{2} = 0$
+2. $4 - \lambda + \sqrt{2} = 0$
+
+Let's solve for $\lambda$:
+
+1. $4 - \lambda = \sqrt{2}$, so $\lambda = 4 - \sqrt{2}$
+2. $4 - \lambda = -\sqrt{2}$, so $\lambda = 4 + \sqrt{2}$
+
+The eigenvalues for this matrix are $\lambda = 4 - \sqrt{2}$ and $\lambda = 4 + \sqrt{2}$. These eigenvalues represent the solutions for which the given matrix multiplied 
+by the eigenvectors will result in a scalar multiple of the eigenvectors.
+!!You made a mistake!!
+$$ (4 - \lambda)(3 - \lambda) - (1)(2) \neq (4 - \lambda)^2 - 2 $$

@@ -667,3 +667,331 @@ Tensors are the language of **anisotropy**—situations where a cause in one dir
 * **Conductivity:** Applying an electric field in the $x$-direction might cause current in the $y$-direction in certain crystals.
 * **Fluid Dynamics:** Describing how viscosity resists flow across different layers of a fluid.
 * **Machine Learning:** "Tensors" (multidimensional arrays) are used to flow data through neural networks, though these are often "computational tensors" rather than strictly "geometric tensors."
+
+---
+
+## Hilbert Space Criterias
+
+A Hilbert space is first a linear vector space and its properties.
+
+### 1. Linear Vector Space
+
+- Vectors
+$
+   {|\alpha\rangle} , 
+      {|\beta\rangle} , 
+         {|\gamma\rangle} , 
+            {|0\rangle}
+$ (In Dirac notation)
+- Scalars $\in$ $\R , \mathbb{C}$
+
+#### Basic Operations
+
+##### Addition
+
+$
+   {|\alpha\rangle} + {|\beta\rangle} = 
+   {|\gamma\rangle}
+$
+
+##### Commutativity
+
+$
+   {|\alpha\rangle} + {|\beta\rangle} = 
+   {|\beta\rangle} + {|\alpha\rangle} 
+$
+
+##### Associativity
+
+$
+   {|\alpha\rangle} + \left({|\beta\rangle} + {|\gamma\rangle}\right) = 
+   \left({|\alpha\rangle} + {|\beta\rangle}\right) + {|\gamma\rangle}
+$
+
+##### Null vector
+
+$
+   {|\alpha\rangle} + {|0\rangle} = 
+   {|\alpha\rangle}
+$
+
+##### Inverse Vector
+
+$
+   {|\alpha\rangle} + {|-\alpha\rangle} = 
+   {|0\rangle}
+$
+
+#### Scalar Multiplications
+
+$
+   a {|\alpha\rangle} = 
+   {|\Alpha\rangle}
+$
+
+#### Distributivity
+
+$
+   a \left({|\alpha\rangle} + {|\beta\rangle}\right) = 
+   a {|\alpha\rangle} + a {|\beta\rangle} 
+$<br>
+
+$
+   \left(a+b\right) {|\beta\rangle} = 
+   a {|\beta\rangle} + b {|\beta\rangle} 
+$
+
+### 2. Inner Product
+
+$
+   {\langle\alpha |\beta\rangle} = 
+   (\alpha , \beta)
+$
+
+#### Complex Conjugate
+
+$
+   {\langle\alpha |\beta\rangle} = 
+   {\langle\beta |\alpha\rangle}^*
+$
+
+If $|\alpha\rangle$ and $|\beta\rangle$ $\in \R$, then 
+$
+   {\langle\beta |\alpha\rangle}^* = 
+   {\langle\beta |\alpha\rangle}
+$
+and the operation is commutive.<br>
+If $|\alpha\rangle$ and $|\beta\rangle$ $\in \mathbb{C}$, then 
+The product $ {\langle\beta |\alpha\rangle}^* $ is the complex conjugate of $ {\langle\alpha |\beta\rangle} $ and $\neq {\langle\beta |\alpha\rangle}$.
+
+#### With Itself
+
+$
+   {\langle\alpha |\alpha\rangle} \geq 0
+$
+, unless
+$
+   {|\alpha\rangle} = 
+   {|0\rangle}
+$
+then 
+$
+   {\langle\alpha |\alpha\rangle} = 0
+$
+
+#### With Scalars
+
+##### Real Numbers
+
+Given $\mathbb{x} ,\, \mathbb{y}$ scalars $\in$ $\R$:
+$
+   {\langle \mathbb{x} |\mathbb{y}\rangle} = 
+   \mathbb{x} \times \mathbb{y}
+$<br>
+
+##### Complex Numbers
+
+Given $\mathbb{z} ,\, \mathbb{w}$ scalars $\in$ $\mathbb{C}$:<br>
+$
+   {\langle \mathbb{z} |\mathbb{w}\rangle} = 
+   \left(\mathbb{z}_1 + i\mathbb{z}_2 \right) \times \left(\mathbb{w}_1 + i\mathbb{w}_2 \right)
+$<br>
+
+Also in this case:<br>
+$
+   {\langle \mathbb{z} |\mathbb{w}\rangle} = 
+   \overline{\left(\mathbb{z}_1 + i\mathbb{z}_2 \right)} \times \left(\mathbb{w}_1 + i\mathbb{w}_2 \right) = \\
+   {\langle \mathbb{z} |\mathbb{w}\rangle} = 
+   {\left(\mathbb{z}_1 + i\mathbb{z}_2 \right)}^* \times \left(\mathbb{w}_1 + i\mathbb{w}_2 \right) = \\
+   {\langle \mathbb{z} |\mathbb{w}\rangle} = 
+   {\left(\mathbb{z}_1 - i\mathbb{z}_2 \right)} \times \left(\mathbb{w}_1 + i\mathbb{w}_2 \right)
+$
+
+#### With Functions
+
+The inner product of two functions $\mathbb{f}$ and $\mathbb{g}$ over an interval $[0, a]$ is typically defined as:<br>
+$\displaystyle
+   \langle \mathbb{f} | \mathbb{g} \rangle = 
+   \int_{x=0}^{a} {\mathbb{f}(x)}^* \mathbb{g}(x)\, dx
+$<br>
+In physics (Dirac notation)/Quantum Mechanics.<br>
+Or:<br>
+$\displaystyle
+   \langle \mathbb{f} | \mathbb{g} \rangle = 
+   \int_{x=0}^{a} \mathbb{f}(x) \overline{\mathbb{g}(x)} \, dx
+$<br>
+In Mathematics.
+
+Here, $\overline{\mathbb{g}(x)}$ denotes the complex conjugate of $\mathbb{g}(x)$.
+
+If $\mathbb{f}$ and $\mathbb{g}$ are real-valued functions ($\mathbb{f} (x) \space \text{and} \space \mathbb{g} (x) \in \R$), then $\overline{\mathbb{g}(x)} = \mathbb{g}(x)$, and the expression simplifies to:<br>
+$\displaystyle
+   \langle \mathbb{f} | \mathbb{g} \rangle = \int_{x=0}^{a} \mathbb{f}(x) \mathbb{g}(x) \, dx
+$
+
+#### With Polynomial Functions
+
+$
+   \mathbb{p} (x) = a_0 + a_1x + a_2x^2 + \dots +  a_nx^n
+$<br>
+$
+   \mathbb{g} (x) = b_0 + b_1x + b_2x^2 + \dots +  b_nx^n
+$<br>
+
+Then:<br>
+$\displaystyle
+   \langle \mathbb{p}(x) | \mathbb{g}(x) \rangle = 
+   \int_{x=-1}^{1} \overline{\mathbb{p}(x)} \mathbb{g}(x) \, dx
+$<br>
+And for functions $\in \mathbb{R}$:<br>
+$\displaystyle
+   \langle \mathbb{p}(x) | \mathbb{g}(x) \rangle = 
+   \int_{x=-1}^{1} \mathbb{p}(x) \mathbb{g}(x) \, dx
+$<br>
+___
+##### Difference Between Math and Physics
+
+- In math, the conjugate is on the second argument for algebraic consistency.
+- In physics, the conjugate is on the first argument for notational symmetry and practicality.
+
+The difference in notation between mathematics and physics—especially quantum mechanics (QM)—is not about the underlying math, but about **convention, historical development, and the needs of each field**.<br>
+Let’s break it down:
+
+___
+###### 1. Mathematics: Conjugate on the Second Argument
+
+- **Standard inner product**: $\langle f | g \rangle = \int f(x) \overline{g(x)} \, dx$
+- **Why?**
+  - Ensures linearity in the first argument: $\langle af + bg | h \rangle = a\langle f | h \rangle + b\langle g | h \rangle$
+  - Ensures conjugate-linearity in the second argument: $\langle f | ag + bh \rangle = \overline{a}\langle f | g \rangle + \overline{b}\langle f | h \rangle$
+  - This is the convention in functional analysis and most of pure mathematics.
+
+___
+###### 2. Physics (QM): Conjugate on the First Argument
+
+- **Dirac notation**: $\langle f | g \rangle = \int \overline{f(x)} g(x) \, dx$
+- **Why?**
+  - In QM, the "bra" $\langle f |$ is considered the conjugate of the "ket" $|f\rangle$.
+  - The inner product is written as $\langle f | g \rangle$, where $\langle f |$ is the dual vector to $|f\rangle$, which is naturally the conjugate.
+  - This makes the notation more symmetric and intuitive for physicists, especially when dealing with operators and matrix elements.
+
+___
+###### 3. Why the Difference?
+
+- **Mathematics** prioritizes abstract algebraic structure and consistency with general vector spaces.
+- **Physics** prioritizes notation that makes calculations and interpretations (like probabilities and expectation values) more intuitive and less error-prone in the context of QM.
+
+___
+###### 4. Does It Matter?
+
+- **Mathematically**, both conventions are equivalent up to complex conjugation: $\langle f | g \rangle_{\text{math}} = \overline{\langle f | g \rangle_{\text{physics}}}$.
+- **Practically**, it only matters for consistency within a given field. If you’re in QM, stick to the physics convention to avoid confusion.
+
+___
+###### 5. Key Point
+
+- The **physical meaning** (e.g., probabilities, expectation values) is the same in both conventions.
+- The difference is purely notational and reflects the priorities of each field.
+
+___
+##### Example: Inner Product in Quantum Mechanics
+
+Suppose you have two quantum states represented by wavefunctions:
+- $|f\rangle$ with wavefunction $ f(x) = e^{ix} $
+- $|g\rangle$ with wavefunction $ g(x) = e^{-ix} $
+
+We want to compute the inner product $ \langle f | g \rangle $ over the interval $[0, 2\pi]$.
+
+___
+###### Mathematics Convention
+$$
+   \langle f | g \rangle_{\text{math}} = 
+   \int_{x=0}^{2\pi} f(x) \overline{g(x)} \, dx = 
+   \int_0^{2\pi} e^{ix} e^{ix} \, dx = 
+   \int_0^{2\pi} e^{2ix} \, dx = 
+   0
+$$
+
+___
+###### Physics (QM) Convention
+$$
+   \langle f | g \rangle_{\text{physics}} = 
+   \int_{x=0}^{2\pi} \overline{f(x)} g(x) \, dx = 
+   \int_0^{2\pi} e^{-ix} e^{-ix} \, dx = 
+   \int_0^{2\pi} e^{-2ix} \, dx = 
+   0
+$$
+
+In this simple case, the result is the same (zero), but the integrand is different.
+
+___
+###### Another Example: Probability Interpretation
+
+Suppose you want to compute the probability amplitude for a particle to be in state $|g\rangle$ given it is in state $|f\rangle$. In QM, this is $|\langle f | g \rangle|^2$.
+
+- If you use the math convention, you’d write:
+$$
+   |\langle f | g \rangle_{\text{math}}|^2 = 
+   \left| \int f(x) \overline{g(x)} \, dx \right|^2
+$$
+
+- If you use the physics convention, you’d write:
+$$
+   |\langle f | g \rangle_{\text{physics}}|^2 = 
+   \left| \int \overline{f(x)} g(x) \, dx \right|^2
+$$
+
+**But in both cases, the physical result is the same!**<br>
+
+Because
+$
+   |\langle f | g \rangle_{\text{math}}|^2 = 
+   |\overline{\langle f | g \rangle_{\text{physics}}}|^2 = 
+   |\langle f | g \rangle_{\text{physics}}|^2
+$.
+
+___
+###### Why Physicists Prefer Their Convention
+
+- In QM, the "bra" $\langle f |$ is the dual of the "ket" $|f\rangle$, and the dual is naturally the conjugate.
+- When you write $\langle f | \hat{A} | g \rangle$ (where $\hat{A}$ is an operator), the physics convention makes it clear that $\hat{A}$ acts on $|g\rangle$, not on $\langle f |$.
+- It also makes the notation for expectation values and probabilities more intuitive.
+
+---
+### 3. Positive Norm
+
+$
+   \|\alpha\| = 
+   \sqrt{\langle\alpha |\alpha\rangle} = 
+   \||\alpha\rangle\| \gt 0
+$
+
+---
+### 4. Completeness
+
+> A mathematical space is complete if all Cauchy Sequences end up on a vector within that space itself.
+
+___
+#### Cauchy Sequence
+
+(*TO REVIEW: not quite clear and simple*)
+A Cauchy sequence is a sequence of real or complex numbers where, for every positive number ε (epsilon), there exists a positive integer N such that for all m, n > N, the absolute difference between the m-th and n-th terms of the sequence is less than ε. In simpler terms, a Cauchy sequence is a sequence where the terms become arbitrarily close to each other as the sequence progresses, indicating that the sequence is convergent.
+
+Mathematically, a sequence {a_n} is a Cauchy sequence if for every ε > 0, there exists an integer N such that for all m, n > N:
+$|a_m - a_n| < \epsilon$
+
+---
+### (Separability)
+
+Separability is **not a criteria**.
+But it is a property of the Hilbert spaces in Quantum Mechanics.
+Can we construct all the vectors in the Hilbert space form a countable set of fundamental vectors − basic elements, building blocks of the Hilbert space.
+
+---
+
+## Square Integrable
+
+Wavefunctions must be square integrable:
+$$\displaystyle
+   \int_{a}^{b} | \mathbb{f}(x)|^2dx \lt \infty
+$$

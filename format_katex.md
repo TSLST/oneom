@@ -41,11 +41,11 @@ $$
 
 1. $\text{xXx}$ and u $u$
 1. $
-   Writing \space in \space ro 
-   \rm man \space writing \space ita 
-   \it lic \space writing \space se 
-   \sf rif \space writing \space bo 
-   \bf ld \space writing
+   Writing \space in: \space 
+   ro \rm man \space writing \space 
+   ita \it lic \space writing \space 
+   se \sf rif \space writing \space 
+   bo \bf ld \space writing
 $
 1. $co\!eur$
 1. $
@@ -65,6 +65,9 @@ $
 1. $\overline{\text{Overlined}}$
 1. $\cancel{\text{Cancelled}}$
 1. $\xcancel{\text{Cross cancelled}}$
+1. Adding $\text{no-}\text{space}$ or a $\text{micro-}\,\text{space}$ or a $\text{macro-} \space \text{space}$ or a $\text{tabu-} \quad \text{lation}$
+1. Section: $\S$, Sections: $\S\S$, Page: $p.$, Pages: $pp.$, Paragraph: $\P$
+$\mathbb{k}$
 
 ---
 
@@ -101,15 +104,14 @@ $
 $
 * $ \left\{ x \in \mathbb{R} \mid x > 0 \right\} $
 * Rounded Down (Floor Operator): $ \left\lfloor\frac{x}   {y} \right\rfloor $ <br><br> Rounded Up (Ceiling Operator): $\left\lceil {\frac{x}   {y}} \right\rceil $
-* $ i^n = \pm 1 $ while $\pi \approx 3.14$
+* $ \mathbb{i}^n = i^n = \pm 1 $ while $\pi \approx 3.14$
 * $ \langle \text{Bra} \mid \text{Ket} \rangle$
 * $ 9 \mod 3 = 0 $
 * $ 3 \times 3 = 9 $
 * $ \boxed{\text{Result}} $
 * $\checkmark$ and $!!$, $\char"203C$
-* Add a $\text{micro-}\,\text{space}$ or a $\text{macro-} \space \text{space}$ or a $\text{tabu-} \quad \text{lation}$
+* Ajouter un $\text{micro-}\,\text{espace}$ ou un $\text{macro-} \space \text{espace}$ ou une $\text{tabu-} \quad \text{lation}$
 * Proton: $\bar{p}$
-* $\underbrace{\text{Here is the text that is rendered}}_{text}$
 * $\displaystyle \left.{\frac {{\mathrm {d} }f}{{\mathrm {d} }x}}\right|_{x=a}$
 * $\odot$ $\cdot$ $\sdot$ $\ldots$ $\ddots$ $\dots$ $\cdots$ $\vdots$ $\degree$
 
@@ -133,7 +135,6 @@ $
 1. Absolute Value: $|x|$
 1. Norm: $\|x\|$
 1. Tensor Product: $\otimes$
-1. $\displaystyle \overrightarrow{vector} \space \vec{v}$
 1. ???: $\wp$ $\rq$ $C \tt C$ $\to$ $\tg$ $\th$ $\sh$ $\lq$ $\lg$ $\ln$ $\xi$ $\ch$ $\inf$
 1. !!: $\r;$ $\r[$ $\r]$ $\r?$ $\r!$ $\r*$ $\r($ $\r)$ $\r-$ $\r=$ $\r+$ $\u,$
 
@@ -177,7 +178,7 @@ $
 1. Time Derivative: $\displaystyle {\dot{f}}(a)$
 1. Second Derivatives: $\displaystyle f''(a)$ ou $\displaystyle {\ddot {f}}(a)$
 1. Composite Derivative: $\displaystyle \left(f \circ g\right)'\left(a\right)$
-1. Integral: $\int$
+1. Integral: $\displaystyle \int_{x=-\infty}^{\infty}$ rather than $\int_{x=-\infty}^{\infty}$
 1. Double Integral: $\iint$
 1. Triple Integral: $\iiint$
 1. Limits: $\lim_{n \to \infty}$
@@ -206,11 +207,11 @@ $
 
 1. $\N$: natural integers
 1. $\Z$: relative integers
-1. $\mathbb{D}$: decimal numbers
-1. $\mathbb{Q}$: rational numbers
+1. $D\|$: decimal numbers
+1. $Q\|$: rational numbers
 1. $\R$: real numbers
-1. $\mathbb{I}$: pure imaginary numbers
-1. $\mathbb{C}$: complex numbers
+1. $I\|$: pure imaginary numbers
+1. $C\|$: complex numbers
 
 ---
 ### Wreath Product
@@ -219,6 +220,21 @@ Given two groups $A$ and $H$ (sometimes known as the *bottom* and *top*), there 
 The general form, denoted by $A{\text{ Wr}}_{\Omega } \, H$ or $A{\text{ wr}}_{\Omega } \, H$ respectively, requires that $H$ acts on some set $\Omega$; when unspecified, usually $\Omega = H$ (a regular wreath product), though a different $\Omega$ is sometimes implied.<br>
 The two variants coincide when $A$, $H$, and $\Omega$ are all finite.<br>
 Either variant is also denoted as $A \wr H$ (with \wr for the LaTeX symbol) or A ≀ H (Unicode U+2240).
+
+---
+### Composition & Hadamard Product Operator
+
+The symbol $\odot$ is often used in mathematics to denote various operations depending on the context. Here are a few common meanings:
+1. **Composition of Functions**:
+In the context of functions, $\odot$ can denote the composition of two functions. If $f$ and $g$ are functions, then $f \odot g$ typically means $f(g(x))$.
+2. **Hadamard Product**:
+In linear algebra, $\odot$ can denote the Hadamard product (also known as the element-wise product) of two matrices. If $A$ and $B$ are matrices of the same dimensions, then $A \odot B$ is a matrix where each element is the product of the corresponding elements in $A$ and $B$.
+3. **Circle Operation**:
+In some geometric contexts, $\odot$ can denote an operation involving circles, such as the composition of rotations or the intersection of circles.
+4. **Scalar Multiplication of Matrices**:
+In some texts, $\odot$ can denote the scalar multiplication of a matrix. If $k$ is a scalar and $A$ is a matrix, then $k \odot A$ can mean $kA$.
+5. **Convolution**:
+In signal processing and image processing, $\odot$ can denote the convolution operation. If $f$ and $g$ are functions, then $f \odot g$ is their convolution.
 
 ---
 
@@ -783,12 +799,11 @@ $
 1. Network 🖧: $\char"1F5A7$
 1. Text File 🗎: $\char"1F5CE$
 1. Spider 🕷: $\char"1F577$
-1. Spiderweb 🕸: $\char"1F578$
 1. Sunglasses 🕶: $\char"1F576$
 1. ⏳: $\char"23F3$
 1. ⭐: $\char"2B50$
 1. ⚡: $\char"26A1$
-1. 🔥: $\char"1F525$
+1. Fire 🔥: $\char"1F525$
 1. ꩜: $\char"AA5C$
 1. 📺: $\char"1F4FA$
 1. ©: $\char"00A9$
@@ -803,7 +818,7 @@ $
 1. Cupid 💘: $\char"1F498$
 1. Snake: $\char"1F40D$
 1. Surfer 🏄: $\char"1F3C4$
-1. Ski And Ski Boot: $\char"1F3BF$
+1. Ski and Ski Boot: $\char"1F3BF$
 1. Cyclone 🌀: $\char"1F300$
 1. Ophiuchus ⛎: $\char"26CE$
 1. ‼: $\char"203C$
