@@ -32,6 +32,6 @@ Contributors: [神縁]
 ## Format guidelines
 -------------------------
 
-[KaTeX formatting and usual usages](format_latex-maths.md)
+[KaTeX formatting and usual usages](format_katex.md)
 
 ***
