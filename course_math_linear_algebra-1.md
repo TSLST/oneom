@@ -1,20 +1,18 @@
 ---
 Type: Course
 Use: Linear Algebra Tools in cheat sheet style.
-Tags:
+Tags: !!str "#math #matrix #quantum"
 Creation: 2026-03-07
-Contributors: 神縁
-Links:
-- [[math]]
-- [[matrix]]
-- [[quantum]]
+Update: 2026-06-23
+Contributors: [神縁]
 ---
 
 # Linear Algebra I
+================================================================================
 
----
-
+-------------------------
 ## Definition
+-------------------------
 
     Linear algebra is the study of vector spaces (also called linear spaces) and linear transformations between such spaces. It is essential for understanding systems of linear equations, matrices, and vectors.
 
@@ -28,9 +26,9 @@ Links:
     - Linear Transformations: Functions that preserve vector addition and scalar multiplication. Matrix multiplication is a linear transformation that transforms vector v into vector T(v).
     - Eigenvalues and Eigenvectors: Special sets of scalars and vectors associated with a linear transformation.
 
----
-
+-------------------------
 ## Basics
+-------------------------
 
 Let’s focus on **2×2** (Quantum Computing qubit states) and **3×3** (Spatial) matrices, which are perfect for visualizing transformations in a plane or 3D space.
 
@@ -347,9 +345,9 @@ A matrix can be decomposed spectrally by eigenvalues which makes computing $ A^n
 
 In short: eigenvalues and eigenvectors let you find the **axes along which a system behaves simply**, even when the overall system looks complex.
 
----
-
+-------------------------
 ## Classic Matrix Diagonalisation: Eigenvalue Decomposition/Spectral Decomposition
+-------------------------
  
 A matrix can be decomposed spectrally by eigenvalues as $ A = PDP^{-1} $ where $D$ is diagonal (eigenvalues) and $ P $ contains the eigenvectors. This makes computing $ A^n = PD^{n}P^{-1} $ trivial — useful in economics, population models, and simulations.
 

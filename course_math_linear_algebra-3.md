@@ -1,20 +1,18 @@
 ---
 Type: Course
 Use: Linear Algebra Tools in cheat sheet style.
-Tags:
+Tags: !!str "#math #matrix #quantum"
 Creation: 2026-04-09
-Contributors: 神縁
-Links:
-- [[math]]
-- [[matrix]]
-- [[quantum]]
+Update: 2026-06-23
+Contributors: [神縁]
 ---
 
 # Linear Algebra III
+================================================================================
 
----
-
+-------------------------
 ## Transformation Matrixes
+-------------------------
 
 ___
 ##### Linear Transformation Matrixes
@@ -467,9 +465,9 @@ $$
    \end{pmatrix}
 $$
 
----
-
+-------------------------
 ## Tensor Product
+-------------------------
 
 <br><br>
 (*TO REVIEW*)
@@ -533,9 +531,9 @@ Tensor Product:
 
 In this example, `np.outer` computes the outer product of the vectors `u` and `v`, which is equivalent to the tensor product in this context.
 
----
-
+-------------------------
 ## Understanding Tensors: From Geometry to Algebra
+-------------------------
 
 <a href="https://www.youtube.com/watch?v=YxXyN2ifK8A" class="hover-effect" data-title="[SEE Matrix 1](https://www.youtube.com/watch?v=YxXyN2ifK8A)">
     <img src="https://images.icon-icons.com/17/PNG/256/social_youtube_2234.png" alt="SEE Matrix" width="32">
@@ -668,9 +666,9 @@ Tensors are the language of **anisotropy**—situations where a cause in one dir
 * **Fluid Dynamics:** Describing how viscosity resists flow across different layers of a fluid.
 * **Machine Learning:** "Tensors" (multidimensional arrays) are used to flow data through neural networks, though these are often "computational tensors" rather than strictly "geometric tensors."
 
----
-
+-------------------------
 ## Hilbert Space Criterias
+-------------------------
 
 A Hilbert space is first a linear vector space and its properties.
 
@@ -987,9 +985,9 @@ Separability is **not a criteria**.
 But it is a property of the Hilbert spaces in Quantum Mechanics.
 Can we construct all the vectors in the Hilbert space form a countable set of fundamental vectors − basic elements, building blocks of the Hilbert space.
 
----
-
+-------------------------
 ## Square Integrable
+-------------------------
 
 Wavefunctions must be square integrable:
 $$\displaystyle

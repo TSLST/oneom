@@ -5,6 +5,9 @@ Backups will be saved to /tmp/ollama-backups/
 
 Oumwelt
 
+# Tensors
+================================================================================
+
 3D:
 $ i, j, k \dots = 1,2,3 = x,y,z $
 

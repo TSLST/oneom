@@ -1,29 +1,25 @@
 ---
 Type: Course
 Use: Linear Algebra Tools in cheat sheet style.
-Tags:
+Tags: !!str "#math #matrix #quantum"
 Creation: 2026-03-01
-Contributors: 神縁
-Links:
-- [[math]]
-- [[matrix]]
-- [[quantum]]
+Update: 2026-06-23
+Contributors: [神縁]
 ---
 
 # Linear Algebra II
+================================================================================
 
----
-
+-------------------------
 ## Matrix Decompositions: QR and Singular Value Decomposition
+-------------------------
 
 ---
-
 ### 2×2 Matrices
 - **Quantum computing**: Qubits are 2-level systems, so 2×2 matrices (Pauli matrices, rotation gates) are fundamental.
 - **Visualization**: Easy to plot transformations in a plane.
 
 ---
-
 ### QR Decomposition (2×2 Matrices)
 
 The "**QR**" decomposition of a matrix stands for:
@@ -330,10 +326,8 @@ QR decomposition is a versatile and efficient method for many numerical problems
 Compared to it, SVD is more versatile but computationally intensive, while spectral decomposition is limited to square, diagonalizable matrices.
 
 ---
-
 ### Singular Value Decomposition (SVD) for 2×2 Matrices
 
----
 #### Context
 
 **Given**: A 2×2 matrix $ A $<br>
@@ -872,7 +866,6 @@ $$
 $$
 
 ---
-
 ### Which Decomposition Method Should We Favor !!!
 
 Here are some key points to consider when deciding whether to use decomposition methods like QR, Singular Value Decomposition (SVD) or Spectral Decomposition (Eigenvalue Decomposition):
@@ -890,10 +883,9 @@ Here are some key points to consider when deciding whether to use decomposition 
    - **SVD**: More computationally intensive but provides a more complete picture of the matrix, including singular values and singular vectors.
 
 ---
-
 ### Note on 3×3 Matrices
 The process is identical, but with an extra column/row. For example:
 - For QR, use Gram-Schmidt on all three columns.
 - For SVD, compute $A^T A$ (3×3), find its eigenvalues/eigenvectors.
 
----
+***

@@ -8,8 +8,9 @@ Contributors: [神縁]
 ---
 
 # Markdown notations: KaTeX tags
+================================================================================
 
-    Markdown with KaTeX support allows you to include mathematical notation in your documents using a simple syntax.
+    Markdown with KaTeX support allows you to include mathematical notation in your documents using a simple syntax. This is the default rendering in VS Code/VS Codium and hence my preferred notation over pure LaTeX (That frontier LLM chatbots tend to output).
 
 <https://katex.org/docs/supported>
 
