@@ -1,6 +1,6 @@
-concepteur@lenovo:~$ ollama launch hermes
+ops@dom:~$ ollama launch hermes
 This will modify your Hermes Agent configuration:
-  /home/concepteur/.hermes/config.yaml
+  /home/ops/.hermes/config.yaml
 Backups will be saved to /tmp/ollama-backups/
 
 Oumwelt

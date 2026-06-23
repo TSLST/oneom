@@ -1,26 +1,24 @@
 ---
 Type: Format
-Use: All the basic notations I commonly use in LLM augmented mathematics.
-Tags: #markdown
+Use: Format notations for KaTeX. All the basic notations I commonly use in LLM augmented mathematics, these are perfect for LLMs and display perfectly in native VS Codium Markdown preview (KaTeX).
+Tags: !!str "#markdown #quantum #maths"
 Creation: 2026-03-07
-Update: 2026-04-29
-Contributors: 神縁
-Links:
-- [[quantum]]
-- [[maths]]
-- [[markdown]]
+Update: 2026-06-23
+Contributors: [神縁]
 ---
 
 # Markdown notations: KaTeX tags
 
     Markdown with KaTeX support allows you to include mathematical notation in your documents using a simple syntax.
 
----
+<https://katex.org/docs/supported>
 
+-------------------------
 ## Tags and Line Breaks
+-------------------------
 
-I do not add a space next to the single \$ in usual writings, $x$ is enough to read the writing more clearly. Two dollars serve to skip a line, Here I show the difference though I do not use it exactly so:<br>
-a single-\$ $\lambda$ versus a double-\$ $$ \sigma $$
+I do not add a space next to the single $\text{\textdollar}$ in usual writings, $x$ is enough to read the writing more clearly. Two dollars serve to skip a line, Here I show the difference though I do not use it exactly so:<br>
+a single-$\text{\textdollar}$ $\lambda$ versus a double-$\text{\textdollar}$ $$ \sigma $$
 Contrary to simple writings, when I want to display a quick calculation on one line I add a space around the calculation to let it breathe and see it more clearly:
 $ 1 + 1 = 2 $<br><br>
 Here is the usual form of double \$, I use it for long calculations, usually muti-lines. I tend to indent and come back at the line after each \= sign, then I can add or delete intermediary lines more easily:
@@ -30,16 +28,77 @@ $$
 $$
 I can also decide to split some parts onto different lines which proves useful for really large operations, then I use the symbol \\\\:
 $$
-    2 + 2 + 0 = \\
+    {[(2 + 2 + 0)]} = \\% test
     2 + 2 = 
     4
 $$
+I am still experimenting with a new notation format that may be more elegant and start lines with \= signs:
+$\displaystyle
+\begin{align}
+    a 
+    &= a \\
+    &= b \newline
+    &= c
+\end{align}
+$
+$\displaystyle
+\begin{align}
+\begin{split}
+    a 
+    &= a \\
+    &= d
+\end{split}
+\end{align}
+$
+$\displaystyle
+\begin{equation} \nonumber
+    = c
+    = c \\
+    = c
+\end{equation}
+$
+$\displaystyle
+\begin{equation}
+    = e
+    = e \\
+    = e
+\end{equation}
+$
+$\displaystyle
+\begin{align} \nonumber
+    = d \\\nonumber
+    = e
+\end{align}
+$
+$\displaystyle
+\begin{align}
+    = f \\
+    = g
+\end{align}
+$
+$\displaystyle
+\begin{align}
+    \alpha \tag*{1} \\
+    &= \beta \tag{2} \\
+    &= \gamma \tag{Three} \newline
+    &= \delta \tag*{Four}
+\end{align}
+$
+There is no reset, once you want back to a number you need to manually tag all lines further.
+<br>
+$\displaystyle
+\begin{aligned}
+    a 
+    &= b \\
+    &= c
+\end{aligned}
+$<br>
 
----
-
+-------------------------
 ## Text
+-------------------------
 
-1. $\text{xXx}$ and u $u$
+1. $\text{Normal}$, $\textit{Italic}$ and text vs $text$
 1. $
    Writing \space in: \space 
    ro \rm man \space writing \space 
@@ -66,12 +125,25 @@ $
 1. $\cancel{\text{Cancelled}}$
 1. $\xcancel{\text{Cross cancelled}}$
 1. Adding $\text{no-}\text{space}$ or a $\text{micro-}\,\text{space}$ or a $\text{macro-} \space \text{space}$ or a $\text{tabu-} \quad \text{lation}$
-1. Section: $\S$, Sections: $\S\S$, Page: $p.$, Pages: $pp.$, Paragraph: $\P$
-$\mathbb{k}$
+1. Section: $\S$, Sections: $\S\S$, Page: $p.$, Pages: $pp.$, Pilcrow: $\P$
+1. See $\S\,4.2$
+1. This is a paragraph.$\P$ This is the next paragraph.
+1. See $\P\,4.2$  for further discussion.
+1. $\mathcal{Calligraphy}$
+1. $\mathrm{Roman}$
+1. $\mathbb{Blackboard-Bold}$
+1. $\mathbf{Boldface}$
+1. $\mathit{Italic}$
+1. $\mathsf{Sans-serif}$
+1. $\mathfrak{Fraktur \space (Gothic \space for \space Lie \space algebras)}$
+1. $\mathscr{Script}$
+1. $\mathtt{Typewriter}$ or $\texttt{Typewriter}$
+1. $\boldsymbol{Bold Italic}$
+1. $\mathscr{Script \space (Calligraphy)}$
 
----
-
+-------------------------
 ## Operations
+-------------------------
 
 Here are a few classic operators:
 * $ 
@@ -111,13 +183,22 @@ $
 * $ \boxed{\text{Result}} $
 * $\checkmark$ and $!!$, $\char"203C$
 * Ajouter un $\text{micro-}\,\text{espace}$ ou un $\text{macro-} \space \text{espace}$ ou une $\text{tabu-} \quad \text{lation}$
-* Proton: $\bar{p}$
-* $\displaystyle \left.{\frac {{\mathrm {d} }f}{{\mathrm {d} }x}}\right|_{x=a}$
+* Proton: $\bar{p}$, Omicron: $\bar{o}$
+* $\displaystyle \left.{\frac {{\mathrm {d} }f}{{\mathrm {d} }x}}\right|_{x=a}$ derivative of the function $f$ with respect to $x$, evaluated at $x=a$.
 * $\odot$ $\cdot$ $\sdot$ $\ldots$ $\ddots$ $\dots$ $\cdots$ $\vdots$ $\degree$
+* **Partial Derivative**: $\partial$ Represents a partial derivative in multivariable calculus, it is used for partial derivatives of a single variable while holding others constant<br>
+**Multi-variable Gradient**: $\nabla$ Represents the gradient vector of a scalar field, it is an operator that produces a vector of all partial derivatives<br>
+$
+    \nabla f(x,y) = % test
+    \begin{pmatrix}
+        \frac{\partial f} {\partial x}  & \frac{\partial f} {\partial y}
+    \end{pmatrix}
+$
+* $\displaystyle \max_{x\in \N^+} f(x) = \max \{f(x) \mid x \in \N^+\} $ or $\displaystyle \sup_{x\in \N^+} f(x) = \sup\{f(x) \mid x \in \N^+\} $ 
 
----
-
+-------------------------
 ## Random
+-------------------------
 
       % for comments
 
@@ -201,17 +282,15 @@ $
 1. Set Minus: $\setminus$
 
 ---
-1. Section: $\S$, Sections: $\S\S$, Page: $p.$, Pages: $pp.$, Paragraph: $\P$
 
----
-
+1. $\mathbb{k}$: Mathematical Field (e.g., the real numbers $\R$, complex numbers $\mathbb{C}$, or a general field $\mathbb{k}$).
 1. $\N$: natural integers
 1. $\Z$: relative integers
-1. $D\|$: decimal numbers
-1. $Q\|$: rational numbers
+1. $\mathbb{D}$: decimal numbers
+1. $\mathbb{Q}$: rational numbers
 1. $\R$: real numbers
-1. $I\|$: pure imaginary numbers
-1. $C\|$: complex numbers
+1. $\mathbb{I}$: pure imaginary numbers
+1. $\mathbb{C}$: complex numbers
 
 ---
 ### Wreath Product
@@ -236,13 +315,13 @@ In some texts, $\odot$ can denote the scalar multiplication of a matrix. If $k$ 
 5. **Convolution**:
 In signal processing and image processing, $\odot$ can denote the convolution operation. If $f$ and $g$ are functions, then $f \odot g$ is their convolution.
 
----
-
+-------------------------
 ## Matrixes
+-------------------------
 
 $$ 
    \begin{pmatrix} 
-      i_{11}   & i_{12} \\ 
+      i_{11}   & i_{12} \\
       i_{21}   & i_{22} 
    \end{pmatrix} 
 $$
@@ -250,35 +329,35 @@ $$
 + `pmatrix` parentheses are used for matrices:
 $$
    \begin{pmatrix} 
-      1  & 1 \\ 
+      1  & 1 \\
       1  & 1 
    \end{pmatrix}
 $$
 + `bmatrix` brackets might be used to denote matrixes of matrixes, tensors and ket vectors In quantum mechanics $^{*}$:
 $$
    \begin{bmatrix} 
-      1  & 1 \\ 
+      1  & 1 \\
       1  & 1 
    \end{bmatrix}
 $$
 + `vmatrix` is used to typeset determinants of matrices. Determinants are special types of matrices that are used in various areas of mathematics, particularly in linear algebra, to solve systems of linear equations, calculate eigenvalues, and more:
 $$
    \begin{vmatrix} 
-      1  & 1 \\ 
+      1  & 1 \\
       1  & 1 
    \end{vmatrix}
 $$
 + `Bmatrix` for sets and ensembles mostly $^{**}$:
 $$
    \begin{Bmatrix} 
-      1  & 1 \\ 
+      1  & 1 \\
       1  & 1 
    \end{Bmatrix}
 $$
 + `Vmatrix` is not yet defined to typeset a type of matrices:
 $$
    \begin{Vmatrix} 
-      1  & 1 \\ 
+      1  & 1 \\
       1  & 1 
    \end{Vmatrix}
 $$
@@ -322,9 +401,23 @@ $^{**}$ Here are some scenarios where \begin{Bmatrix} might be used in favor of 
 
     Special Matrices: In some specific contexts, such as in the definition of certain types of matrices (e.g., Gram matrices, covariance matrices), curly braces might be used to emphasize the structure or properties of the matrix.
 
----
+-------------------------
+## Other
+-------------------------
 
+Haiku:
+$\displaystyle
+\begin{cases}
+    \text{Roses are red} \\
+    \text{Violets are blue} \\
+    \text{My Katex style} \\
+    \text{Belongs to you} \\
+\end{cases}
+$
+
+-------------------------
 ## Greek Letters
+-------------------------
 
 KaTeX, like LaTeX, supports a wide range of Greek letters, which are commonly used in mathematical notation. Below is a list of all the Greek letters available in KaTeX, along with their commands. Greek letters can be either lowercase or uppercase.
 
@@ -374,9 +467,10 @@ Some Greek letters have variants or alternative forms that are commonly used:
 - **σ (sigma)**: `\sigma` (standard form) and `\varsigma` $\varsigma$ (final form)
 
 - Also: $\varGamma$ slanted forms
----
 
+-------------------------
 ## Mathfonts
+-------------------------
 
 In LaTeX, the commands `\mathbf` and `\mathbb` are used to format mathematical symbols and letters in different ways. Here are the differences and typical uses of each:
 
@@ -450,9 +544,9 @@ $$
 
 This document will produce boldface letters for vectors and matrices, and blackboard bold letters for sets.
 
----
-
+-------------------------
 ## XOR
+-------------------------
 
 The mathematical operator $\oplus$ is commonly used to denote the **exclusive or** (XOR) operation in various fields, including computer science, logic, and mathematics. Here are some contexts where it is used:
 
@@ -662,10 +756,9 @@ print(f"NOR(1, 0) = {NOR(1, 0)}")
 
 This code defines functions for the AND, OR, NOT, NAND, and NOR gates and tests them with sample inputs.
 
-
----
-
+-------------------------
 ## Set difference
+-------------------------
 
 
 The mathematical operator $\ominus$ is used to denote the **set difference** or **relative complement** in set theory. It represents the operation of subtracting one set from another, resulting in a new set that contains all the elements that are in the first set but not in the second set.
@@ -720,9 +813,9 @@ In this example, the `-` operator in Python is used to perform the set differenc
 The set difference of A and B is {1, 2}
 ```
 
----
-
+-------------------------
 ## Quantum Mechanics
+-------------------------
 
 Below is an exhaustive list of Markdown notations (using KaTeX style) frequently used in quantum mechanics, along with examples of their usage.
 
@@ -772,9 +865,176 @@ $
 1. Number Operator (ŋ): $\hat{n}$
 1. Density Matrix (ρ): $\hat{\rho}$
 
+-------------------------
+## Time Derivatives
+-------------------------
+
+In mathematics, physics, and engineering, the notation $\dot{a}$ represents the **time derivative** of $a$.
+
+### Meaning
+
+- **$\dot{a} = \frac{da}{dt}$**
+  - It means "the rate of change of $ a $ with respect to time $ t $"
+  - Commonly used in **dynamical systems, control theory, and physics** (e.g., Newtonian mechanics).
+
+### Examples
+
+1. **Physics (Kinematics)**:
+   - If $a$ represents **position**, then:
+     - $\dot{a}$ = **velocity** ($ \displaystyle v = \frac{da} {dt} $)
+     - $\ddot{a}$ = **acceleration** ( $\displaystyle a = \frac{d^2a} {dt^2} $)
+2. **Control Theory (Differential Equations)**:
+   - Used to denote derivatives in **state-space representations** (e.g. $ \dot{x} = Ax + Bu $).
+3. **Economics (Time-Dependent Variables)**:
+   - If $ a(t) $ is a variable over time, $\dot{a}$ represents its instantaneous rate of change.
+
+### Comparison with Other Notations
+
+| Notation | Meaning | Common Use Case |
+|----------|---------|-----------------|
+| $\dot{a}$ | First derivative w.r.t. time | Physics, control systems |
+| $\ddot{a}$ | Second derivative w.r.t. time | Acceleration, jerk |
+| $a'$ | Derivative w.r.t. another variable (e.g. $x$) | General calculus |
+| $\frac{da}{dt}$ | Explicit time derivative | Any context where time is the independent variable |
+
+-------------------------
+## Dagger
+-------------------------
+
+In mathematics, physics, and logic, the symbol **$\dagger$** (called "dagger") has several important meanings depending on the context. Here are the most common uses:
+
+---
+### 1. Adjoint of a Matrix (Linear Algebra)
+
+**$\dagger$** is often used to denote the **conjugate transpose** (Hermitian adjoint) of a matrix.
+
+- If $ A $ is a matrix, then:
+$
+    A^\dagger = \overline{A}^T
+$
+   * $\overline{A}$ = complex conjugate of $ A $
+   * $T$ = transpose of the matrix
+
+**Example:**<br>
+If 
+$ 
+    A = 
+    \begin{pmatrix} 
+        1 + i   & 2 \\
+        3       & 4 - i 
+    \end{pmatrix} 
+$
+, then:
+$
+    A^\dagger = 
+    \begin{pmatrix} 
+        1 - i   & 3 \\
+        2       & 4 + i 
+    \end{pmatrix}
+$
+
+### 2. Hermitian Adjoint (Quantum Mechanics)
+
+In quantum mechanics, $\dagger$ is used to denote the **Hermitian adjoint** (or adjoint operator) of an operator.
+
+- If $ \hat{O} $ is an operator, then
+$
+    \hat{O}^\dagger
+$
+is its adjoint, satisfying:<br>
+$
+    \langle \psi | \hat{O} \phi \rangle = 
+    \langle \hat{O}^\dagger \psi | \phi \rangle
+$
+   * for all states $ |\psi\rangle, |\phi\rangle $
+
+### 3. Pseudoinverse (Moore-Penrose Inverse)
+
+In some contexts, $\dagger$ is used to denote the **Moore-Penrose pseudoinverse** of a matrix $ A $, written as $ A^\dagger $.
+
+The pseudoinverse generalizes the inverse for non-square or singular matrices.
+
+### 4. Logical Negation (Logic/Philosophy)
+
+In **intuitionistic logic** or **linear logic**, $\dagger$ can represent **negation** (though this is less common than symbols like $\neg$ or $\sim$).
+
+### 5. Death or Obituary (Non-Mathematical Use)
+
+Outside of technical contexts, $\dagger$ is sometimes used in **footnotes** to indicate a person's death (e.g., "John Doe† 1950–2020").
+
 ---
 
+### Key Takeaways
+
+| Context | Meaning | Example |
+|---    |---    |---    |
+| Linear Algebra | Conjugate transpose | $ A^\dagger = \overline{A}^T $ |
+| Quantum Mechanics | Hermitian adjoint | $ \hat{O}^\dagger $ |
+| Pseudoinverse | Moore-Penrose inverse | $ A^\dagger $ |
+| Logic | Negation (rare) | $ A^\dagger $ |
+
+-------------------------
+## Other
+-------------------------
+
+---
+### Suits
+
+1. s: $\spadesuit$
+1. h: $\heartsuit$
+1. d: $\diamondsuit$
+1. c: $\clubsuit$
+
+Cards:
+1. A
+1. 2
+1. 3
+1. 4
+1. 5
+1. 6
+1. 7
+1. 8
+1. 9
+1. T
+1. J
+1. Q
+1. K
+
+Tarot
+
+11. C
+12. J
+13. Q
+14. K
+
+#### Standard Tarot Trump Notation
+
+    0.      The Fool
+    I.      The Magician
+    II.     The High Priestess
+    III.    The Empress
+    IV.     The Emperor
+    V.      The Hierophant
+    VI.     The Lovers
+    VII.    The Chariot
+    VIII.   Strength (or Justice in some decks)
+    IX.     The Hermit
+    X.      Wheel of Fortune
+    XI.     Justice (or Strength in some decks)
+    XII.    The Hanged Man
+    XIII.   Death
+    XIV.    Temperance
+    XV.     The Devil
+    XVI.    The Tower
+    XVII.   The Star
+    XVIII.  The Moon
+    XIX.    The Sun
+    XX.     Judgement
+    XXI.    The World
+
+-------------------------
 ## Unicode
+-------------------------
 
 1. ▶: $\char"25B6$
 1. 光: $\char20809$
@@ -973,3 +1233,7 @@ $$
 $$
     \dagger
 $$
+
+é è ê â à ù î – 
+
+---

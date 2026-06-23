@@ -1,15 +1,15 @@
 ---
-Type: Course
+Type: Plan
 Topic: Plan on mathematics study
-Tags: #linear-algebra, #matrix, #geometry, #complex-numbers
+Tags: !!str "#linear-algebra, #matrix, #geometry, #complex-numbers"
 Created: 2026-04-09
-Contributors: 神縁
-Links:
-  - [[math]]
-  - [[https://www.youtube.com/watch?v=byNaO_zn2fI]]
+Update: 2026-06-23
+Contributors: [神縁]
 ---
 
 # Math Study
+
+<https://www.youtube.com/watch?v=byNaO_zn2fI>
 
 ## Ressources
 

@@ -254,3 +254,51 @@ The eigenvalues for this matrix are $\lambda = 4 - \sqrt{2}$ and $\lambda = 4 + 
 by the eigenvectors will result in a scalar multiple of the eigenvectors.
 !!You made a mistake!!
 $$ (4 - \lambda)(3 - \lambda) - (1)(2) \neq (4 - \lambda)^2 - 2 $$
+
+
+---
+
+cd /home/opt/github/llama.cpp
+./build/bin/llama-server \
+  -m $OPT/ollama/models/Qwen2.5/qwen2.5-coder-7b-instruct-q5_k_m.gguf \
+  --threads 4 \
+  --threads-batch 4 \
+  -c 4096 \
+  --jinja \
+  --flash-attn on \
+  --host 127.0.0.1 \
+  --port 8080
+
+./build/bin/llama-server \
+  -m $OPT/ollama/models/Qwen2.5/qwen2.5-coder-7b-instruct-q5_k_m.gguf \
+  --threads 4 \
+  --threads-batch 4 \
+  -c 4096 \
+  --jinja \
+  --flash-attn on \
+  --host 127.0.0.1 \
+  --port 8080 \
+  --chat-template-file $OPT/github/llama.cpp/models/templates/Qwen-Qwen2.5-7B-Instruct.jinja
+  
+curl -s http://127.0.0.1:8080/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "qwen2.5-coder",
+    "tools": [{
+      "type": "function",
+      "function": {
+        "name": "read_file",
+        "description": "Read a file from disk",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "path": {"type": "string", "description": "File path"}
+          },
+          "required": ["path"]
+        }
+      }
+    }],
+    "messages": [
+      {"role": "user", "content": "Read the file /home/opt/projects/CaravaggioVault/IDEAS.md"}
+    ]
+  }' | python3 -m json.tool
